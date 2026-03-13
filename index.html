@@ -1,1 +1,276 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeFlySmart | Premier Flight Academy in the USA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A2540;
+            --accent-gold: #F9A03F;
+            --light-bg: #F6F9FC;
+            --text-dark: #32325D;
+            --text-light: #525F7F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i { color: var(--accent-gold); }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn:hover { background-color: #e08b2c; }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.7)), 
+                        url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .features {
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card i { font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px; }
+        .feature-card h3 { color: var(--primary-blue); margin-bottom: 15px; }
+        .feature-card p { color: var(--text-light); }
+
+        .enroll-section {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .enroll-section h2 { margin-bottom: 30px; font-size: 2.5rem; }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button.submit-btn {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button.submit-btn:hover { background-color: #e08b2c; }
+        button.submit-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+
+        footer {
+            background-color: #051320;
+            color: #8898aa;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .cta-btn { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><i class="fas fa-plane-departure"></i> WeFlySmart</a>
+        <nav class="nav-links">
+            <a href="#programs">Programs</a>
+            <a href="#fleet">Our Fleet</a>
+            <a href="#about">About Us</a>
+        </nav>
+        <a href="#enroll" class="cta-btn">Start Flying</a>
+    </header>
+
+    <section class="hero">
+        <h1>Earn Your Wings in the USA</h1>
+        <p>FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.</p>
+        <a href="#enroll" class="cta-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Book Your Discovery Flight</a>
+    </section>
+
+    <section class="features" id="about">
+        <div class="feature-card">
+            <i class="fas fa-award"></i>
+            <h3>FAA Approved</h3>
+            <p>Our curriculum strictly follows Federal Aviation Administration standards ensuring the highest level of safety and education.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-plane"></i>
+            <h3>Modern Fleet</h3>
+            <p>Train on state-of-the-art aircraft equipped with the latest glass-cockpit technology (Garmin G1000).</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-user-tie"></i>
+            <h3>Expert Instructors</h3>
+            <p>Learn from thousands of hours of experience. Our Certified Flight Instructors (CFIs) are dedicated to your success.</p>
+        </div>
+    </section>
+
+    <section class="enroll-section" id="enroll">
+        <h2>Ready to Take Off?</h2>
+        <p style="margin-bottom: 30px; opacity: 0.9;">Fill out the form below and our admissions team will contact you within 24 hours.</p>
+        
+        <form id="leadForm">
+            <input type="text" id="full_name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="tel" id="phone" placeholder="Phone Number (US)">
+            <select id="program" required>
+                <option value="" disabled selected>Select Program of Interest</option>
+                <option value="ppl">Private Pilot License (PPL)</option>
+                <option value="cpl">Commercial Pilot License (CPL)</option>
+                <option value="ir">Instrument Rating (IR)</option>
+            </select>
+            <button type="submit" class="submit-btn" id="submitBtn">Request Information</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 WeFlySmart Academy. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
+        
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            const rowData = {
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone').value,
+                service_type: document.getElementById('program').value
+            };
+
+            try {
+                // إرسال البيانات لقاعدة البيانات
+                const { error } = await _supabase.from('contacts').insert([rowData]);
+                
+                if (error) throw error;
+
+                // رسالة النجاح
+                alert('✅ Thank you! Your request has been sent successfully.');
+                document.getElementById('leadForm').reset();
+            } catch (err) {
+                console.error('Error details:', err);
+                alert('❌ Error sending request. Please try again.');
+            } finally {
+                btn.innerText = 'Request Information';
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>v
