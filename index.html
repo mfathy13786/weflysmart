@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -254,10 +253,26 @@
             };
 
             try {
-                // إرسال البيانات لقاعدة البيانات
+                // 1. إرسال البيانات للحفظ في Supabase
                 const { error } = await _supabase.from('contacts').insert([rowData]);
-                
                 if (error) throw error;
+
+                // 2. إرسال الإيميل فوراً عن طريق Web3Forms
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc",
+                        subject: "🚀 عميل جديد سجل في الموقع: " + rowData.full_name,
+                        from_name: "WeFlySmart System",
+                        name: rowData.full_name,
+                        email: rowData.email,
+                        message: `رقم التليفون: ${rowData.phone_number}\nالبرنامج المطلوب: ${rowData.service_type}\n\n*البيانات محفوظة أيضاً في قاعدة البيانات.*`
+                    })
+                });
 
                 // رسالة النجاح
                 alert('✅ Thank you! Your request has been sent successfully.');
@@ -273,4 +288,4 @@
     </script>
 
 </body>
-</html>v
+</html>
