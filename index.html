@@ -6,21 +6,11 @@
     
     <title>WeFlySmart | Premier Flying Club in the USA</title>
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
-    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
-    <meta name="author" content="WeFlySmart Aero Club">
     
-    <meta property="og:title" content="WeFlySmart | Premier Flying Club">
-    <meta property="og:description" content="Join our exclusive community of passionate aviators and get your pilot license in the USA.">
-    <meta property="og:image" content="https://weflysmart.com/images/hero-plane.jpg">
-    <meta property="og:url" content="https://weflysmart.com">
-    <meta property="og:type" content="website">
-
     <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,12 +18,7 @@
     
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' },
-                    fontFamily: { en: ['Montserrat', 'sans-serif'], ar: ['Tajawal', 'sans-serif'] }
-                }
-            }
+            theme: { extend: { colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' }, fontFamily: { en: ['Montserrat', 'sans-serif'], ar: ['Tajawal', 'sans-serif'] } } }
         }
     </script>
 
@@ -41,8 +26,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* تأثير تبديل السلايدر بنعومة */
-        #heroSection { transition: background-image 1.5s ease-in-out; background-size: cover; background-position: center; }
+        #heroSection { transition: background-image 1s ease-in-out; background-size: cover; background-position: center; }
         
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .glass-modal { background: rgba(10, 37, 64, 0.9); backdrop-filter: blur(10px); }
@@ -53,7 +37,6 @@
         details > summary::-webkit-details-marker { display: none; }
         .social-icon:hover { transform: translateY(-3px); color: #F9A03F; }
 
-        /* ستايل الهمبرجر الاحترافي الجديد */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         html[dir="rtl"] #mobileMenuBtn span:nth-child(2) { margin-left: 0; margin-right: auto; }
@@ -69,27 +52,20 @@
             <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
                 <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[200px] md:w-[240px] h-auto object-contain">
             </a>
-
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
                 <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Flight Programs</a>
                 <a href="#online" class="hover:text-accent transition-all" data-i18n="nav_online">Online Courses</a>
                 <a href="#why" class="hover:text-accent transition-all" data-i18n="nav_why">Why Us</a>
                 <a href="#team" class="hover:text-accent transition-all" data-i18n="nav_team">Instructors</a>
             </nav>
-
             <div class="flex items-center gap-3">
                 <button onclick="toggleLanguage()" class="text-gray-600 hover:text-accent font-bold text-sm flex items-center gap-1 bg-gray-100 px-3 py-2 rounded-lg transition-all">
                     <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
                 </button>
-                <a href="#enroll" class="hidden md:inline-block bg-navy text-white hover:bg-blue-900 px-5 py-2 rounded-lg text-sm font-bold transition-all" data-i18n="nav_cta">
-                    Join the Club
-                </a>
-                <button id="mobileMenuBtn" class="md:hidden w-8 h-8 flex flex-col justify-between p-1 focus:outline-none">
-                    <span></span><span></span><span></span>
-                </button>
+                <a href="#enroll" class="hidden md:inline-block bg-navy text-white hover:bg-blue-900 px-5 py-2 rounded-lg text-sm font-bold transition-all" data-i18n="nav_cta">Join the Club</a>
+                <button id="mobileMenuBtn" class="md:hidden w-8 h-8 flex flex-col justify-between p-1 focus:outline-none"><span></span><span></span><span></span></button>
             </div>
         </div>
-
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full flex flex-col px-5 py-4 gap-4">
             <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Flight Programs</a>
             <a href="#online" class="text-navy font-bold text-lg" data-i18n="nav_online">Online Courses</a>
@@ -99,11 +75,11 @@
         </div>
     </header>
 
-    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative hero-slider" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
+    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
         <div class="container mx-auto relative z-10">
             <div class="max-w-2xl text-left rtl:text-right" data-aos="fade-up" data-aos-duration="1000">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">Start Your Aviation Journey in the USA Let's Fly!</h1>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">Start Your Aviation Journey in the USA</h1>
                 <p class="text-gray-200 mb-8 text-sm md:text-base leading-relaxed" data-i18n="hero_desc">Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.</p>
                 <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all transform hover:scale-105" data-i18n="hero_btn">Book Discovery Flight</a>
             </div>
@@ -114,12 +90,12 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center">
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/FAA_seal.svg/512px-FAA_seal.svg.png" alt="FAA Approved" class="h-12 md:h-16 object-contain">
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_faa">FAA Approved</span>
+                    <img src="images/faa.png" alt="FAA Approved" class="h-12 md:h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none;" class="font-bold text-navy text-xs md:text-sm text-center uppercase border border-gray-200 px-3 py-1 rounded">FAA Approved</div>
                 </div>
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cessna_logo.svg/512px-Cessna_logo.svg.png" alt="Cessna Fleet" class="h-8 md:h-10 object-contain my-auto">
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase mt-auto" data-i18n="badge_cessna">Cessna Fleet</span>
+                    <img src="images/cessna.png" alt="Cessna Fleet" class="h-8 md:h-10 object-contain my-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none;" class="font-bold text-navy text-xs md:text-sm text-center uppercase border border-gray-200 px-3 py-1 rounded mt-auto">Cessna Fleet</div>
                 </div>
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="300">
                     <div class="h-12 w-12 md:h-16 md:w-16 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl border-4 border-gray-100 shadow-sm"><i class="fas fa-award"></i></div>
@@ -182,10 +158,7 @@
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500">
-                        <img src="https://images.unsplash.com/photo-1596753755257-850f29c01826?auto=format&fit=crop&w=800&q=80" alt="Cessna Cockpit with Online Training" class="w-full h-64 md:h-80 object-cover">
-                        <div class="absolute inset-0 bg-navy/20 flex items-center justify-center">
-                            <i class="fas fa-laptop-code text-6xl text-white opacity-80"></i>
-                        </div>
+                        <img src="images/online.jpg" alt="Online Training" class="w-full h-64 md:h-80 object-cover" onerror="this.src='https://via.placeholder.com/800x600/0A2540/FFFFFF?text=Online+Training'">
                     </div>
                 </div>
             </div>
@@ -224,7 +197,6 @@
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="team_title">Meet the Club Instructors</h2>
                 <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer" onclick="openModal('pilot1')" data-aos="fade-up" data-aos-delay="100">
                     <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
@@ -235,7 +207,6 @@
                         <span class="text-navy font-bold text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start mx-auto sm:mx-0 transition-colors"><span data-i18n="read_more">Read More</span> <i class="fas fa-plus-circle"></i></span>
                     </div>
                 </div>
-
                 <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer" onclick="openModal('pilot2')" data-aos="fade-up" data-aos-delay="200">
                     <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
@@ -245,6 +216,47 @@
                         <span class="text-navy font-bold text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start mx-auto sm:mx-0 transition-colors"><span data-i18n="read_more">Read More</span> <i class="fas fa-plus-circle"></i></span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="faq_title">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="space-y-4" dir="auto">
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_1_q">Do I need prior experience?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_1_a">Not at all! We train from absolute zero. The Discovery Flight is a great start.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_2_q">How long does a PPL take?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_2_a">Typically 3 to 6 months if flying 2-3 times a week.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_3_q">What are the age requirements?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_3_a">Start at any age, but you must be 16 to fly solo, and 17 for your Private Pilot License.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_4_q">Do I need perfect vision?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_4_a">No! As long as vision is correctable to 20/40 (with glasses/contacts), you can fly.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_5_q">What is a FAA Medical Certificate?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_5_a">A basic health check by an Aviation Medical Examiner. We guide you through it.</div>
+                </details>
             </div>
         </div>
     </section>
@@ -264,7 +276,7 @@
             </div>
             
             <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
-                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program Image">
+                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program Image" onerror="this.style.display='none'">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <i id="progIcon" class="text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
@@ -279,6 +291,7 @@
             </div>
         </div>
     </div>
+
     <section id="enroll" class="py-12 md:py-16 bg-navy relative border-t-4 border-accent">
         <div class="container mx-auto px-5">
             <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-2xl relative z-10" data-aos="zoom-in">
@@ -360,11 +373,11 @@
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // Hero Slider Logic - بيقرأ صور مبهجة من السما
+        // السلايدر دلوقتي بيقرأ صورك إنت بس
         const heroImages = [
-            "url('images/hero-plane.jpg')", // صورتك الأساسية
-            "url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80')", // سيسنا في السما
-            "url('https://images.unsplash.com/photo-1583024504104-5854b7915504?auto=format&fit=crop&w=1920&q=80')"  // طيارة تدريب في تشكيل
+            "url('images/hero-plane.jpg')",
+            "url('images/slide2.jpg')",
+            "url('images/slide3.jpg')"
         ];
         let currentHero = 0;
         const heroSection = document.getElementById('heroSection');
@@ -450,32 +463,32 @@
         const pilotBody = document.getElementById('pilotModalBody');
         const progBody = document.getElementById('progModalBody');
         
-        // صور البرامج تم وضعها من مصادر طيران عالمية موثوقة ومبهجة
+        // البرامج بتقرأ صورك المحلية
         const progData = {
             prog_disc: { 
                 icon: 'fas fa-binoculars', 
-                img: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80',
+                img: 'images/discovery.jpg',
                 en: { name: "Discovery Flight", desc: `<div class="space-y-3"><p><strong>The Perfect Introduction to Aviation</strong></p><p>Not sure if flying is for you? The Discovery Flight is a zero-pressure introduction to the pilot seat. It includes a comprehensive pre-flight ground briefing followed by actual flight time where YOU take the controls under the safe guidance of an FAA Certified Instructor.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>30-minute Ground Briefing & Pre-flight Inspection.</li><li>60-minute Flight over scenic Los Angeles.</li><li>Introduction to basic aircraft controls and maneuvers.</li><li>Logbook endorsement (this counts towards your future license!).</li></ul></div>` }, 
                 ar: { name: "الرحلة الاستكشافية", desc: `<div class="space-y-3"><p><strong>المقدمة المثالية لعالم الطيران</strong></p><p>الرحلة الاستكشافية هي تجربة حقيقية لتجلس في مقعد الطيار. تتضمن موجزاً أرضياً يليه طيران حقيقي تمسك فيه بأجهزة التحكم تحت إشراف مدرب معتمد من FAA لتجربة شعور القيادة بنفسك.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>30 دقيقة موجز أرضي وفحص ما قبل الطيران.</li><li>60 دقيقة طيران فوق مناظر لوس أنجلوس.</li><li>مقدمة للتحكم الأساسي في الطائرة والمناورات.</li><li>تسجيل الرحلة في السجل الرسمي (تحسب من ساعات رخصتك!).</li></ul></div>` },
                 whatsappName: { en: "Discovery Flight", ar: "الرحلة الاستكشافية" }
             },
             prog_ppl: { 
                 icon: 'fas fa-plane', 
-                img: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80',
+                img: 'images/ppl.jpg',
                 en: { name: "Private Pilot License (PPL)", desc: `<div class="space-y-3"><p><strong>Your First Step to Becoming a Pilot</strong></p><p>The PPL allows you to fly a single-engine aircraft carrying passengers in Visual Flight Rules (VFR). This is the foundational course for all future aviation training.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Minimum 40 Hours Total Flight Time (FAA Part 61/141).</li><li>20 Hours of Flight Instruction (Including cross-country & night flying).</li><li>10 Hours of Solo Flight.</li><li>Class 3 FAA Medical Certificate Required.</li><li>Passing the FAA Written Exam & Practical Checkride.</li></ul></div>` }, 
                 ar: { name: "رخصة طيار خاص (PPL)", desc: `<div class="space-y-3"><p><strong>خطوتك الأولى لتصبح طياراً</strong></p><p>تسمح لك هذه الرخصة بالطيران بطائرة ذات محرك واحد وحمل ركاب في ظروف الطيران البصري (VFR). هذا هو الكورس التأسيسي لجميع رخص الطيران المستقبلية.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>40 ساعة طيران كحد أدنى (معايير FAA).</li><li>20 ساعة تدريب مع مدرب (تشمل الطيران الليلي والملاحة).</li><li>10 ساعات طيران منفرد (Solo).</li><li>شهادة طبية FAA من الدرجة الثالثة.</li><li>اجتياز الاختبار الكتابي والعملي لـ FAA.</li></ul></div>` },
                 whatsappName: { en: "Private Pilot License (PPL)", ar: "رخصة طيار خاص (PPL)" }
             },
             prog_ir: { 
                 icon: 'fas fa-cloud', 
-                img: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=800&q=80',
+                img: 'images/ir.jpg',
                 en: { name: "Instrument Rating (IR)", desc: `<div class="space-y-3"><p><strong>Master the Clouds</strong></p><p>The Instrument Rating allows you to fly inside clouds and in low-visibility conditions under Instrument Flight Rules (IFR). It makes you a safer, more precise pilot.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Hold a valid Private Pilot License (PPL).</li><li>50 Hours of Cross-Country Pilot-in-Command time.</li><li>40 Hours of Actual or Simulated Instrument Time.</li><li>Mastering holding patterns, IFR flight plans, and instrument approaches.</li><li>Passing the Instrument Written Exam & Checkride.</li></ul></div>` }, 
                 ar: { name: "تقييم الطيران الآلي (IR)", desc: `<div class="space-y-3"><p><strong>الطيران باحترافية وسط السحب</strong></p><p>تسمح لك هذه الشهادة بالطيران داخل السحب وفي ظروف الرؤية المنخفضة بالاعتماد كلياً على أجهزة الطائرة (IFR). تجعلك طياراً أكثر دقة وأماناً.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>الحصول على رخصة طيار خاص (PPL) سارية.</li><li>50 ساعة طيران عابر للضواحي كقائد طائرة.</li><li>40 ساعة من الطيران الآلي (حقيقي أو محاكاة).</li><li>إتقان أنماط الانتظار، خطط IFR، والاقتراب الآلي.</li><li>اجتياز الاختبار الكتابي والعملي الآلي.</li></ul></div>` },
                 whatsappName: { en: "Instrument Rating (IR)", ar: "تقييم الطيران الآلي (IR)" }
             },
             prog_cpl: { 
                 icon: 'fas fa-user-tie', 
-                img: 'https://images.unsplash.com/photo-1559685657-b18cb8e0cc1d?auto=format&fit=crop&w=800&q=80',
+                img: 'images/cpl.jpg',
                 en: { name: "Commercial Pilot License (CPL)", desc: `<div class="space-y-3"><p><strong>Turn Your Passion into a Career</strong></p><p>The CPL allows you to be legally compensated for your flying services. You will master advanced maneuvers, complex aircraft operations, and professional flight standards.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Must hold a PPL (IR recommended).</li><li>Minimum 250 Hours Total Flight Time (FAA Part 61).</li><li>100 Hours of Pilot-in-Command (PIC) Time.</li><li>Training in Complex or Technically Advanced Aircraft (TAA).</li><li>Passing the Commercial Written Exam & Checkride.</li></ul></div>` }, 
                 ar: { name: "رخصة طيار تجاري (CPL)", desc: `<div class="space-y-3"><p><strong>حوّل شغفك إلى مهنة</strong></p><p>تسمح لك هذه الرخصة بالعمل وتقاضي أجر مقابل الطيران. ستتقن المناورات المتقدمة، وتشغيل الطائرات المعقدة، ومعايير الطيران الاحترافية.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>الحصول على PPL (يفضل الحصول على IR أيضاً).</li><li>250 ساعة طيران كحد أدنى إجمالاً.</li><li>100 ساعة كقائد طائرة (PIC).</li><li>التدريب على طائرات معقدة تقنياً (TAA).</li><li>اجتياز الاختبار التجاري الكتابي والعملي.</li></ul></div>` },
                 whatsappName: { en: "Commercial Pilot License (CPL)", ar: "رخصة طيار تجاري (CPL)" }
