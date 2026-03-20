@@ -37,15 +37,13 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* هندلة صورة الهيرو عشان الموبايل والديسكتوب */
         .hero-light {
             background-color: #0A2540;
             background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');
             background-size: cover;
-            background-position: right center; /* بيخلي الفوكس على الطيارة اللي في اليمين */
+            background-position: right center;
         }
 
-        /* تعديل التدرج اللوني في الموبايل عشان الكلام يبقى واضح والطيارة تبان */
         @media (max-width: 768px) {
             .hero-light {
                 background-image: linear-gradient(to bottom, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.6) 60%, rgba(10, 37, 64, 0.2) 100%), url('images/hero-plane.jpg');
@@ -55,13 +53,20 @@
 
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .transition-all { transition: all 0.3s ease-in-out; }
+
+        /* ستايل الـ Modal الزجاجي (الترند) */
+        .glass-modal { background: rgba(10, 37, 64, 0.85); backdrop-filter: blur(8px); }
+        .modal-content-enter { animation: modalPop 0.3s ease-out forwards; }
+        @keyframes modalPop {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-5 py-3 flex justify-between items-center relative">
-            
             <a href="#" class="text-navy text-2xl font-extrabold flex items-center gap-2">
                 <i class="fas fa-plane-departure text-accent"></i>
                 <span data-i18n="logo">WeFlySmart</span>
@@ -80,10 +85,7 @@
                 <a href="#enroll" class="hidden md:inline-block bg-navy text-white hover:bg-blue-900 px-5 py-2 rounded-lg text-sm font-bold transition-all" data-i18n="nav_cta">
                     Join the Club
                 </a>
-                
-                <button id="mobileMenuBtn" class="md:hidden text-navy text-2xl p-2 focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button id="mobileMenuBtn" class="md:hidden text-navy text-2xl p-2 focus:outline-none"><i class="fas fa-bars"></i></button>
             </div>
         </div>
 
@@ -145,27 +147,51 @@
                 <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-5 rounded-xl border border-gray-50">
-                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
-                    <div>
-                        <h4 class="text-lg font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" onerror="this.src='https://via.placeholder.com/150'">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
                         <p class="text-accent font-bold text-xs mb-2" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
-                        <p class="text-gray-600 text-sm" data-i18n="pilot1_bio">Based in LA, Mostafa brings passion and expertise to the club, ensuring students become highly capable pilots.</p>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2" data-i18n="pilot1_short_bio">Based in Los Angeles, Mostafa provides personalized, high-quality flight training tailored to each student’s goals.</p>
+                        <button onclick="openBioModal('pilot1')" class="text-navy font-bold text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start mx-auto sm:mx-0 transition-colors">
+                            <span data-i18n="read_more">Read More</span> <i class="fas fa-plus-circle"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-5 rounded-xl border border-gray-50">
-                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
-                    <div>
-                        <h4 class="text-lg font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
+
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" onerror="this.src='https://via.placeholder.com/150'">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
                         <p class="text-accent font-bold text-xs mb-2" data-i18n="pilot2_title">Instrument Specialist (CFI-I)</p>
-                        <p class="text-gray-600 text-sm" data-i18n="pilot2_bio">Youssef excels in instrument training and data-driven navigation techniques using modern simulation.</p>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2" data-i18n="pilot2_short_bio">Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.</p>
+                        <button onclick="openBioModal('pilot2')" class="text-navy font-bold text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start mx-auto sm:mx-0 transition-colors">
+                            <span data-i18n="read_more">Read More</span> <i class="fas fa-plus-circle"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="bioModal" class="fixed inset-0 z-[100] hidden items-center justify-center glass-modal transition-opacity opacity-0 px-4">
+        <div class="absolute inset-0" onclick="closeBioModal()"></div>
+        
+        <div id="bioModalContent" class="bg-white rounded-3xl w-full max-w-2xl p-6 md:p-8 relative shadow-2xl max-h-[85vh] overflow-y-auto" dir="auto">
+            <button onclick="closeBioModal()" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto text-gray-400 hover:text-navy text-3xl focus:outline-none">&times;</button>
+            
+            <div class="flex flex-col md:flex-row gap-6 items-center md:items-start mt-4">
+                <img id="modalImg" src="" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 border-lightbg flex-shrink-0">
+                <div class="text-center md:text-left rtl:md:text-right">
+                    <h3 id="modalName" class="text-2xl md:text-3xl font-extrabold text-navy mb-1"></h3>
+                    <p id="modalTitle" class="text-accent font-bold text-sm mb-4"></p>
+                    <div id="modalBio" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-3">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section id="enroll" class="py-12 md:py-16 bg-navy">
         <div class="container mx-auto px-5">
             <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-xl">
@@ -212,26 +238,44 @@
     </footer>
 
     <script>
-        // Mobile Menu Logic
+        // Mobile Menu
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
 
-        // Translations
+        // بيانات الترجمة والمحتوى الكامل
         const translations = {
             en: {
                 logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Club", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.", hero_btn: "Book Discovery Flight",
                 courses_title: "Flight Training Programs", course_ppl_desc: "The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.", course_ir_desc: "Fly with precision through clouds by relying solely on your aircraft's advanced instruments.", course_cpl_desc: "Elevate your skills to the professional standard required for a career in aviation.",
-                team_title: "Meet the Club Instructors", pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_bio: "Based in LA, Mostafa brings passion and expertise to the club, ensuring students become highly capable pilots.", pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_bio: "Youssef excels in instrument training and data-driven navigation techniques using modern simulation.",
+                team_title: "Meet the Club Instructors", read_more: "Read Full Bio",
+                
+                pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", 
+                pilot1_short_bio: "Based in Los Angeles, Mostafa provides personalized, high-quality flight training tailored to each student’s goals.",
+                pilot1_full_bio: `<p>Mostafa Hassan is a dedicated Certified Flight Instructor based in Los Angeles, passionate about helping others turn their aviation dreams into reality. With extensive experience flying a variety of aircraft—including Cessna, Piper, Diamond, and Sling—he provides personalized, high-quality flight training tailored to each student’s goals.</p><p>Whether you’re stepping into an aircraft for the first time or pursuing a professional pilot career, Mostafa offers a supportive and structured learning environment designed to build both confidence and skill.</p><br><p><strong>He specializes in:</strong><br>• Discovery Flights over Los Angeles<br>• Private & Commercial Pilot Training<br>• Checkride & Written Test Preparation<br>• One-on-One Ground School</p><br><p>Known for his patient teaching style and real-world approach, Mostafa ensures that every lesson is efficient, engaging, and safety-focused. His mission is simple: make flight training clear, enjoyable, and accessible.</p>`,
+                
+                pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", 
+                pilot2_short_bio: "Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.",
+                pilot2_full_bio: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`,
+                
                 enroll_title: "Join WeFlySmart Club", enroll_desc: "Leave your details and we will reach out to schedule your first flight.", form_name: "Full Name", form_email: "Email Address", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Request sent successfully!", btn_sending: "Sending..."
             },
             ar: {
                 logo: "وي فلاي سمارت", nav_programs: "البرامج", nav_team: "المدربون", nav_about: "النادي", nav_cta: "انضم للنادي",
                 hero_subtitle: "مرحباً بك في نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع حصري من شغوفي الطيران. نوفر لك تدريباً عملياً في بيئة داعمة ومميزة لنادي طيران حقيقي.", hero_btn: "احجز رحلة استكشافية",
                 courses_title: "برامج تدريب الطيران", course_ppl_desc: "الأساس لرحلتك الجوية. تعلم التحكم في الطائرة، والقوانين لتطير بأمان.", course_ir_desc: "حلّق بدقة وسط السحب وانعدام الرؤية بالاعتماد كلياً على الأجهزة.", course_cpl_desc: "ارتقِ بمهاراتك للمستوى الاحترافي المطلوب للعمل في الخطوط الجوية.",
-                team_title: "تعرف على مدربي النادي", pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_bio: "يجلب مصطفى خبرته للنادي لضمان تحول الأعضاء إلى طيارين ماهرين في بيئة داعمة.", pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_bio: "يتفوق يوسف في التدريب الآلي ويقدم تقنيات ملاحة دقيقة باستخدام المحاكاة.",
+                team_title: "تعرف على مدربي النادي", read_more: "اقرأ السيرة كاملة",
+                
+                pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", 
+                pilot1_short_bio: "انطلاقاً من لوس أنجلوس، يقدم مصطفى تدريباً مخصصاً وعالي الجودة يناسب أهداف كل متدرب لتحويل حلمه لواقع.",
+                pilot1_full_bio: `<p>مصطفى حسن هو مدرب طيران معتمد مقيم في لوس أنجلوس، شغوف بمساعدة الآخرين على تحويل أحلامهم في الطيران إلى حقيقة. يتمتع بخبرة واسعة في الطيران على مجموعة متنوعة من الطائرات بما في ذلك سيسنا، بايبر، دايموند، وسلينغ، مما يتيح له تقديم تدريب عالي الجودة ومخصص ليناسب أهداف كل طالب.</p><p>سواء كنت تدخل طائرة للمرة الأولى أو تسعى لمهنة طيار محترف، يوفر مصطفى بيئة تعليمية منظمة وداعمة مصممة لبناء الثقة والمهارة.</p><br><p><strong>يتخصص مصطفى في:</strong><br>• الرحلات الاستكشافية فوق لوس أنجلوس<br>• تدريب الطيار الخاص والتجاري<br>• التحضير للاختبارات العملية والنظرية<br>• فصول دراسية أرضية (Ground School) فردية</p><br><p>يُعرف مصطفى بأسلوبه الصبور ونهجه الواقعي، ويضمن أن يكون كل درس فعالاً وشيقاً ويركز على الأمان بالمقام الأول.</p>`,
+                
+                pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", 
+                pilot2_short_bio: "يوسف هو محترف طيران متفاني يتخصص في تدريب الطيارين مع تركيز قوي على كفاءة الطيران الآلي واتخاذ القرارات.",
+                pilot2_full_bio: `<p>يوسف أ. يوسف هو محترف طيران شغوف ومدرب طيران آلي معتمد (CFI-I) بخبرة تتجاوز الثماني سنوات في الصناعة. يتخصص في تدريب الطيارين في مختلف مراحل تطورهم، مع تركيز قوي على كفاءة الطيران الآلي، الانضباط الإجرائي، واتخاذ القرارات الواقعية.</p><p>يدمج نهجه التعليمي بين التدريب التقليدي والأدوات الحديثة، بما في ذلك أجهزة المحاكاة وأنظمة الواقع الافتراضي، لتعزيز استخدام قوائم التحقق (Checklists) والوعي التشغيلي.</p><br><p>إلى جانب خبرته الجوية، يمتلك يوسف خلفية أكاديمية في نظم المعلومات الجغرافية (GIS)، مما يمنحه منظوراً يعتمد على البيانات في الملاحة والتخطيط. وقد قام بتطوير مناهج منظمة للطلاب تشمل برامج تدريبية مفصلة.</p><br><p>يُعرف يوسف بأسلوبه العملي وقدرته على تبسيط المفاهيم المعقدة، وهو ملتزم بإعداد الطلاب ليس فقط لاجتياز الاختبارات، بل ليصبحوا طيارين آمنين وأكفاء في ظروف العالم الحقيقي.</p>`,
+                
                 enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك وسيتواصل معك مدربونا لتنسيق رحلتك.", form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال بنجاح!", btn_sending: "جاري الإرسال..."
             }
         };
@@ -242,9 +286,47 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
             document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'العربية' : 'English';
-            document.querySelectorAll('[data-i18n]').forEach(el => { if (translations[currentLang][el.getAttribute('data-i18n')]) el.innerHTML = translations[currentLang][el.getAttribute('data-i18n')]; });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { if (translations[currentLang][el.getAttribute('data-i18n-placeholder')]) el.placeholder = translations[currentLang][el.getAttribute('data-i18n-placeholder')]; });
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => { 
+                if (translations[currentLang][el.getAttribute('data-i18n')]) el.innerHTML = translations[currentLang][el.getAttribute('data-i18n')]; 
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { 
+                if (translations[currentLang][el.getAttribute('data-i18n-placeholder')]) el.placeholder = translations[currentLang][el.getAttribute('data-i18n-placeholder')]; 
+            });
         }
+
+        // ================= Modal Logic (نظام اقرأ المزيد الذكي) =================
+        const modal = document.getElementById('bioModal');
+        const modalContent = document.getElementById('bioModalContent');
+        
+        function openBioModal(pilotId) {
+            // تحديث محتوى الـ Modal بناءً على المدرب واللغة الحالية
+            document.getElementById('modalName').innerHTML = translations[currentLang][`${pilotId}_name`];
+            document.getElementById('modalTitle').innerHTML = translations[currentLang][`${pilotId}_title`];
+            document.getElementById('modalBio').innerHTML = translations[currentLang][`${pilotId}_full_bio`];
+            
+            // تحديد الصورة
+            const imgSrc = pilotId === 'pilot1' ? 'images/mostafa.jpg' : 'images/youssef.jpg';
+            document.getElementById('modalImg').src = imgSrc;
+            
+            // إظهار الـ Modal بأنيميشن
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.add('modal-content-enter');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // منع السكرول في الصفحة الخلفية
+        }
+
+        function closeBioModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('modal-content-enter');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // إرجاع السكرول
+            }, 300);
+        }
+        // =========================================================================
 
         // Supabase & Web3Forms
         const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
