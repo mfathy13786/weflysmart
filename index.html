@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeFlySmart | Premier Flying Club</title>
     
+    <title>WeFlySmart | Premier Flying Club in the USA</title>
+    <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training (PPL, CPL, IR) on modern aircraft. نادي وي فلاي سمارت لتدريب الطيران في أمريكا.">
+    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy, pilot training, flight instructor, مدرسة طيران في أمريكا, نادي طيران, رخصة طيار خاص, رخصة طيار تجاري, تعلم الطيران, مدرب طيران">
+    <meta name="author" content="WeFlySmart Aero Club">
+    
+    <meta property="og:title" content="WeFlySmart | Premier Flying Club">
+    <meta property="og:description" content="Join our exclusive community of passionate aviators and get your pilot license in the USA.">
+    <meta property="og:image" content="https://weflysmart.com/images/hero-plane.jpg">
+    <meta property="og:url" content="https://weflysmart.com">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,15 +26,8 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        navy: '#0A2540',
-                        accent: '#F9A03F',
-                        lightbg: '#F8FAFC'
-                    },
-                    fontFamily: {
-                        en: ['Montserrat', 'sans-serif'],
-                        ar: ['Tajawal', 'sans-serif']
-                    }
+                    colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' },
+                    fontFamily: { en: ['Montserrat', 'sans-serif'], ar: ['Tajawal', 'sans-serif'] }
                 }
             }
         }
@@ -32,15 +37,23 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* الخلفية بتقرأ من ملفاتك إنت عشان ماتضربش تاني */
+        /* هندلة صورة الهيرو عشان الموبايل والديسكتوب */
         .hero-light {
-            background-color: #0A2540; /* لون احتياطي لو الصورة محملتش */
-            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.4)), url('images/hero-plane.jpg');
+            background-color: #0A2540;
+            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: right center; /* بيخلي الفوكس على الطيارة اللي في اليمين */
         }
 
-        .shadow-soft { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        /* تعديل التدرج اللوني في الموبايل عشان الكلام يبقى واضح والطيارة تبان */
+        @media (max-width: 768px) {
+            .hero-light {
+                background-image: linear-gradient(to bottom, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.6) 60%, rgba(10, 37, 64, 0.2) 100%), url('images/hero-plane.jpg');
+                background-position: 65% center;
+            }
+        }
+
+        .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .transition-all { transition: all 0.3s ease-in-out; }
     </style>
 </head>
@@ -81,71 +94,71 @@
         </div>
     </header>
 
-    <section class="hero-light min-h-[80vh] flex flex-col justify-center items-start px-6 pt-24 pb-12 mt-10">
+    <section class="hero-light flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32">
         <div class="container mx-auto">
             <div class="max-w-2xl text-left rtl:text-right">
-                <p class="text-accent font-bold uppercase tracking-wider mb-3 text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" data-i18n="hero_title">
+                <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">
                     Start Your Aviation Journey in the USA
                 </h1>
-                <p class="text-gray-200 mb-8 text-base leading-relaxed" data-i18n="hero_desc">
+                <p class="text-gray-200 mb-8 text-sm md:text-base leading-relaxed" data-i18n="hero_desc">
                     Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.
                 </p>
-                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all" data-i18n="hero_btn">
+                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-6 py-3 rounded-lg font-bold text-base shadow-lg transition-all" data-i18n="hero_btn">
                     Book Discovery Flight
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="py-12 md:py-20 bg-lightbg">
+    <section id="programs" class="py-12 md:py-16 bg-lightbg">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-navy mb-3" data-i18n="courses_title">Flight Training Programs</h2>
-                <div class="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="courses_title">Flight Training Programs</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
                     <i class="fas fa-plane text-3xl text-accent mb-4"></i>
-                    <h3 class="text-xl font-bold text-navy mb-2">Private Pilot (PPL)</h3>
+                    <h3 class="text-lg font-bold text-navy mb-2">Private Pilot (PPL)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_ppl_desc">The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
                     <i class="fas fa-cloud text-3xl text-accent mb-4"></i>
-                    <h3 class="text-xl font-bold text-navy mb-2">Instrument Rating (IR)</h3>
+                    <h3 class="text-lg font-bold text-navy mb-2">Instrument Rating (IR)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_ir_desc">Fly with precision through clouds by relying solely on your aircraft's advanced instruments.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
                     <i class="fas fa-user-tie text-3xl text-accent mb-4"></i>
-                    <h3 class="text-xl font-bold text-navy mb-2">Commercial Pilot (CPL)</h3>
+                    <h3 class="text-lg font-bold text-navy mb-2">Commercial Pilot (CPL)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_cpl_desc">Elevate your skills to the professional standard required for a career in aviation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="team" class="py-12 md:py-20 bg-white">
+    <section id="team" class="py-12 md:py-16 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-navy mb-3" data-i18n="team_title">Meet the Club Instructors</h2>
-                <div class="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="team_title">Meet the Club Instructors</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-xl">
-                    <img src="images/mostafa.jpg" alt="Mostafa" class="w-28 h-28 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-5 rounded-xl border border-gray-50">
+                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
                     <div>
-                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
-                        <p class="text-accent font-bold text-xs mb-3" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
+                        <h4 class="text-lg font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
+                        <p class="text-accent font-bold text-xs mb-2" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
                         <p class="text-gray-600 text-sm" data-i18n="pilot1_bio">Based in LA, Mostafa brings passion and expertise to the club, ensuring students become highly capable pilots.</p>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-xl">
-                    <img src="images/youssef.jpg" alt="Youssef" class="w-28 h-28 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-5 rounded-xl border border-gray-50">
+                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
                     <div>
-                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
-                        <p class="text-accent font-bold text-xs mb-3" data-i18n="pilot2_title">Instrument Specialist (CFI-I)</p>
+                        <h4 class="text-lg font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
+                        <p class="text-accent font-bold text-xs mb-2" data-i18n="pilot2_title">Instrument Specialist (CFI-I)</p>
                         <p class="text-gray-600 text-sm" data-i18n="pilot2_bio">Youssef excels in instrument training and data-driven navigation techniques using modern simulation.</p>
                     </div>
                 </div>
@@ -153,29 +166,29 @@
         </div>
     </section>
 
-    <section id="enroll" class="py-12 md:py-20 bg-navy">
+    <section id="enroll" class="py-12 md:py-16 bg-navy">
         <div class="container mx-auto px-5">
-            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-xl">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
                     <p class="text-gray-500 text-sm" data-i18n="enroll_desc">Leave your details and we will reach out to schedule your first flight.</p>
                 </div>
                 
                 <form id="leadForm" dir="auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div>
-                            <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_name" placeholder="Full Name">
+                            <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_name" placeholder="Full Name">
                         </div>
                         <div>
-                            <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_email" placeholder="Email Address">
+                            <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_email" placeholder="Email Address">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
-                            <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_phone" placeholder="Phone (WhatsApp)">
+                            <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_phone" placeholder="Phone (WhatsApp)">
                         </div>
                         <div>
-                            <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none bg-white">
+                            <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none bg-white text-sm">
                                 <option value="" disabled selected data-i18n="form_prog_default">Select a program</option>
                                 <option value="Discovery Flight">Discovery Flight</option>
                                 <option value="PPL">Private Pilot (PPL)</option>
@@ -199,22 +212,13 @@
     </footer>
 
     <script>
-        // تشغيل قايمة الموبايل
+        // Mobile Menu Logic
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
-        
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
 
-        // قفل القايمة لو ضغط على أي لينك فيها
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // الترجمة
+        // Translations
         const translations = {
             en: {
                 logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Club", nav_cta: "Join the Club",
@@ -242,6 +246,7 @@
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { if (translations[currentLang][el.getAttribute('data-i18n-placeholder')]) el.placeholder = translations[currentLang][el.getAttribute('data-i18n-placeholder')]; });
         }
 
+        // Supabase & Web3Forms
         const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault(); 
@@ -259,4 +264,4 @@
         });
     </script>
 </body>
-</html>
+</html>س
