@@ -28,7 +28,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* تأثير تبديل السلايدر بنعومة */
+        /* تأثير السلايدر البطيء والفخم */
         #heroSection { transition: background-image 1.5s ease-in-out; background-size: cover; background-position: center; }
         
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -40,6 +40,7 @@
         details > summary::-webkit-details-marker { display: none; }
         .social-icon:hover { transform: translateY(-3px); color: #F9A03F; }
 
+        /* أنيميشن زرار الموبايل (الهامبرجر) */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         html[dir="rtl"] #mobileMenuBtn span:nth-child(2) { margin-left: 0; margin-right: auto; }
@@ -98,18 +99,22 @@
 
     <section class="bg-white py-8 border-b border-gray-100 shadow-sm relative z-10">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:flex md:flex-wrap justify-center items-center gap-6 md:gap-16 transition-all duration-500">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center">
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/faa-logo.png" alt="FAA Approved" class="h-12 md:h-16 object-contain" onerror="this.src='https://via.placeholder.com/150x60/0A2540/FFFFFF?text=FAA+APPROVED'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/FAA_seal.svg/512px-FAA_seal.svg.png" alt="FAA Approved" class="h-12 md:h-16 object-contain">
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_faa">FAA Approved</span>
                 </div>
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/cfi-logo.png" alt="Certified Instructors" class="h-12 md:h-16 object-contain" onerror="this.src='https://via.placeholder.com/150x60/0A2540/FFFFFF?text=CFI+INSTRUCTORS'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cessna_logo.svg/512px-Cessna_logo.svg.png" alt="Cessna Fleet" class="h-8 md:h-10 object-contain my-auto">
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase mt-auto" data-i18n="badge_cessna">Cessna Fleet</span>
                 </div>
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="images/cessna-logo.png" alt="Cessna Fleet" class="h-12 md:h-16 object-contain" onerror="this.src='https://via.placeholder.com/150x60/0A2540/FFFFFF?text=CESSNA+FLEET'">
+                    <div class="h-12 w-12 md:h-16 md:w-16 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl border-4 border-gray-100 shadow-sm"><i class="fas fa-award"></i></div>
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_cfi">Certified Instructors</span>
                 </div>
                 <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="images/safety-logo.png" alt="100% Safety" class="h-12 md:h-16 object-contain" onerror="this.src='https://via.placeholder.com/150x60/0A2540/FFFFFF?text=100%25+SAFETY'">
+                    <div class="h-12 w-12 md:h-16 md:w-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-xl md:text-2xl border-4 border-green-100 shadow-sm"><i class="fas fa-shield-alt"></i></div>
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_safety">100% Safety</span>
                 </div>
             </div>
         </div>
@@ -164,7 +169,7 @@
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500">
-                        <img src="images/online-school.jpg" alt="Online Training" class="w-full h-64 md:h-80 object-cover" onerror="this.src='https://via.placeholder.com/800x600/0A2540/FFFFFF?text=Online+Aviation+School'">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Online Training" class="w-full h-64 md:h-80 object-cover">
                     </div>
                 </div>
             </div>
@@ -285,12 +290,12 @@
             </div>
             
             <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
-                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program" onerror="this.style.display='none'">
+                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <i id="progIcon" class="text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
                 </div>
-                <div id="progModalDesc" class="text-gray-600 text-sm md:text-base leading-relaxed"></div>
+                <div id="progModalDesc" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4"></div>
                 
                 <div class="mt-4 pt-4 border-t border-gray-100">
                     <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-6 py-3 rounded-lg font-bold transition-all shadow-md">
@@ -381,11 +386,11 @@
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // السلايدر الاحترافي (بيسحب من صورك انت)
+        // السلايدر الاحترافي بيقرأ لينكات موثوقة للطيارات في السما
         const heroImages = [
             "url('images/hero-plane.jpg')",
-            "url('images/slider-sky.jpg')",
-            "url('images/slider-courses.jpg')"
+            "url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80')",
+            "url('https://images.unsplash.com/photo-1583024504104-5854b7915504?auto=format&fit=crop&w=1920&q=80')"
         ];
         let currentHero = 0;
         const heroSection = document.getElementById('heroSection');
@@ -403,7 +408,7 @@
             en: {
                 nav_programs: "Flight Programs", nav_online: "Online Courses", nav_why: "Why Us", nav_team: "Instructors", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft.", hero_btn: "Book Discovery Flight",
-                badge_faa: "FAA Standards", badge_cfi: "Certified Instructors", badge_cessna: "Modern Fleet", badge_safety: "100% Safety",
+                badge_faa: "FAA Approved", badge_cfi: "Certified Instructors", badge_cessna: "Cessna Fleet", badge_safety: "100% Safety",
                 courses_title: "Flight Training Programs", courses_subtitle: "FAA-approved structured training.",
                 course_disc_title: "Discovery Flight", course_disc_desc: "Your first step into the sky. Experience LA from above.",
                 course_ppl_desc: "The foundation of aviation. Learn aircraft control and regulations.", course_ir_desc: "Fly precisely through clouds by relying solely on instruments.", course_cpl_desc: "Elevate your skills to the professional standard.",
@@ -430,7 +435,7 @@
             ar: {
                 nav_programs: "البرامج", nav_online: "أونلاين", nav_why: "لماذا نحن", nav_team: "المدربون", nav_cta: "انضم",
                 hero_subtitle: "نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع طيران حصري. نوفر تدريباً عملياً على أحدث الطائرات.", hero_btn: "احجز رحلة استكشافية",
-                badge_faa: "معايير FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول حديث", badge_safety: "أمان 100%",
+                badge_faa: "معتمد من FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول سيسنا", badge_safety: "أمان 100%",
                 courses_title: "برامج التدريب", courses_subtitle: "تدريب منظم ومعتمد من FAA.",
                 course_disc_title: "الرحلة الاستكشافية", course_disc_desc: "خطوتك الأولى للسماء. جرب لوس أنجلوس من فوق.",
                 course_ppl_desc: "الأساس. تعلم التحكم في الطائرة والقوانين.", course_ir_desc: "حلّق بدقة وسط السحب بالاعتماد كلياً على الأجهزة.", course_cpl_desc: "ارتقِ بمهاراتك للمستوى الاحترافي.",
@@ -471,28 +476,32 @@
         const pilotBody = document.getElementById('pilotModalBody');
         const progBody = document.getElementById('progModalBody');
         
-        // ================= الداتا الأكاديمية الكاملة للبرامج (الدسمة) =================
+        // صور البرامج تم وضعها من مصادر طيران عالمية موثوقة
         const progData = {
             prog_disc: { 
-                icon: 'fas fa-binoculars', img: 'images/discovery-flight.jpg',
+                icon: 'fas fa-binoculars', 
+                img: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80',
                 en: { name: "Discovery Flight", desc: `<div class="space-y-3"><p><strong>The Perfect Introduction to Aviation</strong></p><p>Not sure if flying is for you? The Discovery Flight is a zero-pressure introduction to the pilot seat. It includes a comprehensive pre-flight ground briefing followed by actual flight time where YOU take the controls under the safe guidance of an FAA Certified Instructor.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>30-minute Ground Briefing & Pre-flight Inspection.</li><li>60-minute Flight over scenic Los Angeles.</li><li>Introduction to basic aircraft controls and maneuvers.</li><li>Logbook endorsement (this counts towards your future license!).</li></ul></div>` }, 
                 ar: { name: "الرحلة الاستكشافية", desc: `<div class="space-y-3"><p><strong>المقدمة المثالية لعالم الطيران</strong></p><p>الرحلة الاستكشافية هي تجربة حقيقية لتجلس في مقعد الطيار. تتضمن موجزاً أرضياً يليه طيران حقيقي تمسك فيه بأجهزة التحكم تحت إشراف مدرب معتمد من FAA لتجربة شعور القيادة بنفسك.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>30 دقيقة موجز أرضي وفحص ما قبل الطيران.</li><li>60 دقيقة طيران فوق مناظر لوس أنجلوس.</li><li>مقدمة للتحكم الأساسي في الطائرة والمناورات.</li><li>تسجيل الرحلة في السجل الرسمي (تحسب من ساعات رخصتك!).</li></ul></div>` },
                 whatsappName: { en: "Discovery Flight", ar: "الرحلة الاستكشافية" }
             },
             prog_ppl: { 
-                icon: 'fas fa-plane', img: 'images/ppl-license.jpg',
+                icon: 'fas fa-plane', 
+                img: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80',
                 en: { name: "Private Pilot License (PPL)", desc: `<div class="space-y-3"><p><strong>Your First Step to Becoming a Pilot</strong></p><p>The PPL allows you to fly a single-engine aircraft carrying passengers in Visual Flight Rules (VFR). This is the foundational course for all future aviation training.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Minimum 40 Hours Total Flight Time (FAA Part 61/141).</li><li>20 Hours of Flight Instruction (Including cross-country & night flying).</li><li>10 Hours of Solo Flight.</li><li>Class 3 FAA Medical Certificate Required.</li><li>Passing the FAA Written Exam & Practical Checkride.</li></ul></div>` }, 
                 ar: { name: "رخصة طيار خاص (PPL)", desc: `<div class="space-y-3"><p><strong>خطوتك الأولى لتصبح طياراً</strong></p><p>تسمح لك هذه الرخصة بالطيران بطائرة ذات محرك واحد وحمل ركاب في ظروف الطيران البصري (VFR). هذا هو الكورس التأسيسي لجميع رخص الطيران المستقبلية.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>40 ساعة طيران كحد أدنى (معايير FAA).</li><li>20 ساعة تدريب مع مدرب (تشمل الطيران الليلي والملاحة).</li><li>10 ساعات طيران منفرد (Solo).</li><li>شهادة طبية FAA من الدرجة الثالثة.</li><li>اجتياز الاختبار الكتابي والعملي لـ FAA.</li></ul></div>` },
                 whatsappName: { en: "Private Pilot License (PPL)", ar: "رخصة طيار خاص (PPL)" }
             },
             prog_ir: { 
-                icon: 'fas fa-cloud', img: 'images/cockpit-view.jpg',
+                icon: 'fas fa-cloud', 
+                img: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=800&q=80',
                 en: { name: "Instrument Rating (IR)", desc: `<div class="space-y-3"><p><strong>Master the Clouds</strong></p><p>The Instrument Rating allows you to fly inside clouds and in low-visibility conditions under Instrument Flight Rules (IFR). It makes you a safer, more precise pilot.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Hold a valid Private Pilot License (PPL).</li><li>50 Hours of Cross-Country Pilot-in-Command time.</li><li>40 Hours of Actual or Simulated Instrument Time.</li><li>Mastering holding patterns, IFR flight plans, and instrument approaches.</li><li>Passing the Instrument Written Exam & Checkride.</li></ul></div>` }, 
                 ar: { name: "تقييم الطيران الآلي (IR)", desc: `<div class="space-y-3"><p><strong>الطيران باحترافية وسط السحب</strong></p><p>تسمح لك هذه الشهادة بالطيران داخل السحب وفي ظروف الرؤية المنخفضة بالاعتماد كلياً على أجهزة الطائرة (IFR). تجعلك طياراً أكثر دقة وأماناً.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>الحصول على رخصة طيار خاص (PPL) سارية.</li><li>50 ساعة طيران عابر للضواحي كقائد طائرة.</li><li>40 ساعة من الطيران الآلي (حقيقي أو محاكاة).</li><li>إتقان أنماط الانتظار، خطط IFR، والاقتراب الآلي.</li><li>اجتياز الاختبار الكتابي والعملي الآلي.</li></ul></div>` },
                 whatsappName: { en: "Instrument Rating (IR)", ar: "تقييم الطيران الآلي (IR)" }
             },
             prog_cpl: { 
-                icon: 'fas fa-user-tie', img: 'images/cpl-license.jpg',
+                icon: 'fas fa-user-tie', 
+                img: 'https://images.unsplash.com/photo-1559685657-b18cb8e0cc1d?auto=format&fit=crop&w=800&q=80',
                 en: { name: "Commercial Pilot License (CPL)", desc: `<div class="space-y-3"><p><strong>Turn Your Passion into a Career</strong></p><p>The CPL allows you to be legally compensated for your flying services. You will master advanced maneuvers, complex aircraft operations, and professional flight standards.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Must hold a PPL (IR recommended).</li><li>Minimum 250 Hours Total Flight Time (FAA Part 61).</li><li>100 Hours of Pilot-in-Command (PIC) Time.</li><li>Training in Complex or Technically Advanced Aircraft (TAA).</li><li>Passing the Commercial Written Exam & Checkride.</li></ul></div>` }, 
                 ar: { name: "رخصة طيار تجاري (CPL)", desc: `<div class="space-y-3"><p><strong>حوّل شغفك إلى مهنة</strong></p><p>تسمح لك هذه الرخصة بالعمل وتقاضي أجر مقابل الطيران. ستتقن المناورات المتقدمة، وتشغيل الطائرات المعقدة، ومعايير الطيران الاحترافية.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>الحصول على PPL (يفضل الحصول على IR أيضاً).</li><li>250 ساعة طيران كحد أدنى إجمالاً.</li><li>100 ساعة كقائد طائرة (PIC).</li><li>التدريب على طائرات معقدة تقنياً (TAA).</li><li>اجتياز الاختبار التجاري الكتابي والعملي.</li></ul></div>` },
                 whatsappName: { en: "Commercial Pilot License (CPL)", ar: "رخصة طيار تجاري (CPL)" }
@@ -515,7 +524,6 @@
                 document.getElementById('progModalName').innerText = data[currentLang].name;
                 document.getElementById('progModalDesc').innerHTML = data[currentLang].desc;
                 
-                // رابط الواتساب الذكي
                 const msgTemplate = currentLang === 'ar' 
                     ? `مرحباً، أتواصل معكم من موقع WeFlySmart. أرغب في الاستفسار عن تفاصيل (${data.whatsappName.ar}).` 
                     : `Hello, I am contacting you from the WeFlySmart website. I would like to inquire about the (${data.whatsappName.en}).`;
