@@ -7,12 +7,20 @@
     <title>WeFlySmart | Premier Flying Club in the USA</title>
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
     <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
+    <meta name="author" content="WeFlySmart Aero Club">
     
+    <meta property="og:title" content="WeFlySmart | Premier Flying Club">
+    <meta property="og:description" content="Join our exclusive community of passionate aviators and get your pilot license in the USA.">
+    <meta property="og:image" content="https://weflysmart.com/images/hero-plane.jpg">
+    <meta property="og:url" content="https://weflysmart.com">
+    <meta property="og:type" content="website">
+
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,7 +28,12 @@
     
     <script>
         tailwind.config = {
-            theme: { extend: { colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' }, fontFamily: { en: ['Montserrat', 'sans-serif'], ar: ['Tajawal', 'sans-serif'] } } }
+            theme: {
+                extend: {
+                    colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' },
+                    fontFamily: { en: ['Montserrat', 'sans-serif'], ar: ['Tajawal', 'sans-serif'] }
+                }
+            }
         }
     </script>
 
@@ -28,7 +41,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* تأثير السلايدر البطيء والفخم */
+        /* تأثير تبديل السلايدر بنعومة */
         #heroSection { transition: background-image 1.5s ease-in-out; background-size: cover; background-position: center; }
         
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -40,7 +53,7 @@
         details > summary::-webkit-details-marker { display: none; }
         .social-icon:hover { transform: translateY(-3px); color: #F9A03F; }
 
-        /* أنيميشن زرار الموبايل (الهامبرجر) */
+        /* ستايل الهمبرجر الاحترافي الجديد */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         html[dir="rtl"] #mobileMenuBtn span:nth-child(2) { margin-left: 0; margin-right: auto; }
@@ -86,11 +99,11 @@
         </div>
     </header>
 
-    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
+    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative hero-slider" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
         <div class="container mx-auto relative z-10">
             <div class="max-w-2xl text-left rtl:text-right" data-aos="fade-up" data-aos-duration="1000">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">Start Your Aviation Journey in the USA</h1>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">Start Your Aviation Journey in the USA Let's Fly!</h1>
                 <p class="text-gray-200 mb-8 text-sm md:text-base leading-relaxed" data-i18n="hero_desc">Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.</p>
                 <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all transform hover:scale-105" data-i18n="hero_btn">Book Discovery Flight</a>
             </div>
@@ -169,7 +182,10 @@
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Online Training" class="w-full h-64 md:h-80 object-cover">
+                        <img src="https://images.unsplash.com/photo-1596753755257-850f29c01826?auto=format&fit=crop&w=800&q=80" alt="Cessna Cockpit with Online Training" class="w-full h-64 md:h-80 object-cover">
+                        <div class="absolute inset-0 bg-navy/20 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-6xl text-white opacity-80"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -233,48 +249,6 @@
         </div>
     </section>
 
-    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="faq_title">Frequently Asked Questions</h2>
-                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
-            </div>
-
-            <div class="space-y-4" dir="auto">
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_1_q">Do I need prior experience?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_1_a">Not at all! We train from absolute zero. The Discovery Flight is a great start.</div>
-                </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_2_q">How long does a PPL take?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_2_a">Typically 3 to 6 months if flying 2-3 times a week.</div>
-                </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_3_q">What are the age requirements?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_3_a">Start at any age, but you must be 16 to fly solo, and 17 for your Private Pilot License.</div>
-                </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_4_q">Do I need perfect vision?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_4_a">No! As long as vision is correctable to 20/40 (with glasses/contacts), you can fly.</div>
-                </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_5_q">What is a FAA Medical Certificate?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_5_a">A basic health check by an Aviation Medical Examiner. We guide you through it.</div>
-                </details>
-            </div>
-        </div>
-    </section>
-
     <div id="infoModal" class="fixed inset-0 z-[100] hidden items-center justify-center glass-modal transition-opacity opacity-0 px-4">
         <div class="absolute inset-0" onclick="closeModal()"></div>
         <div id="modalContent" class="bg-white rounded-3xl w-full max-w-3xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto" dir="auto">
@@ -290,7 +264,7 @@
             </div>
             
             <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
-                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program">
+                <img id="progModalImg" src="" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm mb-2" alt="Program Image">
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <i id="progIcon" class="text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
@@ -298,7 +272,7 @@
                 <div id="progModalDesc" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4"></div>
                 
                 <div class="mt-4 pt-4 border-t border-gray-100">
-                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-6 py-3 rounded-lg font-bold transition-all shadow-md">
+                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-6 py-3 rounded-lg font-bold transition-all shadow-md transform hover:scale-105">
                         <i class="fab fa-whatsapp text-xl"></i> <span data-i18n="modal_contact_btn">Inquire via WhatsApp</span>
                     </a>
                 </div>
@@ -386,11 +360,11 @@
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // السلايدر الاحترافي بيقرأ لينكات موثوقة للطيارات في السما
+        // Hero Slider Logic - بيقرأ صور مبهجة من السما
         const heroImages = [
-            "url('images/hero-plane.jpg')",
-            "url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80')",
-            "url('https://images.unsplash.com/photo-1583024504104-5854b7915504?auto=format&fit=crop&w=1920&q=80')"
+            "url('images/hero-plane.jpg')", // صورتك الأساسية
+            "url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80')", // سيسنا في السما
+            "url('https://images.unsplash.com/photo-1583024504104-5854b7915504?auto=format&fit=crop&w=1920&q=80')"  // طيارة تدريب في تشكيل
         ];
         let currentHero = 0;
         const heroSection = document.getElementById('heroSection');
@@ -476,7 +450,7 @@
         const pilotBody = document.getElementById('pilotModalBody');
         const progBody = document.getElementById('progModalBody');
         
-        // صور البرامج تم وضعها من مصادر طيران عالمية موثوقة
+        // صور البرامج تم وضعها من مصادر طيران عالمية موثوقة ومبهجة
         const progData = {
             prog_disc: { 
                 icon: 'fas fa-binoculars', 
