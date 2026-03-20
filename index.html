@@ -16,7 +16,6 @@
                 extend: {
                     colors: {
                         navy: '#0A2540',
-                        navyhover: '#133A60',
                         accent: '#F9A03F',
                         lightbg: '#F8FAFC'
                     },
@@ -30,24 +29,26 @@
     </script>
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* خلفية نهارية لطيارة تدريب (تم تعديل الرابط لطيارة سيسنا حقيقية) */
+        /* الخلفية بتقرأ من ملفاتك إنت عشان ماتضربش تاني */
         .hero-light {
-            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.3)), url('https://images.unsplash.com/photo-1522858102927-4c070cbccf30?auto=format&fit=crop&w=1920&q=80');
+            background-color: #0A2540; /* لون احتياطي لو الصورة محملتش */
+            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.4)), url('images/hero-plane.jpg');
             background-size: cover;
             background-position: center;
         }
 
-        .shadow-soft { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); }
+        .shadow-soft { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .transition-all { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+        <div class="container mx-auto px-5 py-3 flex justify-between items-center relative">
+            
             <a href="#" class="text-navy text-2xl font-extrabold flex items-center gap-2">
                 <i class="fas fa-plane-departure text-accent"></i>
                 <span data-i18n="logo">WeFlySmart</span>
@@ -59,131 +60,122 @@
                 <a href="#club" class="hover:text-accent transition-all" data-i18n="nav_about">The Club</a>
             </nav>
 
-            <div class="flex items-center gap-3 md:gap-4">
+            <div class="flex items-center gap-3">
                 <button onclick="toggleLanguage()" class="text-gray-600 hover:text-accent font-bold text-sm flex items-center gap-1 bg-gray-100 px-3 py-2 rounded-lg transition-all">
                     <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
                 </button>
-                <a href="#enroll" class="hidden md:inline-block bg-navy text-white hover:bg-navyhover px-6 py-2 rounded-lg text-sm font-bold transition-all" data-i18n="nav_cta">
+                <a href="#enroll" class="hidden md:inline-block bg-navy text-white hover:bg-blue-900 px-5 py-2 rounded-lg text-sm font-bold transition-all" data-i18n="nav_cta">
                     Join the Club
                 </a>
+                
+                <button id="mobileMenuBtn" class="md:hidden text-navy text-2xl p-2 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-full flex flex-col px-5 py-4 gap-4">
+            <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Programs</a>
+            <a href="#team" class="text-navy font-bold text-lg" data-i18n="nav_team">Instructors</a>
+            <a href="#enroll" class="text-accent font-bold text-lg" data-i18n="nav_cta">Join the Club</a>
         </div>
     </header>
 
-    <section class="hero-light min-h-[90vh] flex flex-col justify-center items-start px-6 pt-24 pb-16">
+    <section class="hero-light min-h-[80vh] flex flex-col justify-center items-start px-6 pt-24 pb-12 mt-10">
         <div class="container mx-auto">
             <div class="max-w-2xl text-left rtl:text-right">
-                <p class="text-accent font-bold uppercase tracking-wider mb-4 text-sm md:text-base" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight" data-i18n="hero_title">
+                <p class="text-accent font-bold uppercase tracking-wider mb-3 text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" data-i18n="hero_title">
                     Start Your Aviation Journey in the USA
                 </h1>
-                <p class="text-gray-200 mb-10 text-base md:text-lg leading-relaxed" data-i18n="hero_desc">
+                <p class="text-gray-200 mb-8 text-base leading-relaxed" data-i18n="hero_desc">
                     Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#enroll" class="bg-accent text-white hover:bg-orange-500 text-center px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1" data-i18n="hero_btn">
-                        Book Discovery Flight
-                    </a>
+                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all" data-i18n="hero_btn">
+                    Book Discovery Flight
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="py-12 md:py-20 bg-lightbg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-navy mb-3" data-i18n="courses_title">Flight Training Programs</h2>
+                <div class="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                    <i class="fas fa-plane text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy mb-2">Private Pilot (PPL)</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="course_ppl_desc">The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                    <i class="fas fa-cloud text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy mb-2">Instrument Rating (IR)</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="course_ir_desc">Fly with precision through clouds by relying solely on your aircraft's advanced instruments.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                    <i class="fas fa-user-tie text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy mb-2">Commercial Pilot (CPL)</h3>
+                    <p class="text-gray-600 text-sm" data-i18n="course_cpl_desc">Elevate your skills to the professional standard required for a career in aviation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="py-16 md:py-24 bg-lightbg">
+    <section id="team" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-4" data-i18n="courses_title">Flight Training Programs</h2>
-                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="courses_desc">Structured, FAA-approved training tailored to your goals, whether flying for fun or pursuing an airline career.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:border-accent transition-all group">
-                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-navy mb-3">Private Pilot (PPL)</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="course_ppl_desc">The foundation of your aviation journey. Learn aircraft control, navigation, and regulations to fly safely and confidently.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:border-accent transition-all group">
-                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-navy mb-3">Instrument Rating (IR)</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="course_ir_desc">Fly with precision through clouds and low visibility by relying solely on your aircraft's advanced instruments.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:border-accent transition-all group">
-                    <div class="w-16 h-16 bg-blue-50 text-accent rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-all">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-navy mb-3">Commercial Pilot (CPL)</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="course_cpl_desc">Master complex maneuvers and elevate your skills to the professional standard required for a career in aviation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-4" data-i18n="team_title">Meet the Club Instructors</h2>
-                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="team_desc">Learn from experienced, passionate professionals dedicated to building safe and competent pilots.</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-navy mb-3" data-i18n="team_title">Meet the Club Instructors</h2>
+                <div class="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left rtl:md:text-right gap-6 bg-lightbg p-6 md:p-8 rounded-2xl border border-gray-100">
-                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-white flex-shrink-0" onerror="this.src='https://via.placeholder.com/150'">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-xl">
+                    <img src="images/mostafa.jpg" alt="Mostafa" class="w-28 h-28 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
                     <div>
-                        <h4 class="text-2xl font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
-                        <p class="text-accent font-bold text-sm mb-4" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
-                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="pilot1_bio">
-                            Based in LA, Mostafa brings passion and expertise to the club. Training on Cessna, Piper, and Diamond aircraft, he focuses on efficient, real-world instruction ensuring students become highly capable pilots in a supportive environment.
-                        </p>
+                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
+                        <p class="text-accent font-bold text-xs mb-3" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
+                        <p class="text-gray-600 text-sm" data-i18n="pilot1_bio">Based in LA, Mostafa brings passion and expertise to the club, ensuring students become highly capable pilots.</p>
                     </div>
                 </div>
-                
-                <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left rtl:md:text-right gap-6 bg-lightbg p-6 md:p-8 rounded-2xl border border-gray-100">
-                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-white flex-shrink-0" onerror="this.src='https://via.placeholder.com/150'">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-lightbg p-6 rounded-xl">
+                    <img src="images/youssef.jpg" alt="Youssef" class="w-28 h-28 rounded-full object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
                     <div>
-                        <h4 class="text-2xl font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
-                        <p class="text-accent font-bold text-sm mb-4" data-i18n="pilot2_title">Instrument Specialist (CFI-I)</p>
-                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="pilot2_bio">
-                            Youssef excels in instrument training and modern simulation. Utilizing his background in GIS, he provides data-driven navigation techniques, preparing club members to safely handle complex weather and airspace scenarios.
-                        </p>
+                        <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
+                        <p class="text-accent font-bold text-xs mb-3" data-i18n="pilot2_title">Instrument Specialist (CFI-I)</p>
+                        <p class="text-gray-600 text-sm" data-i18n="pilot2_bio">Youssef excels in instrument training and data-driven navigation techniques using modern simulation.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="enroll" class="py-16 md:py-24 bg-navy relative">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 md:p-12 shadow-2xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-extrabold text-navy mb-3" data-i18n="enroll_title">Join WeFlySmart Club</h2>
-                    <p class="text-gray-500 text-sm md:text-base" data-i18n="enroll_desc">Leave your details and one of our instructors will reach out to schedule your first flight.</p>
+    <section id="enroll" class="py-12 md:py-20 bg-navy">
+        <div class="container mx-auto px-5">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
+                    <p class="text-gray-500 text-sm" data-i18n="enroll_desc">Leave your details and we will reach out to schedule your first flight.</p>
                 </div>
                 
                 <form id="leadForm" dir="auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label class="block text-gray-700 font-semibold text-sm mb-2" data-i18n="label_name">Full Name</label>
-                            <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-gray-800" data-i18n-placeholder="form_name" placeholder="Enter your full name">
+                            <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_name" placeholder="Full Name">
                         </div>
                         <div>
-                            <label class="block text-gray-700 font-semibold text-sm mb-2" data-i18n="label_email">Email Address</label>
-                            <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-gray-800" data-i18n-placeholder="form_email" placeholder="Enter your email">
+                            <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_email" placeholder="Email Address">
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
-                            <label class="block text-gray-700 font-semibold text-sm mb-2" data-i18n="label_phone">Phone Number</label>
-                            <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-gray-800" data-i18n-placeholder="form_phone" placeholder="WhatsApp preferred">
+                            <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none" data-i18n-placeholder="form_phone" placeholder="Phone (WhatsApp)">
                         </div>
                         <div>
-                            <label class="block text-gray-700 font-semibold text-sm mb-2" data-i18n="label_prog">Program of Interest</label>
-                            <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-gray-800 bg-white">
+                            <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none bg-white">
                                 <option value="" disabled selected data-i18n="form_prog_default">Select a program</option>
                                 <option value="Discovery Flight">Discovery Flight</option>
                                 <option value="PPL">Private Pilot (PPL)</option>
@@ -193,124 +185,77 @@
                         </div>
                     </div>
                     
-                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-4 rounded-xl text-lg transition-all shadow-md flex justify-center items-center gap-2">
+                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2">
                         <span data-i18n="form_btn">Send Request</span>
-                        <i class="fas fa-paper-plane"></i>
                     </button>
-
-                    <div id="successMsg" class="hidden mt-6 p-4 bg-green-50 text-green-700 border border-green-200 rounded-xl text-center font-bold"></div>
+                    <div id="successMsg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-center text-sm font-bold"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#051320] text-gray-400 text-center py-8">
+    <footer class="bg-[#051320] text-gray-400 text-center py-6 text-sm">
         <p>&copy; 2026 WeFlySmart Aero Club. All rights reserved.</p>
     </footer>
 
     <script>
+        // تشغيل قايمة الموبايل
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // قفل القايمة لو ضغط على أي لينك فيها
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // الترجمة
         const translations = {
             en: {
                 logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Club", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.", hero_btn: "Book Discovery Flight",
-                courses_title: "Flight Training Programs", courses_desc: "Structured, FAA-approved training tailored to your goals, whether flying for fun or pursuing an airline career.",
-                course_ppl_desc: "The foundation of your aviation journey. Learn aircraft control, navigation, and regulations to fly safely and confidently.",
-                course_ir_desc: "Fly with precision through clouds and low visibility by relying solely on your aircraft's advanced instruments.",
-                course_cpl_desc: "Master complex maneuvers and elevate your skills to the professional standard required for a career in aviation.",
-                team_title: "Meet the Club Instructors", team_desc: "Learn from experienced, passionate professionals dedicated to building safe and competent pilots.",
-                pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_bio: "Based in LA, Mostafa brings passion and expertise to the club. Training on Cessna, Piper, and Diamond aircraft, he focuses on efficient, real-world instruction ensuring students become highly capable pilots in a supportive environment.",
-                pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_bio: "Youssef excels in instrument training and modern simulation. Utilizing his background in GIS, he provides data-driven navigation techniques, preparing club members to safely handle complex weather and airspace scenarios.",
-                enroll_title: "Join WeFlySmart Club", enroll_desc: "Leave your details and one of our instructors will reach out to schedule your first flight.",
-                label_name: "Full Name", label_email: "Email Address", label_phone: "Phone Number", label_prog: "Program of Interest",
-                form_name: "Enter your full name", form_email: "Enter your email", form_phone: "WhatsApp preferred", form_prog_default: "Select a program", form_btn: "Send Request",
-                success_msg: "✅ Request sent successfully! We will contact you soon.", btn_sending: "Sending..."
+                courses_title: "Flight Training Programs", course_ppl_desc: "The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.", course_ir_desc: "Fly with precision through clouds by relying solely on your aircraft's advanced instruments.", course_cpl_desc: "Elevate your skills to the professional standard required for a career in aviation.",
+                team_title: "Meet the Club Instructors", pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_bio: "Based in LA, Mostafa brings passion and expertise to the club, ensuring students become highly capable pilots.", pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_bio: "Youssef excels in instrument training and data-driven navigation techniques using modern simulation.",
+                enroll_title: "Join WeFlySmart Club", enroll_desc: "Leave your details and we will reach out to schedule your first flight.", form_name: "Full Name", form_email: "Email Address", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Request sent successfully!", btn_sending: "Sending..."
             },
             ar: {
                 logo: "وي فلاي سمارت", nav_programs: "البرامج", nav_team: "المدربون", nav_about: "النادي", nav_cta: "انضم للنادي",
-                hero_subtitle: "مرحباً بك في نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع حصري من شغوفي الطيران. نوفر لك تدريباً عملياً على طائرات حديثة في بيئة داعمة ومميزة لنادي طيران حقيقي.", hero_btn: "احجز رحلة استكشافية",
-                courses_title: "برامج تدريب الطيران", courses_desc: "تدريب منظم ومعتمد من إدارة الطيران الفيدرالية (FAA) مصمم ليناسب أهدافك، سواء للطيران الممتع أو لمهنة احترافية.",
-                course_ppl_desc: "الأساس لرحلتك الجوية. تعلم التحكم في الطائرة، الملاحة، والقوانين لتتمكن من الطيران بثقة وأمان تام.",
-                course_ir_desc: "حلّق بدقة وسط السحب وانعدام الرؤية بالاعتماد كلياً على الأجهزة المتقدمة لطائرتك.",
-                course_cpl_desc: "أتقن المناورات المعقدة وارتقِ بمهاراتك للمستوى الاحترافي المطلوب للعمل في الخطوط الجوية.",
-                team_title: "تعرف على مدربي النادي", team_desc: "تدرب مع محترفين شغوفين وذوي خبرة مكرسين لتخريج طيارين أكفاء وآمنين.",
-                pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_bio: "من لوس أنجلوس، يجلب مصطفى شغفه وخبرته للنادي. يركز تدريبه على طائرات سيسنا وبايبر ودايموند على التعليم الفعال والواقعي لضمان تحول الأعضاء إلى طيارين ماهرين في بيئة داعمة.",
-                pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_bio: "يتفوق يوسف في تدريب الطيران الآلي والمحاكاة. بالاستفادة من خبرته في الـ GIS، يقدم تقنيات ملاحة دقيقة تجهز أعضاء النادي للتعامل بأمان مع أصعب الظروف الجوية.",
-                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك وسيتواصل معك أحد مدربينا لتنسيق رحلتك الأولى.",
-                label_name: "الاسم بالكامل", label_email: "البريد الإلكتروني", label_phone: "رقم الهاتف", label_prog: "البرنامج المطلوب",
-                form_name: "اكتب اسمك بالكامل", form_email: "اكتب بريدك الإلكتروني", form_phone: "يفضل رقم واتساب", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب",
-                success_msg: "✅ تم الإرسال بنجاح! سيتواصل معك فريق النادي قريباً.", btn_sending: "جاري الإرسال..."
+                hero_subtitle: "مرحباً بك في نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع حصري من شغوفي الطيران. نوفر لك تدريباً عملياً في بيئة داعمة ومميزة لنادي طيران حقيقي.", hero_btn: "احجز رحلة استكشافية",
+                courses_title: "برامج تدريب الطيران", course_ppl_desc: "الأساس لرحلتك الجوية. تعلم التحكم في الطائرة، والقوانين لتطير بأمان.", course_ir_desc: "حلّق بدقة وسط السحب وانعدام الرؤية بالاعتماد كلياً على الأجهزة.", course_cpl_desc: "ارتقِ بمهاراتك للمستوى الاحترافي المطلوب للعمل في الخطوط الجوية.",
+                team_title: "تعرف على مدربي النادي", pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_bio: "يجلب مصطفى خبرته للنادي لضمان تحول الأعضاء إلى طيارين ماهرين في بيئة داعمة.", pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_bio: "يتفوق يوسف في التدريب الآلي ويقدم تقنيات ملاحة دقيقة باستخدام المحاكاة.",
+                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك وسيتواصل معك مدربونا لتنسيق رحلتك.", form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال بنجاح!", btn_sending: "جاري الإرسال..."
             }
         };
 
         let currentLang = 'en';
-
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
             document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'العربية' : 'English';
-
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[currentLang][key]) element.innerHTML = translations[currentLang][key];
-            });
-
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[currentLang][key]) element.placeholder = translations[currentLang][key];
-            });
+            document.querySelectorAll('[data-i18n]').forEach(el => { if (translations[currentLang][el.getAttribute('data-i18n')]) el.innerHTML = translations[currentLang][el.getAttribute('data-i18n')]; });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { if (translations[currentLang][el.getAttribute('data-i18n-placeholder')]) el.placeholder = translations[currentLang][el.getAttribute('data-i18n-placeholder')]; });
         }
 
-        const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
-        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
+        const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault(); 
             const btn = document.getElementById('submitBtn');
-            const successMsgDiv = document.getElementById('successMsg');
+            const successMsg = document.getElementById('successMsg');
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
+            btn.disabled = true; successMsg.classList.add('hidden');
             
-            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLang]['btn_sending']}`;
-            btn.disabled = true;
-            btn.classList.add('opacity-75', 'cursor-not-allowed');
-            successMsgDiv.classList.add('hidden'); 
-
-            const rowData = {
-                full_name: document.getElementById('full_name').value,
-                email: document.getElementById('email').value,
-                phone_number: document.getElementById('phone').value,
-                service_type: document.getElementById('program').value 
-            };
-
+            const data = { full_name: document.getElementById('full_name').value, email: document.getElementById('email').value, phone_number: document.getElementById('phone').value, service_type: document.getElementById('program').value };
             try {
-                const { error } = await _supabase.from('contacts').insert([rowData]);
-                if (error) throw error;
-
-                await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({
-                        access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc",
-                        subject: "🛫 طلب انضمام للنادي: " + rowData.full_name,
-                        from_name: "WeFlySmart System",
-                        name: rowData.full_name,
-                        email: rowData.email,
-                        message: `رقم التليفون: ${rowData.phone_number}\nالبرنامج المطلوب: ${rowData.service_type}`
-                    })
-                });
-
-                successMsgDiv.innerText = translations[currentLang]['success_msg'];
-                successMsgDiv.classList.remove('hidden');
-                document.getElementById('leadForm').reset();
-
-            } catch (err) {
-                console.error('Error:', err);
-                alert('❌ Error sending request. Please check connection.');
-            } finally {
-                btn.innerHTML = `<span data-i18n="form_btn">${translations[currentLang]['form_btn']}</span> <i class="fas fa-paper-plane"></i>`;
-                btn.disabled = false;
-                btn.classList.remove('opacity-75', 'cursor-not-allowed');
-            }
+                await _supabase.from('contacts').insert([data]);
+                await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc", subject: "🛫 Lead: " + data.full_name, name: data.full_name, email: data.email, message: `${data.phone_number}\n${data.service_type}` }) });
+                successMsg.innerText = translations[currentLang].success_msg; successMsg.classList.remove('hidden'); document.getElementById('leadForm').reset();
+            } catch (err) { alert('Error!'); } finally { btn.innerHTML = translations[currentLang].form_btn; btn.disabled = false; }
         });
     </script>
 </body>
