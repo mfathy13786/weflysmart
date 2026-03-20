@@ -50,7 +50,8 @@
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-5 py-3 md:py-4 flex justify-between items-center relative">
             <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
-                <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[200px] md:w-[240px] h-auto object-contain">
+                <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[200px] md:w-[240px] h-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-navy text-xl font-extrabold" data-i18n="logo">WeFlySmart</span>
             </a>
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
                 <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Flight Programs</a>
@@ -77,42 +78,47 @@
 
     <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
         <div class="container mx-auto relative z-10">
-            <div class="max-w-2xl text-left rtl:text-right" data-aos="fade-up" data-aos-duration="1000">
+            <div class="max-w-2xl text-center md:text-left rtl:md:text-right mx-auto md:mx-0" data-aos="fade-up" data-aos-duration="1000">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">Start Your Aviation Journey in the USA</h1>
                 <p class="text-gray-200 mb-8 text-sm md:text-base leading-relaxed" data-i18n="hero_desc">Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.</p>
-                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all transform hover:scale-105" data-i18n="hero_btn">Book Discovery Flight</a>
+                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg shadow-[0_4px_20px_rgba(249,160,63,0.4)] transition-all transform hover:scale-105" data-i18n="hero_btn">Book Discovery Flight</a>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-8 border-b border-gray-100 shadow-sm relative z-10">
+    <section class="bg-white py-10 border-b border-gray-100 shadow-sm relative z-10">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-start justify-items-center">
-                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="h-14 w-14 md:h-16 md:w-16 bg-blue-50 rounded-full flex items-center justify-center text-navy text-2xl md:text-3xl border-2 border-blue-100 shadow-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 items-stretch justify-items-center">
+                
+                <div class="group flex flex-col items-center gap-3 p-4 w-full rounded-2xl hover:bg-white hover:shadow-[0_10px_30px_rgba(10,37,64,0.08)] transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-16 w-16 md:h-20 md:w-20 rounded-full bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center text-accent text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-accent/20">
                         <i class="fas fa-file-signature"></i>
                     </div>
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_faa">FAA Approved</span>
+                    <span class="font-extrabold text-navy text-xs md:text-sm text-center uppercase tracking-wide" data-i18n="badge_faa">FAA Approved</span>
                 </div>
-                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="h-14 w-14 md:h-16 md:w-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-700 text-2xl md:text-3xl border-2 border-gray-200 shadow-sm">
+
+                <div class="group flex flex-col items-center gap-3 p-4 w-full rounded-2xl hover:bg-white hover:shadow-[0_10px_30px_rgba(10,37,64,0.08)] transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-16 w-16 md:h-20 md:w-20 rounded-full bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center text-accent text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-accent/20">
                         <i class="fas fa-plane"></i>
                     </div>
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_cessna">Cessna Fleet</span>
+                    <span class="font-extrabold text-navy text-xs md:text-sm text-center uppercase tracking-wide" data-i18n="badge_cessna">Cessna Fleet</span>
                 </div>
-                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="h-14 w-14 md:h-16 md:w-16 bg-orange-50 rounded-full flex items-center justify-center text-accent text-2xl md:text-3xl border-2 border-orange-100 shadow-sm">
+
+                <div class="group flex flex-col items-center gap-3 p-4 w-full rounded-2xl hover:bg-white hover:shadow-[0_10px_30px_rgba(10,37,64,0.08)] transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-16 w-16 md:h-20 md:w-20 rounded-full bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center text-accent text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-accent/20">
                         <i class="fas fa-award"></i>
                     </div>
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_cfi">Certified Instructors</span>
+                    <span class="font-extrabold text-navy text-xs md:text-sm text-center uppercase tracking-wide" data-i18n="badge_cfi">Certified Instructors</span>
                 </div>
-                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="h-14 w-14 md:h-16 md:w-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-2xl md:text-3xl border-2 border-green-100 shadow-sm">
+
+                <div class="group flex flex-col items-center gap-3 p-4 w-full rounded-2xl hover:bg-white hover:shadow-[0_10px_30px_rgba(10,37,64,0.08)] transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-16 w-16 md:h-20 md:w-20 rounded-full bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center text-accent text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-accent/20">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_safety">100% Safety</span>
+                    <span class="font-extrabold text-navy text-xs md:text-sm text-center uppercase tracking-wide" data-i18n="badge_safety">100% Safety</span>
                 </div>
+
             </div>
         </div>
     </section>
@@ -167,7 +173,7 @@
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500 bg-gray-800">
                         <img src="images/online.jpg" alt="Online Training" class="w-full h-64 md:h-80 object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Please upload online.jpg</div>
+                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Image Missing</div>
                     </div>
                 </div>
             </div>
@@ -281,8 +287,9 @@
             <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
                 <div class="w-full h-48 md:h-64 rounded-xl shadow-sm mb-2 overflow-hidden bg-gray-800 relative">
                     <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div style="display:none;" class="absolute inset-0 items-center justify-center text-white font-bold">Please upload the missing image</div>
+                    <div style="display:none;" class="absolute inset-0 items-center justify-center text-white font-bold">Image Missing</div>
                 </div>
+                
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <i id="progIcon" class="text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
@@ -324,7 +331,7 @@
                     <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2 hover:shadow-lg transform hover:scale-105">
                         <span data-i18n="form_btn">Send Request</span>
                     </button>
-                    <div id="successMsg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-center text-sm font-bold"></div>
+                    <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 border-l-4 border-green-500 text-green-700 rounded shadow-sm text-sm font-bold flex items-center gap-2"></div>
                 </form>
             </div>
         </div>
@@ -332,9 +339,9 @@
 
     <footer class="bg-[#020b14] text-gray-300 pt-16 pb-8 border-t-4 border-accent">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-center md:text-left rtl:md:text-right">
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/logo.png" alt="WeFlySmart" class="w-40 mb-4 brightness-110" onerror="this.style.display='none'">
+                    <img src="images/logo.png" alt="WeFlySmart" class="w-40 mb-4 brightness-110 mx-auto md:mx-0 rtl:md:mx-0 rtl:md:ml-auto" onerror="this.style.display='none'">
                     <span style="display:none;" class="text-white text-xl font-bold mb-4 block" data-i18n="logo">WeFlySmart</span>
                     <p class="text-sm text-gray-400 leading-relaxed" data-i18n="footer_about">WeFlySmart is an exclusive flying club in Los Angeles dedicated to providing premier flight training.</p>
                 </div>
@@ -349,7 +356,7 @@
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
                     <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer_contact_title">Contact LA</h4>
-                    <ul class="space-y-3 text-sm text-gray-400">
+                    <ul class="space-y-3 text-sm text-gray-400 flex flex-col items-center md:items-start rtl:md:items-end">
                         <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-accent mt-1"></i><span data-i18n="footer_address">Los Angeles, California, USA</span></li>
                         <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-accent"></i><a href="tel:+13233849083" class="hover:text-white transition-colors">+1 (323) 384-9083</a></li>
                     </ul>
@@ -357,7 +364,7 @@
                 <div data-aos="fade-up" data-aos-delay="400">
                     <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer_social_title">Follow Us</h4>
                     <p class="text-sm text-gray-400 mb-4" data-i18n="footer_social_desc">Stay updated with our latest flights.</p>
-                    <div class="flex gap-4 text-xl">
+                    <div class="flex gap-4 text-xl justify-center md:justify-start rtl:md:justify-end">
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-youtube"></i></a>
@@ -379,7 +386,7 @@
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // السلايدر بيقرأ الـ 3 صور بتاعتك
+        // السلايدر يقرأ الصور من الفولدر بتاعك
         const heroImages = ["url('images/hero-plane.jpg')", "url('images/slide2.jpg')", "url('images/slide3.jpg')"];
         let currentHero = 0;
         const heroSection = document.getElementById('heroSection');
@@ -410,13 +417,8 @@
                 pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_short_bio: "Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.",
                 pilot2_full_bio: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`,
                 
-                faq_title: "Frequently Asked Questions",
-                faq_1_q: "Do I need prior experience?", faq_1_a: "Not at all! We train from absolute zero.",
-                faq_2_q: "How long does a PPL take?", faq_2_a: "Typically 3 to 6 months if flying 2-3 times a week.",
-                faq_3_q: "What are the age requirements?", faq_3_a: "You can start training at any age, but you must be at least 16 to fly solo, and 17 to get your Private Pilot License.",
-                faq_4_q: "Do I need perfect vision?", faq_4_a: "No! As long as your vision can be corrected to 20/40 (with glasses or contacts) for a Class 3 Medical, you can fly.",
-                
-                enroll_title: "Join WeFlySmart", enroll_desc: "Leave details to schedule.", form_name: "Full Name", form_email: "Email", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Successfully Sent!",
+                enroll_title: "Join WeFlySmart", enroll_desc: "Leave details to schedule.", form_name: "Full Name", form_email: "Email", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", 
+                success_msg: "✅ Thank you! Your request has been sent successfully. Our team will contact you shortly.",
                 footer_about: "An exclusive flying club in LA for premier training.", footer_links_title: "Links", footer_contact_title: "Contact LA", footer_address: "Los Angeles, California", footer_social_title: "Follow Us", footer_social_desc: "Stay updated with flights.",
                 modal_contact_btn: "Inquire via WhatsApp"
             },
@@ -436,13 +438,8 @@
                 pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_short_bio: "يوسف هو محترف طيران متفاني يتخصص في تدريب الطيارين مع تركيز قوي على كفاءة الطيران الآلي واتخاذ القرارات.",
                 pilot2_full_bio: `<p>يوسف أ. يوسف هو محترف طيران شغوف ومدرب طيران آلي معتمد (CFI-I) بخبرة تتجاوز الثماني سنوات في الصناعة. يتخصص في تدريب الطيارين في مختلف مراحل تطورهم، مع تركيز قوي على كفاءة الطيران الآلي، الانضباط الإجرائي، واتخاذ القرارات الواقعية.</p><p>يدمج نهجه التعليمي بين التدريب التقليدي والأدوات الحديثة، بما في ذلك أجهزة المحاكاة وأنظمة الواقع الافتراضي، لتعزيز استخدام قوائم التحقق (Checklists) والوعي التشغيلي.</p><br><p>إلى جانب خبرته الجوية، يمتلك يوسف خلفية أكاديمية في نظم المعلومات الجغرافية (GIS)، مما يمنحه منظوراً يعتمد على البيانات في الملاحة والتخطيط. وقد قام بتطوير مناهج منظمة للطلاب تشمل برامج تدريبية مفصلة.</p><br><p>يُعرف يوسف بأسلوبه العملي وقدرته على تبسيط المفاهيم المعقدة، وهو ملتزم بإعداد الطلاب ليس فقط لاجتياز الاختبارات، بل ليصبحوا طيارين آمنين وأكفاء في ظروف العالم الحقيقي.</p>`,
                 
-                faq_title: "الأسئلة الشائعة",
-                faq_1_q: "هل أحتاج لخبرة سابقة؟", faq_1_a: "إطلاقاً! نبدأ معك من الصفر.",
-                faq_2_q: "كم مدة رخصة PPL؟", faq_2_a: "عادة من 3 إلى 6 أشهر بمعدل طيران 2-3 مرات أسبوعياً.",
-                faq_3_q: "ما هو السن المطلوب لبدء الطيران؟", faq_3_a: "يمكنك البدء في أي سن، لكن يجب أن تكون 16 عاماً للطيران المنفرد (Solo) و 17 عاماً للحصول على الرخصة الخاصة.",
-                faq_4_q: "هل أحتاج لنظر 6/6 للطيران؟", faq_4_a: "لا يشترط! طالما يمكنك الرؤية بنظارة أو عدسات لاجتياز الكشف الطبي، يمكنك الطيران.",
-                
-                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك للتنسيق.", form_name: "الاسم", form_email: "الإيميل", form_phone: "الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال!",
+                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك للتنسيق.", form_name: "الاسم", form_email: "الإيميل", form_phone: "الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", 
+                success_msg: "✅ تم إرسال طلبك بنجاح! سيتواصل معك فريقنا في أقرب وقت.",
                 footer_about: "مجتمع طيران حصري في LA لتدريب احترافي.", footer_links_title: "روابط", footer_contact_title: "تواصل معنا", footer_address: "لوس أنجلوس، كاليفورنيا", footer_social_title: "تابعنا", footer_social_desc: "ابقَ على اطلاع.",
                 modal_contact_btn: "تواصل للاستفسار عبر واتساب"
             }
@@ -463,7 +460,7 @@
         const pilotBody = document.getElementById('pilotModalBody');
         const progBody = document.getElementById('progModalBody');
         
-        // جافاسكريبت البرامج بيسحب الأسماء صح من الفولدر بتاعك
+        // ربط البرامج بأسماء الصور اللي إنت رافعها على Github بالظبط
         const progData = {
             prog_disc: { 
                 icon: 'fas fa-binoculars', img: 'images/discovery.jpg',
@@ -478,7 +475,7 @@
                 whatsappName: { en: "Private Pilot License (PPL)", ar: "رخصة طيار خاص (PPL)" }
             },
             prog_ir: { 
-                icon: 'fas fa-cloud', img: 'images/ir.jpg',
+                icon: 'fas fa-cloud', img: 'images/unnamed.jpg', // هنا ربطناها بالصورة unnamed.jpg المرفوعة عندك
                 en: { name: "Instrument Rating (IR)", desc: `<div class="space-y-3"><p><strong>Master the Clouds</strong></p><p>The Instrument Rating allows you to fly inside clouds and in low-visibility conditions under Instrument Flight Rules (IFR). It makes you a safer, more precise pilot.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Hold a valid Private Pilot License (PPL).</li><li>50 Hours of Cross-Country Pilot-in-Command time.</li><li>40 Hours of Actual or Simulated Instrument Time.</li><li>Mastering holding patterns, IFR flight plans, and instrument approaches.</li><li>Passing the Instrument Written Exam & Checkride.</li></ul></div>` }, 
                 ar: { name: "تقييم الطيران الآلي (IR)", desc: `<div class="space-y-3"><p><strong>الطيران باحترافية وسط السحب</strong></p><p>تسمح لك هذه الشهادة بالطيران داخل السحب وفي ظروف الرؤية المنخفضة بالاعتماد كلياً على أجهزة الطائرة (IFR). تجعلك طياراً أكثر دقة وأماناً.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>الحصول على رخصة طيار خاص (PPL) سارية.</li><li>50 ساعة طيران عابر للضواحي كقائد طائرة.</li><li>40 ساعة من الطيران الآلي (حقيقي أو محاكاة).</li><li>إتقان أنماط الانتظار، خطط IFR، والاقتراب الآلي.</li><li>اجتياز الاختبار الكتابي والعملي الآلي.</li></ul></div>` },
                 whatsappName: { en: "Instrument Rating (IR)", ar: "تقييم الطيران الآلي (IR)" }
@@ -537,7 +534,8 @@
             try {
                 await _supabase.from('contacts').insert([data]);
                 await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc", subject: "🛫 Lead: " + data.full_name, name: data.full_name, email: data.email, message: `${data.phone_number}\n${data.service_type}` }) });
-                successMsg.innerText = translations[currentLang].success_msg; successMsg.classList.remove('hidden'); document.getElementById('leadForm').reset();
+                successMsg.innerHTML = `<i class="fas fa-check-circle text-lg"></i> <span>${translations[currentLang].success_msg}</span>`; 
+                successMsg.classList.remove('hidden'); document.getElementById('leadForm').reset();
             } catch (err) { alert('Error!'); } finally { btn.innerHTML = translations[currentLang].form_btn; btn.disabled = false; }
         });
     </script>
