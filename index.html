@@ -8,16 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        midnight: '#050B14', // أزرق ليلي غامق جداً
-                        gold: '#C5A059',    // ذهبي فخم
+                        midnight: '#050B14',
+                        gold: '#C5A059',
                         goldhover: '#D4AF37',
-                        surface: '#0A1526'  // لون الكروت
+                        surface: '#0A1526',
+                        inputbg: '#0F1C33'
                     },
                     fontFamily: {
                         en: ['Montserrat', 'sans-serif'],
@@ -29,41 +31,42 @@
     </script>
 
     <style>
-        /* إعدادات الخطوط والنعومة */
-        body { font-family: 'Montserrat', sans-serif; background-color: #050B14; color: #ffffff; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #050B14; color: #ffffff; overflow-x: hidden; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* خلفية الهيرو الفخمة مع دمج لوني */
+        /* خلفية طيارة التدريب الصغيرة */
         .hero-premium {
-            background-image: linear-gradient(to bottom, rgba(5, 11, 20, 0.4), rgba(5, 11, 20, 1)), url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(to bottom, rgba(5, 11, 20, 0.6), rgba(5, 11, 20, 1)), url('https://images.unsplash.com/photo-1560662369-0268ec38031d?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed; 
         }
 
-        /* تأثيرات ناعمة */
-        .glass-nav { background: rgba(5, 11, 20, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        .glass-nav { background: rgba(5, 11, 20, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
         .transition-all { transition: all 0.4s ease-in-out; }
+        
+        /* تأثير الكروت */
+        .course-card:hover { transform: translateY(-10px); border-color: #C5A059; box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1); }
     </style>
 </head>
 <body class="antialiased selection:bg-gold selection:text-midnight">
 
     <header class="glass-nav fixed w-full top-0 z-50 transition-all">
-        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-white text-2xl font-bold flex items-center gap-3 tracking-widest uppercase">
                 <i class="fas fa-plane text-gold"></i>
                 <span data-i18n="logo" class="font-light">WeFly<span class="font-bold text-gold">Smart</span></span>
             </a>
 
-            <nav class="hidden md:flex items-center gap-10 text-sm tracking-widest uppercase text-gray-300">
+            <nav class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-gray-300">
                 <a href="#programs" class="hover:text-gold transition-all" data-i18n="nav_programs">Programs</a>
                 <a href="#team" class="hover:text-gold transition-all" data-i18n="nav_team">Instructors</a>
-                <a href="#about" class="hover:text-gold transition-all" data-i18n="nav_about">The Academy</a>
+                <a href="#about" class="hover:text-gold transition-all" data-i18n="nav_about">Academy</a>
             </nav>
 
-            <div class="flex items-center gap-6">
-                <button onclick="toggleLanguage()" class="text-gray-300 hover:text-gold text-sm tracking-widest uppercase transition-all">
-                    <span id="langBtnText">العربية</span>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="text-gray-300 hover:text-gold text-sm tracking-widest uppercase transition-all flex items-center gap-2">
+                    <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
                 </button>
                 <a href="#enroll" class="hidden md:inline-block border border-gold text-gold hover:bg-gold hover:text-midnight px-6 py-2 rounded text-sm tracking-widest uppercase transition-all" data-i18n="nav_cta">
                     Apply Now
@@ -75,69 +78,164 @@
     <section class="hero-premium h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
         <p class="text-gold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse" data-i18n="hero_subtitle">Elite Flight Training Academy</p>
         <h1 class="text-5xl md:text-7xl font-light text-white mb-8 leading-tight" data-i18n="hero_title">
-            Master the Skies <br> <span class="font-bold">in the USA</span>
+            Master the Skies <br> <span class="font-bold text-gold">in the USA</span>
         </h1>
-        <p class="text-gray-400 max-w-2xl mx-auto mb-12 text-lg font-light leading-relaxed" data-i18n="hero_desc">
-            Experience world-class aviation training tailored for future airline professionals. Uncompromising safety, unmatched expertise, and pure elegance.
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12 text-lg font-light leading-relaxed" data-i18n="hero_desc">
+            Experience world-class aviation training on modern aircraft. Uncompromising safety, unmatched expertise, and pure elegance.
         </p>
         <a href="#enroll" class="bg-gold text-midnight hover:bg-goldhover px-10 py-4 rounded-sm text-sm font-bold tracking-[0.2em] uppercase transition-all transform hover:scale-105" data-i18n="hero_btn">
-            Begin Your Journey
+            Book Discovery Flight
         </a>
     </section>
 
     <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
 
-    <section id="team" class="py-32 bg-midnight">
+    <section id="programs" class="py-24 bg-midnight">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-24">
-                <h2 class="text-3xl md:text-4xl font-light text-white mb-4" data-i18n="team_title">Commanders of <span class="text-gold font-bold">Excellence</span></h2>
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-light text-white mb-4" data-i18n="courses_title">Our <span class="text-gold font-bold">Training Programs</span></h2>
                 <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto font-light text-lg" data-i18n="team_desc">Learn from distinguished FAA-certified professionals bringing decades of elite aviation experience.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light" data-i18n="courses_desc">Comprehensive FAA-certified pathways from your first flight to the airline cockpit.</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-                
-                <div class="group flex flex-col items-center">
-                    <div class="relative w-64 h-64 mb-8 overflow-hidden rounded-full border-2 border-gold/20 group-hover:border-gold transition-all duration-500">
-                        <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400?text=Mostafa'">
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-2" data-i18n="pilot1_name">Mostafa Hassan</h4>
-                    <p class="text-gold text-sm tracking-widest uppercase mb-6" data-i18n="pilot1_title">Chief Flight Instructor</p>
-                    <p class="text-gray-400 font-light leading-relaxed text-center max-w-md" data-i18n="pilot1_bio">
-                        Based in Los Angeles, Mostafa provides bespoke flight training. From breathtaking discovery flights to advanced commercial licenses, his methodology is built on precision, safety, and an unwavering commitment to his students' success.
-                    </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="course-card bg-surface border border-gray-800 p-10 rounded-xl transition-all duration-300">
+                    <i class="fas fa-plane-departure text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Private Pilot (PPL)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-i18n="course_ppl_desc">The first step in your aviation journey. Learn the fundamentals of flight, navigation, and aircraft control to fly confidently and safely.</p>
                 </div>
-                
-                <div class="group flex flex-col items-center">
-                    <div class="relative w-64 h-64 mb-8 overflow-hidden rounded-full border-2 border-gold/20 group-hover:border-gold transition-all duration-500">
-                        <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400?text=Youssef'">
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-2" data-i18n="pilot2_name">Youssef A. Youssef</h4>
-                    <p class="text-gold text-sm tracking-widest uppercase mb-6" data-i18n="pilot2_title">Instrument Flight Specialist</p>
-                    <p class="text-gray-400 font-light leading-relaxed text-center max-w-md" data-i18n="pilot2_bio">
-                        An expert in instrument proficiency and modern simulation technology. Youssef integrates advanced data-driven navigation techniques into his curriculum, forging pilots who command the skies with absolute confidence and authority.
-                    </p>
+                <div class="course-card bg-surface border border-gray-800 p-10 rounded-xl transition-all duration-300">
+                    <i class="fas fa-cloud-moon text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Instrument Rating (IR)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-i18n="course_ir_desc">Master flying solely by reference to instruments. Navigate through clouds and low visibility with precision using modern simulation and VR.</p>
                 </div>
-                
+                <div class="course-card bg-surface border border-gray-800 p-10 rounded-xl transition-all duration-300">
+                    <i class="fas fa-user-tie text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Commercial (CPL)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6" data-i18n="course_cpl_desc">Turn your passion into a career. Advanced maneuvers, complex aircraft operations, and the professionalism required for airline operations.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <section id="team" class="py-24 bg-[#070e1a]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-light text-white mb-4" data-i18n="team_title">Commanders of <span class="text-gold font-bold">Excellence</span></h2>
+                <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light" data-i18n="team_desc">Learn from distinguished FAA-certified professionals bringing decades of elite aviation experience.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+                <div class="group flex flex-col items-center">
+                    <div class="relative w-56 h-56 mb-8 overflow-hidden rounded-full border-2 border-gold/20 group-hover:border-gold transition-all duration-500">
+                        <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/300?text=Mostafa'">
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2" data-i18n="pilot1_name">Mostafa Hassan</h4>
+                    <p class="text-gold text-sm tracking-widest uppercase mb-4" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
+                    <p class="text-gray-400 font-light leading-relaxed text-center text-sm" data-i18n="pilot1_bio">
+                        Based in Los Angeles, Mostafa provides bespoke flight training on Cessna, Piper, and Diamond aircraft. His methodology is built on precision, safety, and an unwavering commitment to his students' success from their first discovery flight to advanced licenses.
+                    </p>
+                </div>
+                
+                <div class="group flex flex-col items-center">
+                    <div class="relative w-56 h-56 mb-8 overflow-hidden rounded-full border-2 border-gold/20 group-hover:border-gold transition-all duration-500">
+                        <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/300?text=Youssef'">
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2" data-i18n="pilot2_name">Youssef A. Youssef</h4>
+                    <p class="text-gold text-sm tracking-widest uppercase mb-4" data-i18n="pilot2_title">Instrument Flight Specialist (CFI-I)</p>
+                    <p class="text-gray-400 font-light leading-relaxed text-center text-sm" data-i18n="pilot2_bio">
+                        An expert in instrument proficiency and modern simulation technology. Backed by a background in Geographic Information Systems (GIS), Youssef integrates data-driven navigation techniques, forging pilots who command the skies with absolute confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll" class="py-24 bg-midnight border-t border-gray-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-surface border border-gray-800 rounded-2xl p-10 md:p-16 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gold opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+
+                <div class="text-center mb-12 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-light text-white mb-4" data-i18n="enroll_title">Request <span class="text-gold font-bold">Admission</span></h2>
+                    <p class="text-gray-400" data-i18n="enroll_desc">Our aviation advisors will contact you within 24 hours to plan your journey.</p>
+                </div>
+                
+                <form id="leadForm" class="relative z-10" dir="auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-i18n="label_name">Full Name</label>
+                            <input type="text" id="full_name" required class="w-full bg-inputbg border border-gray-700 text-white px-5 py-4 rounded focus:outline-none focus:border-gold transition-colors placeholder-gray-600" data-i18n-placeholder="form_name" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-i18n="label_email">Email Address</label>
+                            <input type="email" id="email" required class="w-full bg-inputbg border border-gray-700 text-white px-5 py-4 rounded focus:outline-none focus:border-gold transition-colors placeholder-gray-600" data-i18n-placeholder="form_email" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                        <div>
+                            <label class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-i18n="label_phone">Phone Number</label>
+                            <input type="tel" id="phone" required class="w-full bg-inputbg border border-gray-700 text-white px-5 py-4 rounded focus:outline-none focus:border-gold transition-colors placeholder-gray-600" data-i18n-placeholder="form_phone" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-i18n="label_prog">Program of Interest</label>
+                            <select id="program" required class="w-full bg-inputbg border border-gray-700 text-white px-5 py-4 rounded focus:outline-none focus:border-gold transition-colors appearance-none">
+                                <option value="" disabled selected data-i18n="form_prog_default">Select Program</option>
+                                <option value="Discovery Flight">Discovery Flight (Intro)</option>
+                                <option value="PPL">Private Pilot License (PPL)</option>
+                                <option value="CPL">Commercial Pilot License (CPL)</option>
+                                <option value="IR">Instrument Rating (IR)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-gold hover:bg-goldhover text-midnight font-bold py-5 rounded text-sm tracking-[0.2em] uppercase transition-all flex justify-center items-center gap-3">
+                        <span data-i18n="form_btn">Submit Application</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                    <div id="successMsg" class="hidden mt-6 p-4 border border-green-500/30 bg-green-500/10 text-green-400 rounded text-center text-sm font-medium tracking-wide"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-600 text-center py-10 text-sm border-t border-gray-900">
+        <p>&copy; 2026 WeFlySmart Aviation Academy. All rights reserved.</p>
+    </footer>
+
     <script>
         const translations = {
             en: {
-                logo: "WeFly<span class='font-bold text-gold'>Smart</span>", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Academy", nav_cta: "Apply Now",
-                hero_subtitle: "Elite Flight Training Academy", hero_title: "Master the Skies <br> <span class='font-bold text-gold'>in the USA</span>", hero_desc: "Experience world-class aviation training tailored for future airline professionals. Uncompromising safety, unmatched expertise, and pure elegance.", hero_btn: "Begin Your Journey",
+                logo: "WeFly<span class='font-bold text-gold'>Smart</span>", nav_programs: "Programs", nav_team: "Instructors", nav_about: "Academy", nav_cta: "Apply Now",
+                hero_subtitle: "Elite Flight Training Academy", hero_title: "Master the Skies <br> <span class='font-bold text-gold'>in the USA</span>", hero_desc: "Experience world-class aviation training on modern aircraft. Uncompromising safety, unmatched expertise, and pure elegance.", hero_btn: "Book Discovery Flight",
+                courses_title: "Our <span class='text-gold font-bold'>Training Programs</span>", courses_desc: "Comprehensive FAA-certified pathways from your first flight to the airline cockpit.",
+                course_ppl_desc: "The first step in your aviation journey. Learn the fundamentals of flight, navigation, and aircraft control to fly confidently and safely.",
+                course_ir_desc: "Master flying solely by reference to instruments. Navigate through clouds and low visibility with precision using modern simulation and VR.",
+                course_cpl_desc: "Turn your passion into a career. Advanced maneuvers, complex aircraft operations, and the professionalism required for airline operations.",
                 team_title: "Commanders of <span class='text-gold font-bold'>Excellence</span>", team_desc: "Learn from distinguished FAA-certified professionals bringing decades of elite aviation experience.",
-                pilot1_name: "Mostafa Hassan", pilot1_title: "Chief Flight Instructor", pilot1_bio: "Based in Los Angeles, Mostafa provides bespoke flight training. From breathtaking discovery flights to advanced commercial licenses, his methodology is built on precision, safety, and an unwavering commitment to his students' success.",
-                pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Flight Specialist", pilot2_bio: "An expert in instrument proficiency and modern simulation technology. Youssef integrates advanced data-driven navigation techniques into his curriculum, forging pilots who command the skies with absolute confidence and authority."
+                pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_bio: "Based in Los Angeles, Mostafa provides bespoke flight training on Cessna, Piper, and Diamond aircraft. His methodology is built on precision, safety, and an unwavering commitment to his students' success from their first discovery flight to advanced licenses.",
+                pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Flight Specialist (CFI-I)", pilot2_bio: "An expert in instrument proficiency and modern simulation technology. Backed by a background in Geographic Information Systems (GIS), Youssef integrates data-driven navigation techniques, forging pilots who command the skies with absolute confidence.",
+                enroll_title: "Request <span class='text-gold font-bold'>Admission</span>", enroll_desc: "Our aviation advisors will contact you within 24 hours to plan your journey.",
+                label_name: "Full Name", label_email: "Email Address", label_phone: "Phone Number", label_prog: "Program of Interest",
+                form_name: "John Doe", form_email: "john@example.com", form_phone: "+1 (555) 000-0000", form_prog_default: "Select Program", form_btn: "Submit Application",
+                success_msg: "✅ Application received successfully. We will contact you shortly.", btn_sending: "Processing..."
             },
             ar: {
                 logo: "وي فلاي <span class='font-bold text-gold'>سمارت</span>", nav_programs: "البرامج", nav_team: "الخبراء", nav_about: "الأكاديمية", nav_cta: "سجل الآن",
-                hero_subtitle: "أكاديمية تدريب الطيران النخبوية", hero_title: "سيّد الأجواء <br> <span class='font-bold text-gold'>من الولايات المتحدة</span>", hero_desc: "اختبر مستوى عالمي من التدريب المصمم خصيصاً لمحترفي الطيران في المستقبل. أمان لا مساومة فيه، خبرة لا تضاهى، وفخامة مطلقة.", hero_btn: "ابدأ رحلتك الآن",
-                team_title: "قادة <span class='text-gold font-bold'>التميز الجوي</span>", team_desc: "تدرب على أيدي نخبة من الخبراء المعتمدين من إدارة الطيران الفيدرالية، بخبرات تمتد لعقود.",
-                pilot1_name: "مصطفى حسن", pilot1_title: "كبير مدربي الطيران", pilot1_bio: "انطلاقاً من لوس أنجلوس، يقدم مصطفى تدريباً استثنائياً. بدءاً من الرحلات الاستكشافية الساحرة وحتى الرخص التجارية المتقدمة، تعتمد منهجيته على الدقة، الأمان، والالتزام المطلق بنجاح المتدرب.",
-                pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي", pilot2_bio: "خبير في كفاءة الطيران الآلي وأنظمة المحاكاة الحديثة. يدمج يوسف تقنيات الملاحة المتقدمة في مناهجه، ليصنع طيارين يقودون الأجواء بثقة وسلطة مطلقة."
+                hero_subtitle: "أكاديمية تدريب الطيران النخبوية", hero_title: "سيّد الأجواء <br> <span class='font-bold text-gold'>من الولايات المتحدة</span>", hero_desc: "اختبر مستوى عالمي من التدريب على طائرات حديثة. أمان لا مساومة فيه، خبرة لا تضاهى، وفخامة مطلقة.", hero_btn: "احجز رحلتك الاستكشافية",
+                courses_title: "برامجنا <span class='text-gold font-bold'>التدريبية</span>", courses_desc: "مسارات معتمدة من إدارة الطيران الفيدرالية (FAA) تبدأ من رحلتك الأولى وحتى قمرة قيادة الخطوط الجوية.",
+                course_ppl_desc: "خطوتك الأولى في عالم الطيران. تعلم أساسيات التحليق، الملاحة، والتحكم بالطائرة لتقود بثقة وأمان تام.",
+                course_ir_desc: "احترف الطيران بالاعتماد على الأجهزة فقط. تنقل عبر السحب وانعدام الرؤية بدقة متناهية باستخدام أحدث أجهزة المحاكاة.",
+                course_cpl_desc: "حوّل شغفك إلى مهنة. مناورات متقدمة، عمليات طيران معقدة، واحترافية عالية مطلوبة للعمل في الخطوط الجوية.",
+                team_title: "قادة <span class='text-gold font-bold'>التميز الجوي</span>", team_desc: "تدرب على أيدي نخبة من الخبراء المعتمدين، بخبرات تمتد لسنوات في التدريب العملي والمحاكاة.",
+                pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_bio: "انطلاقاً من لوس أنجلوس، يقدم مصطفى تدريباً مخصصاً على طائرات سيسنا وبايبر ودايموند. تعتمد منهجيته على الدقة والأمان، والالتزام المطلق بنجاح المتدرب بدءاً من رحلته الأولى وحتى رخص الطيران المتقدمة.",
+                pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_bio: "خبير في كفاءة الطيران الآلي وتقنيات المحاكاة الحديثة. وبفضل خلفيته في نظم المعلومات الجغرافية، يدمج تقنيات الملاحة المتقدمة ليصنع طيارين يقودون الأجواء بثقة وسلطة مطلقة في كافة الظروف الجوية.",
+                enroll_title: "طلب <span class='text-gold font-bold'>الالتحاق</span>", enroll_desc: "سيتواصل معك مستشارو الطيران لدينا خلال 24 ساعة لبدء رحلتك.",
+                label_name: "الاسم بالكامل", label_email: "البريد الإلكتروني", label_phone: "رقم الهاتف", label_prog: "البرنامج المطلوب",
+                form_name: "اكتب اسمك هنا", form_email: "بريدك الإلكتروني", form_phone: "رقم الهاتف (يفضل واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب",
+                success_msg: "✅ تم استلام طلبك بنجاح. سنتواصل معك في أقرب وقت.", btn_sending: "جاري المعالجة..."
             }
         };
 
@@ -147,13 +245,71 @@
             currentLang = currentLang === 'en' ? 'ar' : 'en';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
-            document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'EN' : 'العربية';
+            document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'العربية' : 'English';
 
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) element.innerHTML = translations[currentLang][key];
             });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang][key]) element.placeholder = translations[currentLang][key];
+            });
         }
+
+        // --- إرسال البيانات (Supabase + Web3Forms) ---
+        const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const btn = document.getElementById('submitBtn');
+            const successMsgDiv = document.getElementById('successMsg');
+            
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLang]['btn_sending']}`;
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            successMsgDiv.classList.add('hidden'); 
+
+            const rowData = {
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone').value,
+                service_type: document.getElementById('program').value 
+            };
+
+            try {
+                const { error } = await _supabase.from('contacts').insert([rowData]);
+                if (error) throw error;
+
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc",
+                        subject: "🌟 VIP Lead: " + rowData.full_name,
+                        from_name: "WeFlySmart System",
+                        name: rowData.full_name,
+                        email: rowData.email,
+                        message: `رقم التليفون: ${rowData.phone_number}\nالبرنامج المطلوب: ${rowData.service_type}\n\n*تم الحفظ في قاعدة البيانات.*`
+                    })
+                });
+
+                successMsgDiv.innerText = translations[currentLang]['success_msg'];
+                successMsgDiv.classList.remove('hidden');
+                document.getElementById('leadForm').reset();
+
+            } catch (err) {
+                console.error('Error details:', err);
+                alert('❌ Error processing request. Please check connection.');
+            } finally {
+                btn.innerHTML = `<span data-i18n="form_btn">${translations[currentLang]['form_btn']}</span> <i class="fas fa-paper-plane"></i>`;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
+        });
     </script>
 </body>
 </html>
