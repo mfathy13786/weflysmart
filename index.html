@@ -6,7 +6,6 @@
     
     <title>WeFlySmart | Premier Flying Club in the USA</title>
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
-    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
     
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
@@ -38,7 +37,6 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* Hamburger Menu Animation */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         html[dir="rtl"] #mobileMenuBtn span:nth-child(2) { margin-left: 0; margin-right: auto; }
@@ -52,8 +50,7 @@
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-5 py-3 md:py-4 flex justify-between items-center relative">
             <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
-                <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[200px] md:w-[240px] h-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-navy text-xl font-extrabold" data-i18n="logo">WeFlySmart</span>
+                <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[200px] md:w-[240px] h-auto object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
                 <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Flight Programs</a>
@@ -78,7 +75,7 @@
         </div>
     </header>
 
-    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/slide1.jpg');">
+    <section id="heroSection" class="flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32 relative" style="background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');">
         <div class="container mx-auto relative z-10">
             <div class="max-w-2xl text-left rtl:text-right" data-aos="fade-up" data-aos-duration="1000">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
@@ -170,7 +167,7 @@
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500 bg-gray-800">
                         <img src="images/online.jpg" alt="Online Training" class="w-full h-64 md:h-80 object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Online Course Image Missing</div>
+                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Please upload online.jpg</div>
                     </div>
                 </div>
             </div>
@@ -263,12 +260,6 @@
                     </summary>
                     <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_4_a">No! As long as vision is correctable to 20/40 (with glasses/contacts), you can fly.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_5_q">What is a FAA Medical Certificate?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_5_a">A basic health check by an Aviation Medical Examiner. We guide you through it.</div>
-                </details>
             </div>
         </div>
     </section>
@@ -290,9 +281,8 @@
             <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
                 <div class="w-full h-48 md:h-64 rounded-xl shadow-sm mb-2 overflow-hidden bg-gray-800 relative">
                     <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program Image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div style="display:none;" class="absolute inset-0 items-center justify-center text-white font-bold">Image Missing</div>
+                    <div style="display:none;" class="absolute inset-0 items-center justify-center text-white font-bold">Please upload the missing image</div>
                 </div>
-                
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
                     <i id="progIcon" class="text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
@@ -315,7 +305,6 @@
                     <h2 class="text-2xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
                     <p class="text-gray-500 text-sm" data-i18n="enroll_desc">Leave your details to schedule your flight or online course.</p>
                 </div>
-                
                 <form id="leadForm" dir="auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_name" placeholder="Full Name">
@@ -390,8 +379,8 @@
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // السلايدر يقرأ من عندك إنت
-        const heroImages = ["url('images/slide1.jpg')", "url('images/slide2.jpg')", "url('images/slide3.jpg')"];
+        // السلايدر بيقرأ الـ 3 صور بتاعتك
+        const heroImages = ["url('images/hero-plane.jpg')", "url('images/slide2.jpg')", "url('images/slide3.jpg')"];
         let currentHero = 0;
         const heroSection = document.getElementById('heroSection');
         setInterval(() => {
@@ -421,6 +410,12 @@
                 pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_short_bio: "Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.",
                 pilot2_full_bio: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`,
                 
+                faq_title: "Frequently Asked Questions",
+                faq_1_q: "Do I need prior experience?", faq_1_a: "Not at all! We train from absolute zero.",
+                faq_2_q: "How long does a PPL take?", faq_2_a: "Typically 3 to 6 months if flying 2-3 times a week.",
+                faq_3_q: "What are the age requirements?", faq_3_a: "You can start training at any age, but you must be at least 16 to fly solo, and 17 to get your Private Pilot License.",
+                faq_4_q: "Do I need perfect vision?", faq_4_a: "No! As long as your vision can be corrected to 20/40 (with glasses or contacts) for a Class 3 Medical, you can fly.",
+                
                 enroll_title: "Join WeFlySmart", enroll_desc: "Leave details to schedule.", form_name: "Full Name", form_email: "Email", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Successfully Sent!",
                 footer_about: "An exclusive flying club in LA for premier training.", footer_links_title: "Links", footer_contact_title: "Contact LA", footer_address: "Los Angeles, California", footer_social_title: "Follow Us", footer_social_desc: "Stay updated with flights.",
                 modal_contact_btn: "Inquire via WhatsApp"
@@ -440,6 +435,12 @@
                 pilot1_full_bio: `<p>مصطفى حسن هو مدرب طيران معتمد مقيم في لوس أنجلوس، شغوف بمساعدة الآخرين على تحويل أحلامهم في الطيران إلى حقيقة. يتمتع بخبرة واسعة في الطيران على مجموعة متنوعة من الطائرات بما في ذلك سيسنا، بايبر، دايموند، وسلينغ، مما يتيح له تقديم تدريب عالي الجودة ومخصص ليناسب أهداف كل طالب.</p><p>سواء كنت تدخل طائرة للمرة الأولى أو تسعى لمهنة طيار محترف، يوفر مصطفى بيئة تعليمية منظمة وداعمة مصممة لبناء الثقة والمهارة.</p><br><p><strong>يتخصص مصطفى في:</strong><br>• الرحلات الاستكشافية فوق لوس أنجلوس<br>• تدريب الطيار الخاص والتجاري<br>• التحضير للاختبارات العملية والنظرية<br>• فصول دراسية أرضية (Ground School) فردية</p><br><p>يُعرف مصطفى بأسلوبه الصبور ونهجه الواقعي، ويضمن أن يكون كل درس فعالاً وشيقاً ويركز على الأمان بالمقام الأول.</p>`,
                 pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_short_bio: "يوسف هو محترف طيران متفاني يتخصص في تدريب الطيارين مع تركيز قوي على كفاءة الطيران الآلي واتخاذ القرارات.",
                 pilot2_full_bio: `<p>يوسف أ. يوسف هو محترف طيران شغوف ومدرب طيران آلي معتمد (CFI-I) بخبرة تتجاوز الثماني سنوات في الصناعة. يتخصص في تدريب الطيارين في مختلف مراحل تطورهم، مع تركيز قوي على كفاءة الطيران الآلي، الانضباط الإجرائي، واتخاذ القرارات الواقعية.</p><p>يدمج نهجه التعليمي بين التدريب التقليدي والأدوات الحديثة، بما في ذلك أجهزة المحاكاة وأنظمة الواقع الافتراضي، لتعزيز استخدام قوائم التحقق (Checklists) والوعي التشغيلي.</p><br><p>إلى جانب خبرته الجوية، يمتلك يوسف خلفية أكاديمية في نظم المعلومات الجغرافية (GIS)، مما يمنحه منظوراً يعتمد على البيانات في الملاحة والتخطيط. وقد قام بتطوير مناهج منظمة للطلاب تشمل برامج تدريبية مفصلة.</p><br><p>يُعرف يوسف بأسلوبه العملي وقدرته على تبسيط المفاهيم المعقدة، وهو ملتزم بإعداد الطلاب ليس فقط لاجتياز الاختبارات، بل ليصبحوا طيارين آمنين وأكفاء في ظروف العالم الحقيقي.</p>`,
+                
+                faq_title: "الأسئلة الشائعة",
+                faq_1_q: "هل أحتاج لخبرة سابقة؟", faq_1_a: "إطلاقاً! نبدأ معك من الصفر.",
+                faq_2_q: "كم مدة رخصة PPL؟", faq_2_a: "عادة من 3 إلى 6 أشهر بمعدل طيران 2-3 مرات أسبوعياً.",
+                faq_3_q: "ما هو السن المطلوب لبدء الطيران؟", faq_3_a: "يمكنك البدء في أي سن، لكن يجب أن تكون 16 عاماً للطيران المنفرد (Solo) و 17 عاماً للحصول على الرخصة الخاصة.",
+                faq_4_q: "هل أحتاج لنظر 6/6 للطيران؟", faq_4_a: "لا يشترط! طالما يمكنك الرؤية بنظارة أو عدسات لاجتياز الكشف الطبي، يمكنك الطيران.",
                 
                 enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك للتنسيق.", form_name: "الاسم", form_email: "الإيميل", form_phone: "الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال!",
                 footer_about: "مجتمع طيران حصري في LA لتدريب احترافي.", footer_links_title: "روابط", footer_contact_title: "تواصل معنا", footer_address: "لوس أنجلوس، كاليفورنيا", footer_social_title: "تابعنا", footer_social_desc: "ابقَ على اطلاع.",
@@ -462,6 +463,7 @@
         const pilotBody = document.getElementById('pilotModalBody');
         const progBody = document.getElementById('progModalBody');
         
+        // جافاسكريبت البرامج بيسحب الأسماء صح من الفولدر بتاعك
         const progData = {
             prog_disc: { 
                 icon: 'fas fa-binoculars', img: 'images/discovery.jpg',
