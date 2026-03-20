@@ -6,6 +6,7 @@
     
     <title>WeFlySmart | Premier Flying Club in the USA</title>
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
+    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
     
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
@@ -37,6 +38,7 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
+        /* Hamburger Menu Animation */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         html[dir="rtl"] #mobileMenuBtn span:nth-child(2) { margin-left: 0; margin-right: auto; }
@@ -89,21 +91,29 @@
 
     <section class="bg-white py-8 border-b border-gray-100 shadow-sm relative z-10">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center">
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/faa.png" alt="FAA Approved" class="h-12 md:h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display:none;" class="font-bold text-navy text-xs md:text-sm text-center uppercase px-3 py-1 border border-gray-200 rounded">FAA Approved</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-start justify-items-center">
+                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-14 w-14 md:h-16 md:w-16 bg-blue-50 rounded-full flex items-center justify-center text-navy text-2xl md:text-3xl border-2 border-blue-100 shadow-sm">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_faa">FAA Approved</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/cessna.png" alt="Cessna Fleet" class="h-8 md:h-10 object-contain my-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display:none;" class="font-bold text-navy text-xs md:text-sm text-center uppercase px-3 py-1 border border-gray-200 rounded mt-auto">Cessna Fleet</div>
+                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-14 w-14 md:h-16 md:w-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-700 text-2xl md:text-3xl border-2 border-gray-200 shadow-sm">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_cessna">Cessna Fleet</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="h-12 w-12 md:h-16 md:w-16 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl border-4 border-gray-100 shadow-sm"><i class="fas fa-award"></i></div>
+                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-14 w-14 md:h-16 md:w-16 bg-orange-50 rounded-full flex items-center justify-center text-accent text-2xl md:text-3xl border-2 border-orange-100 shadow-sm">
+                        <i class="fas fa-award"></i>
+                    </div>
                     <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_cfi">Certified Instructors</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="h-12 w-12 md:h-16 md:w-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-xl md:text-2xl border-4 border-green-100 shadow-sm"><i class="fas fa-shield-alt"></i></div>
+                <div class="flex flex-col items-center gap-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="h-14 w-14 md:h-16 md:w-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-2xl md:text-3xl border-2 border-green-100 shadow-sm">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <span class="font-bold text-navy text-xs md:text-sm text-center uppercase" data-i18n="badge_safety">100% Safety</span>
                 </div>
             </div>
@@ -160,8 +170,34 @@
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 hover:scale-[1.02] transition-transform duration-500 bg-gray-800">
                         <img src="images/online.jpg" alt="Online Training" class="w-full h-64 md:h-80 object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Online Course Image</div>
+                        <div style="display:none;" class="w-full h-64 md:h-80 items-center justify-center text-white text-xl font-bold">Online Course Image Missing</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="py-12 md:py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="why_title">Why Fly With Us?</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform"><i class="fas fa-sun"></i></div>
+                    <h4 class="font-bold text-navy mb-2" data-i18n="why_1_title">Ideal LA Weather</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="why_1_desc">Over 300 days of sunshine a year in Los Angeles ensure continuous and uninterrupted flight training.</p>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform"><i class="fas fa-users"></i></div>
+                    <h4 class="font-bold text-navy mb-2" data-i18n="why_2_title">Exclusive Community</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="why_2_desc">Join a premium club. Network, share experiences, and grow with supportive peers.</p>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="font-bold text-navy mb-2" data-i18n="why_3_title">FAA Certified Fleet</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="why_3_desc">Train on meticulously maintained Cessnas, Pipers, and Diamonds with advanced avionics.</p>
                 </div>
             </div>
         </div>
@@ -192,6 +228,47 @@
                         <span class="text-navy font-bold text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start mx-auto sm:mx-0 transition-colors"><span data-i18n="read_more">Read More</span> <i class="fas fa-plus-circle"></i></span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="faq_title">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            <div class="space-y-4" dir="auto">
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_1_q">Do I need prior experience?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_1_a">Not at all! We train from absolute zero. The Discovery Flight is a great start.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_2_q">How long does a PPL take?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_2_a">Typically 3 to 6 months if flying 2-3 times a week.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_3_q">What are the age requirements?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_3_a">Start at any age, but you must be 16 to fly solo, and 17 for your Private Pilot License.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_4_q">Do I need perfect vision?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_4_a">No! As long as vision is correctable to 20/40 (with glasses/contacts), you can fly.</div>
+                </details>
+                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
+                        <span data-i18n="faq_5_q">What is a FAA Medical Certificate?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 pt-0 text-sm" data-i18n="faq_5_a">A basic health check by an Aviation Medical Examiner. We guide you through it.</div>
+                </details>
             </div>
         </div>
     </section>
@@ -230,6 +307,39 @@
             </div>
         </div>
     </div>
+
+    <section id="enroll" class="py-12 md:py-16 bg-navy relative border-t-4 border-accent">
+        <div class="container mx-auto px-5">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-2xl relative z-10" data-aos="zoom-in">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
+                    <p class="text-gray-500 text-sm" data-i18n="enroll_desc">Leave your details to schedule your flight or online course.</p>
+                </div>
+                
+                <form id="leadForm" dir="auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_name" placeholder="Full Name">
+                        <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_email" placeholder="Email Address">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" data-i18n-placeholder="form_phone" placeholder="Phone (WhatsApp)">
+                        <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none bg-white text-sm">
+                            <option value="" disabled selected data-i18n="form_prog_default">Select a program</option>
+                            <option value="Discovery Flight">Discovery Flight</option>
+                            <option value="PPL">Private Pilot (PPL)</option>
+                            <option value="CPL">Commercial Pilot (CPL)</option>
+                            <option value="IR">Instrument Rating (IR)</option>
+                            <option value="Online Ground School">Online Ground School 💻</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2 hover:shadow-lg transform hover:scale-105">
+                        <span data-i18n="form_btn">Send Request</span>
+                    </button>
+                    <div id="successMsg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-center text-sm font-bold"></div>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-[#020b14] text-gray-300 pt-16 pb-8 border-t-4 border-accent">
         <div class="container mx-auto px-6">
@@ -413,6 +523,21 @@
             modal.classList.add('opacity-0'); modalContent.classList.remove('modal-content-enter');
             setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 300);
         }
+
+        const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
+        
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const btn = document.getElementById('submitBtn'); const successMsg = document.getElementById('successMsg');
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`; btn.disabled = true; successMsg.classList.add('hidden');
+            
+            const data = { full_name: document.getElementById('full_name').value, email: document.getElementById('email').value, phone_number: document.getElementById('phone').value, service_type: document.getElementById('program').value };
+            try {
+                await _supabase.from('contacts').insert([data]);
+                await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc", subject: "🛫 Lead: " + data.full_name, name: data.full_name, email: data.email, message: `${data.phone_number}\n${data.service_type}` }) });
+                successMsg.innerText = translations[currentLang].success_msg; successMsg.classList.remove('hidden'); document.getElementById('leadForm').reset();
+            } catch (err) { alert('Error!'); } finally { btn.innerHTML = translations[currentLang].form_btn; btn.disabled = false; }
+        });
     </script>
 </body>
 </html>
