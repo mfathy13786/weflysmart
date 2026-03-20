@@ -57,12 +57,8 @@
 
         .glass-modal { background: rgba(10, 37, 64, 0.85); backdrop-filter: blur(8px); }
         .modal-content-enter { animation: modalPop 0.3s ease-out forwards; }
-        @keyframes modalPop {
-            0% { transform: scale(0.9); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        @keyframes modalPop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
-        /* اخفاء سهم الـ details الافتراضي */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
     </style>
@@ -71,7 +67,6 @@
 
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-5 py-3 md:py-4 flex justify-between items-center relative">
-            
             <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
                 <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[160px] sm:w-[200px] md:w-[240px] h-auto object-contain">
             </a>
@@ -118,6 +113,28 @@
         </div>
     </section>
 
+    <section class="bg-white py-6 border-b border-gray-100 shadow-sm relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-2xl text-accent"></i>
+                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_faa">FAA Standards</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-award text-2xl text-accent"></i>
+                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_cfi">Certified Instructors</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-plane text-2xl text-accent"></i>
+                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_cessna">Cessna & Piper Fleet</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-2xl text-accent"></i>
+                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_safety">100% Safety Record</span>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="programs" class="py-12 md:py-16 bg-lightbg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10">
@@ -128,7 +145,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
-                    <i class="fas fa- binoculars text-3xl text-accent mb-4"></i>
+                    <i class="fas fa-binoculars text-3xl text-accent mb-4"></i>
                     <h3 class="text-lg font-bold text-navy mb-2" data-i18n="course_disc_title">Discovery Flight</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_disc_desc">Your first step into the sky. Experience the thrill of flying over Los Angeles with an expert instructor.</p>
                 </div>
@@ -242,7 +259,7 @@
         </div>
     </div>
 
-    <section class="py-12 md:py-16 bg-white">
+    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-3xl">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="faq_title">Frequently Asked Questions</h2>
@@ -327,17 +344,17 @@
     </a>
 
     <script>
-        // Mobile Menu
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
 
-        // Translations & Data
         const translations = {
             en: {
                 nav_programs: "Programs", nav_why: "Why Us", nav_team: "Instructors", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.", hero_btn: "Book Discovery Flight",
+                
+                badge_faa: "FAA Standards", badge_cfi: "Certified Instructors", badge_cessna: "Cessna & Piper Fleet", badge_safety: "100% Safety Record",
                 
                 courses_title: "Flight Training Programs", courses_subtitle: "FAA-approved programs structured to take you from a beginner to a professional.",
                 course_disc_title: "Discovery Flight", course_disc_desc: "Your first step into the sky. Experience the thrill of flying over Los Angeles with an expert instructor.",
@@ -365,6 +382,8 @@
                 nav_programs: "البرامج", nav_why: "لماذا نحن", nav_team: "المدربون", nav_cta: "انضم للنادي",
                 hero_subtitle: "مرحباً بك في نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع حصري من شغوفي الطيران. نوفر لك تدريباً عملياً في بيئة داعمة ومميزة لنادي طيران حقيقي.", hero_btn: "احجز رحلة استكشافية",
                 
+                badge_faa: "معايير FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول سيسنا وبايبر", badge_safety: "أمان بنسبة 100%",
+
                 courses_title: "برامج تدريب الطيران", courses_subtitle: "برامج معتمدة من FAA لتأخذك من الصفر وحتى الاحتراف.",
                 course_disc_title: "الرحلة الاستكشافية", course_disc_desc: "خطوتك الأولى نحو السماء. جرب متعة الطيران فوق لوس أنجلوس مع مدرب محترف.",
                 course_ppl_desc: "الأساس لرحلتك الجوية. تعلم التحكم في الطائرة، والقوانين لتطير بأمان.", course_ir_desc: "حلّق بدقة وسط السحب وانعدام الرؤية بالاعتماد كلياً على الأجهزة.", course_cpl_desc: "ارتقِ بمهاراتك للمستوى الاحترافي المطلوب للعمل في الخطوط الجوية.",
@@ -404,7 +423,6 @@
             });
         }
 
-        // Modal Logic
         const modal = document.getElementById('bioModal');
         const modalContent = document.getElementById('bioModalContent');
         
@@ -431,7 +449,6 @@
             }, 300);
         }
 
-        // Supabase & Web3Forms
         const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault(); 
