@@ -25,20 +25,17 @@
     </script>
 
     <style>
-        /* التبديل بين الخطوط */
+        /* التبديل بين الخطوط حسب لغة الصفحة */
         html[dir="ltr"] body { font-family: 'Inter', sans-serif; }
         html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
         
-        /* خلفية القسم الرئيسي (Hero) */
-        .hero-bg {
-            background: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.75)), 
-                        url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80') center/cover;
-        }
+        /* تأثيرات ناعمة */
+        .transition-all { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="bg-lightbg text-gray-800 antialiased overflow-x-hidden">
 
-    <header class="bg-primary fixed w-full top-0 z-50 shadow-lg transition-all duration-300">
+    <header class="bg-primary fixed w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-white text-2xl font-bold flex items-center gap-2">
                 <i class="fas fa-plane-departure text-accent"></i>
@@ -46,50 +43,68 @@
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-white font-medium">
-                <a href="#programs" class="hover:text-accent transition-colors" data-i18n="nav_programs">Programs</a>
-                <a href="#about" class="hover:text-accent transition-colors" data-i18n="nav_about">About Us</a>
+                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Programs</a>
+                <a href="#team" class="hover:text-accent transition-all" data-i18n="nav_team">Instructors</a>
+                <a href="#about" class="hover:text-accent transition-all" data-i18n="nav_about">About Us</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="text-white hover:text-accent font-bold px-3 py-1 flex items-center gap-2 transition-colors">
-                    <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
+                <button onclick="toggleLanguage()" class="text-white hover:text-accent font-bold px-2 py-1 border border-transparent hover:border-accent rounded transition-all">
+                    <i class="fas fa-globe mr-1 ml-1"></i> <span id="langBtnText">العربية</span>
                 </button>
-                <a href="#enroll" class="hidden md:inline-block bg-accent hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow-lg transition-colors" data-i18n="nav_cta">
+                <a href="#enroll" class="bg-accent hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow-lg transition-all" data-i18n="nav_cta">
                     Start Flying
                 </a>
             </div>
         </div>
     </header>
 
-    <section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6 mt-16">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-down" data-i18n="hero_title">Earn Your Wings in the USA</h1>
-        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mb-10" data-i18n="hero_desc">FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.</p>
-        <a href="#enroll" class="bg-accent hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded text-lg shadow-2xl transition-transform transform hover:-translate-y-1" data-i18n="hero_btn">
-            Book Your Discovery Flight
-        </a>
-    </section>
+    <div class="h-20"></div>
 
-    <section id="about" class="container mx-auto px-6 py-24">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
-                <i class="fas fa-award text-5xl text-accent mb-6"></i>
-                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat1_title">FAA Approved</h3>
-                <p class="text-gray-600 leading-relaxed" data-i18n="feat1_desc">Our curriculum strictly follows Federal Aviation Administration standards ensuring the highest level of safety and education.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
-                <i class="fas fa-plane text-5xl text-accent mb-6"></i>
-                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat2_title">Modern Fleet</h3>
-                <p class="text-gray-600 leading-relaxed" data-i18n="feat2_desc">Train on state-of-the-art aircraft equipped with the latest glass-cockpit technology (Garmin G1000).</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
-                <i class="fas fa-user-tie text-5xl text-accent mb-6"></i>
-                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat3_title">Expert Instructors</h3>
-                <p class="text-gray-600 leading-relaxed" data-i18n="feat3_desc">Learn from thousands of hours of experience. Our Certified Flight Instructors (CFIs) are dedicated to your success.</p>
-            </div>
+    <section class="relative bg-primary text-white py-24 px-6">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80" alt="Background Plane" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in-down" data-i18n="hero_title">Earn Your Wings in the USA</h1>
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10" data-i18n="hero_desc">FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.</p>
+            <a href="#enroll" class="bg-accent hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded shadow-2xl transition-all inline-block" data-i18n="hero_btn">
+                Book Your Discovery Flight
+            </a>
         </div>
     </section>
 
-    <section id="enroll" class="bg-primary text-white py-24 px-6">
+    <section id="team" class="container mx-auto px-6 py-24 bg-white rounded-xl shadow-lg mt-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4" data-i18n="team_title">Meet Our Lead Instructors</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="team_desc">Learn from FAA-certified professionals with thousands of combined hours of experience in training and airline operations.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-5xl mx-auto">
+            
+            <div class="flex flex-col items-center bg-lightbg p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow">
+                <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-accent mb-6" onerror="this.src='https://via.placeholder.com/200?text=Mostafa'">
+                <h4 class="text-2xl font-bold text-primary" data-i18n="pilot1_name">Mostafa Hassan</h4>
+                <p class="text-accent font-semibold mb-4" data-i18n="pilot1_title">Certified Flight Instructor (CFI)</p>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base text-justify" data-i18n="pilot1_bio">
+                    Based in Los Angeles, Mostafa is passionate about turning aviation dreams into reality. With extensive experience flying Cessna, Piper, Diamond, and Sling aircraft, he provides personalized training from breathtaking Discovery Flights to complete Private & Commercial licenses. Known for his patient teaching style and real-world approach, he ensures every lesson is efficient, engaging, and safety-focused.
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center bg-lightbg p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow">
+                <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-accent mb-6" onerror="this.src='https://via.placeholder.com/200?text=Youssef'">
+                <h4 class="text-2xl font-bold text-primary" data-i18n="pilot2_name">Youssef A. Youssef</h4>
+                <p class="text-accent font-semibold mb-4" data-i18n="pilot2_title">Certified Flight Instructor–Instrument (CFI-I)</p>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base text-justify" data-i18n="pilot2_bio">
+                    With over eight years of experience, Youssef specializes in instrument proficiency and real-world decision making. He integrates modern tools like flight simulation and Virtual Reality (VR) into his training. Backed by a unique background in Geographic Information Systems (GIS), he brings a data-driven perspective to navigation and planning, preparing students for safe and competent flying in all conditions.
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="enroll" class="bg-primary text-white py-24 px-6 mt-16">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="enroll_title">Ready to Take Off?</h2>
             <p class="text-gray-300 mb-10" data-i18n="enroll_desc">Fill out the form below and our admissions team will contact you within 24 hours.</p>
@@ -105,7 +120,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800" data-i18n-placeholder="form_phone" placeholder="Phone Number">
+                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800" data-i18n-placeholder="form_phone" placeholder="Phone Number (WhatsApp preferred)">
                     </div>
                     <div>
                         <select id="program" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800 bg-white">
@@ -132,29 +147,45 @@
     </footer>
 
     <script>
-        // --- 1. نظام الترجمة ---
+        // --- نظام الترجمة (عربي/إنجليزي) ---
         const translations = {
             en: {
-                logo: "WeFlySmart", nav_programs: "Programs", nav_about: "About Us", nav_cta: "Start Flying",
+                logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "About Us", nav_cta: "Start Flying",
                 hero_title: "Earn Your Wings in the USA", hero_desc: "FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.", hero_btn: "Book Your Discovery Flight",
-                feat1_title: "FAA Approved", feat1_desc: "Our curriculum strictly follows Federal Aviation Administration standards ensuring the highest level of safety and education.",
-                feat2_title: "Modern Fleet", feat2_desc: "Train on state-of-the-art aircraft equipped with the latest glass-cockpit technology (Garmin G1000).",
-                feat3_title: "Expert Instructors", feat3_desc: "Learn from thousands of hours of experience. Our Certified Flight Instructors (CFIs) are dedicated to your success.",
+                team_title: "Meet Our Lead Instructors", team_desc: "Learn from FAA-certified professionals with thousands of combined hours of experience in training and airline operations.",
+                
+                // بيانات مصطفى (English)
+                pilot1_name: "Mostafa Hassan", 
+                pilot1_title: "Certified Flight Instructor (CFI)", 
+                pilot1_bio: "Based in Los Angeles, Mostafa is passionate about turning aviation dreams into reality. With extensive experience flying Cessna, Piper, Diamond, and Sling aircraft, he provides personalized training from breathtaking Discovery Flights to complete Private & Commercial licenses. Known for his patient teaching style and real-world approach, he ensures every lesson is efficient, engaging, and safety-focused.",
+                
+                // بيانات يوسف (English)
+                pilot2_name: "Youssef A. Youssef", 
+                pilot2_title: "Certified Flight Instructor–Instrument (CFI-I)", 
+                pilot2_bio: "With over eight years of experience, Youssef specializes in instrument proficiency and real-world decision making. He integrates modern tools like flight simulation and Virtual Reality (VR) into his training. Backed by a unique background in Geographic Information Systems (GIS), he brings a data-driven perspective to navigation and planning, preparing students for safe and competent flying in all conditions.",
+                
                 enroll_title: "Ready to Take Off?", enroll_desc: "Fill out the form below and our admissions team will contact you within 24 hours.",
                 form_name: "Full Name", form_email: "Email Address", form_phone: "Phone Number (WhatsApp preferred)", form_prog_default: "Select Program of Interest", form_btn: "Request Information",
-                success_msg: "✅ Thank you! Your request has been sent successfully. We will contact you soon.",
-                btn_sending: "Sending..."
+                success_msg: "✅ Thank you! Your request has been sent successfully. We will contact you soon.", btn_sending: "Sending..."
             },
             ar: {
-                logo: "وي فلاي سمارت", nav_programs: "برامجنا", nav_about: "من نحن", nav_cta: "ابدأ رحلتك",
+                logo: "وي فلاي سمارت", nav_programs: "برامجنا", nav_team: "مدرّبونا الخبراء", nav_about: "من نحن", nav_cta: "ابدأ رحلتك",
                 hero_title: "احصل على رخصة الطيران من أمريكا", hero_desc: "برامج تدريب طيران معتمدة من إدارة الطيران الفيدرالية (FAA) مصممة لتأخذك من مبتدئ إلى طيار خطوط جوية محترف. أمان، موثوقية، واحترافية.", hero_btn: "احجز رحلتك الاستكشافية",
-                feat1_title: "معتمد من FAA", feat1_desc: "مناهجنا تتبع بدقة معايير إدارة الطيران الفيدرالية لضمان أعلى مستويات الأمان والتعليم.",
-                feat2_title: "أسطول حديث", feat2_desc: "تدرب على طائرات حديثة مجهزة بأحدث تقنيات قمرة القيادة الزجاجية (Garmin G1000).",
-                feat3_title: "مدربون خبراء", feat3_desc: "تعلم من مدربين يمتلكون آلاف الساعات من الخبرة. مدربونا المعتمدون مكرسون لنجاحك.",
+                team_title: "تعرف على مدربينا الخبراء", team_desc: "تعلم من مدربين معتمدين من FAA يمتلكون آلاف الساعات من الخبرة الجوية العملية والأكاديمية.",
+                
+                // بيانات مصطفى (Arabic)
+                pilot1_name: "مصطفى حسن", 
+                pilot1_title: "مدرب طيران معتمد (CFI)", 
+                pilot1_bio: "مقيم في لوس أنجلوس، وشغوف بتحويل أحلام الطيران إلى حقيقة. يمتلك خبرة واسعة في التحليق بطائرات سيسنا، بايبر، دايموند، وسلينغ. يقدم تدريباً مخصصاً يبدأ من الرحلات الاستكشافية الممتعة وحتى الرخص الخاصة والتجارية. يُعرف بأسلوبه الصبور ونهجه العملي، مما يضمن أن يكون كل درس فعالاً، شيقاً، ويركز بشكل كامل على الأمان.",
+                
+                // بيانات يوسف (Arabic)
+                pilot2_name: "يوسف أ. يوسف", 
+                pilot2_title: "مدرب طيران آلي معتمد (CFI-I)", 
+                pilot2_bio: "بخبرة تتجاوز 8 سنوات، يتخصص يوسف في كفاءة الطيران الآلي واتخاذ القرارات الواقعية في الجو. يدمج أدوات حديثة مثل أجهزة المحاكاة والواقع الافتراضي (VR) في تدريبه. ومدعوماً بخلفيته الفريدة في نظم المعلومات الجغرافية (GIS)، فإنه يقدم منظوراً يعتمد على البيانات في الملاحة والتخطيط، ليُعد المتدربين للطيران الآمن بكفاءة في كافة الظروف.",
+                
                 enroll_title: "جاهز للتحليق؟", enroll_desc: "أكمل النموذج أدناه وسيتواصل معك فريق القبول لدينا خلال 24 ساعة.",
                 form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (يفضل واتساب)", form_prog_default: "اختر البرنامج المطلوب", form_btn: "طلب معلومات",
-                success_msg: "✅ شكراً لك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً.",
-                btn_sending: "جاري الإرسال..."
+                success_msg: "✅ شكراً لك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً.", btn_sending: "جاري الإرسال..."
             }
         };
 
@@ -166,20 +197,18 @@
             document.documentElement.lang = currentLang;
             document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'العربية' : 'English';
 
-            // ترجمة النصوص العادية
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) element.innerText = translations[currentLang][key];
             });
 
-            // ترجمة الـ Placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
                 const key = element.getAttribute('data-i18n-placeholder');
                 if (translations[currentLang][key]) element.placeholder = translations[currentLang][key];
             });
         }
 
-        // --- 2. إرسال البيانات (Supabase + Web3Forms) ---
+        // --- إرسال البيانات (Supabase + Web3Forms) ---
         const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -189,25 +218,22 @@
             const btn = document.getElementById('submitBtn');
             const successMsgDiv = document.getElementById('successMsg');
             
-            // تغيير شكل الزرار أثناء الإرسال
             btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLang]['btn_sending']}`;
             btn.disabled = true;
             btn.classList.add('opacity-75', 'cursor-not-allowed');
-            successMsgDiv.classList.add('hidden'); // إخفاء الرسالة لو كانت ظاهرة من قبل
+            successMsgDiv.classList.add('hidden'); 
 
             const rowData = {
                 full_name: document.getElementById('full_name').value,
                 email: document.getElementById('email').value,
                 phone_number: document.getElementById('phone').value,
-                service_type: document.getElementById('program').value // أنت كنت مسميه program في الـ HTML ومسميه service_type في قاعدة البيانات
+                service_type: document.getElementById('program').value 
             };
 
             try {
-                // إرسال لـ Supabase (تأكد إن الجدول اسمه contacts زي ما إنت كاتب)
                 const { error } = await _supabase.from('contacts').insert([rowData]);
                 if (error) throw error;
 
-                // إرسال لـ Web3Forms
                 await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -221,7 +247,6 @@
                     })
                 });
 
-                // إظهار رسالة النجاح الشيك بدل الـ Alert
                 successMsgDiv.innerText = translations[currentLang]['success_msg'];
                 successMsgDiv.classList.remove('hidden');
                 document.getElementById('leadForm').reset();
@@ -230,7 +255,6 @@
                 console.error('Error details:', err);
                 alert('❌ Error sending request. Please check your internet connection.');
             } finally {
-                // إرجاع الزرار لشكله الطبيعي
                 btn.innerHTML = `<span data-i18n="form_btn">${translations[currentLang]['form_btn']}</span> <i class="fas fa-paper-plane"></i>`;
                 btn.disabled = false;
                 btn.classList.remove('opacity-75', 'cursor-not-allowed');
