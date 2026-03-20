@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script>
         tailwind.config = {
@@ -17,10 +18,6 @@
                         primary: '#0A2540',
                         accent: '#F9A03F',
                         lightbg: '#F6F9FC'
-                    },
-                    fontFamily: {
-                        en: ['Inter', 'sans-serif'],
-                        ar: ['Cairo', 'sans-serif']
                     }
                 }
             }
@@ -28,70 +25,136 @@
     </script>
 
     <style>
-        /* التبديل بين الخطوط حسب لغة الصفحة */
+        /* التبديل بين الخطوط */
         html[dir="ltr"] body { font-family: 'Inter', sans-serif; }
         html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
         
-        /* تأثيرات ناعمة */
-        .transition-all { transition: all 0.3s ease-in-out; }
+        /* خلفية القسم الرئيسي (Hero) */
+        .hero-bg {
+            background: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.75)), 
+                        url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
     </style>
 </head>
-<body class="bg-lightbg text-gray-800 antialiased">
+<body class="bg-lightbg text-gray-800 antialiased overflow-x-hidden">
 
-    <header class="bg-primary fixed w-full top-0 z-50 shadow-lg">
+    <header class="bg-primary fixed w-full top-0 z-50 shadow-lg transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
             <a href="#" class="text-white text-2xl font-bold flex items-center gap-2">
                 <i class="fas fa-plane-departure text-accent"></i>
                 <span data-i18n="logo">WeFlySmart</span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-white font-medium">
-                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Programs</a>
-                <a href="#fleet" class="hover:text-accent transition-all" data-i18n="nav_fleet">Our Fleet</a>
-                <a href="#about" class="hover:text-accent transition-all" data-i18n="nav_about">About Us</a>
+                <a href="#programs" class="hover:text-accent transition-colors" data-i18n="nav_programs">Programs</a>
+                <a href="#about" class="hover:text-accent transition-colors" data-i18n="nav_about">About Us</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="text-white hover:text-accent font-bold px-2 py-1 border border-transparent hover:border-accent rounded transition-all">
-                    <i class="fas fa-globe mr-1 ml-1"></i> <span id="langBtnText">العربية</span>
+                <button onclick="toggleLanguage()" class="text-white hover:text-accent font-bold px-3 py-1 flex items-center gap-2 transition-colors">
+                    <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
                 </button>
-                
-                <a href="#enroll" class="bg-accent hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow-lg transition-all" data-i18n="nav_cta">
+                <a href="#enroll" class="hidden md:inline-block bg-accent hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded shadow-lg transition-colors" data-i18n="nav_cta">
                     Start Flying
                 </a>
             </div>
-
         </div>
     </header>
 
-    <div class="h-24"></div>
-
-    <section class="container mx-auto px-6 py-20 text-center">
-        <h1 class="text-5xl font-bold text-primary mb-6" data-i18n="hero_title">Earn Your Wings in the USA</h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10" data-i18n="hero_desc">FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.</p>
+    <section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-6 mt-16">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-down" data-i18n="hero_title">Earn Your Wings in the USA</h1>
+        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mb-10" data-i18n="hero_desc">FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.</p>
+        <a href="#enroll" class="bg-accent hover:bg-yellow-600 text-white font-bold py-4 px-8 rounded text-lg shadow-2xl transition-transform transform hover:-translate-y-1" data-i18n="hero_btn">
+            Book Your Discovery Flight
+        </a>
     </section>
 
+    <section id="about" class="container mx-auto px-6 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <i class="fas fa-award text-5xl text-accent mb-6"></i>
+                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat1_title">FAA Approved</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="feat1_desc">Our curriculum strictly follows Federal Aviation Administration standards ensuring the highest level of safety and education.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <i class="fas fa-plane text-5xl text-accent mb-6"></i>
+                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat2_title">Modern Fleet</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="feat2_desc">Train on state-of-the-art aircraft equipped with the latest glass-cockpit technology (Garmin G1000).</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <i class="fas fa-user-tie text-5xl text-accent mb-6"></i>
+                <h3 class="text-2xl font-bold text-primary mb-4" data-i18n="feat3_title">Expert Instructors</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="feat3_desc">Learn from thousands of hours of experience. Our Certified Flight Instructors (CFIs) are dedicated to your success.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll" class="bg-primary text-white py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="enroll_title">Ready to Take Off?</h2>
+            <p class="text-gray-300 mb-10" data-i18n="enroll_desc">Fill out the form below and our admissions team will contact you within 24 hours.</p>
+            
+            <form id="leadForm" class="bg-white rounded-xl p-8 shadow-2xl text-left" dir="auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <input type="text" id="full_name" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800" data-i18n-placeholder="form_name" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <input type="email" id="email" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800" data-i18n-placeholder="form_email" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800" data-i18n-placeholder="form_phone" placeholder="Phone Number">
+                    </div>
+                    <div>
+                        <select id="program" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-accent text-gray-800 bg-white">
+                            <option value="" disabled selected data-i18n="form_prog_default">Select Program of Interest</option>
+                            <option value="PPL">Private Pilot License (PPL)</option>
+                            <option value="CPL">Commercial Pilot License (CPL)</option>
+                            <option value="IR">Instrument Rating (IR)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-yellow-600 text-white font-bold py-4 rounded text-lg transition-colors flex justify-center items-center gap-2">
+                    <span data-i18n="form_btn">Request Information</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+
+                <div id="successMsg" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg text-center font-bold"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-[#051320] text-gray-400 text-center py-8">
+        <p>&copy; 2026 WeFlySmart Academy. All rights reserved.</p>
+    </footer>
+
     <script>
-        // قاموس الترجمة
+        // --- 1. نظام الترجمة ---
         const translations = {
             en: {
-                logo: "WeFlySmart",
-                nav_programs: "Programs",
-                nav_fleet: "Our Fleet",
-                nav_about: "About Us",
-                nav_cta: "Start Flying",
-                hero_title: "Earn Your Wings in the USA",
-                hero_desc: "FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart."
+                logo: "WeFlySmart", nav_programs: "Programs", nav_about: "About Us", nav_cta: "Start Flying",
+                hero_title: "Earn Your Wings in the USA", hero_desc: "FAA-certified flight training programs designed to take you from a beginner to a professional airline pilot. Safe, reliable, and smart.", hero_btn: "Book Your Discovery Flight",
+                feat1_title: "FAA Approved", feat1_desc: "Our curriculum strictly follows Federal Aviation Administration standards ensuring the highest level of safety and education.",
+                feat2_title: "Modern Fleet", feat2_desc: "Train on state-of-the-art aircraft equipped with the latest glass-cockpit technology (Garmin G1000).",
+                feat3_title: "Expert Instructors", feat3_desc: "Learn from thousands of hours of experience. Our Certified Flight Instructors (CFIs) are dedicated to your success.",
+                enroll_title: "Ready to Take Off?", enroll_desc: "Fill out the form below and our admissions team will contact you within 24 hours.",
+                form_name: "Full Name", form_email: "Email Address", form_phone: "Phone Number (WhatsApp preferred)", form_prog_default: "Select Program of Interest", form_btn: "Request Information",
+                success_msg: "✅ Thank you! Your request has been sent successfully. We will contact you soon.",
+                btn_sending: "Sending..."
             },
             ar: {
-                logo: "وي فلاي سمارت",
-                nav_programs: "برامجنا",
-                nav_fleet: "أسطولنا الطائر",
-                nav_about: "من نحن",
-                nav_cta: "ابدأ رحلتك",
-                hero_title: "احصل على شارة الطيران من أمريكا",
-                hero_desc: "برامج تدريب طيران معتمدة من إدارة الطيران الفيدرالية (FAA) مصممة لتأخذك من مبتدئ إلى طيار خطوط جوية محترف. أمان، موثوقية، واحترافية."
+                logo: "وي فلاي سمارت", nav_programs: "برامجنا", nav_about: "من نحن", nav_cta: "ابدأ رحلتك",
+                hero_title: "احصل على رخصة الطيران من أمريكا", hero_desc: "برامج تدريب طيران معتمدة من إدارة الطيران الفيدرالية (FAA) مصممة لتأخذك من مبتدئ إلى طيار خطوط جوية محترف. أمان، موثوقية، واحترافية.", hero_btn: "احجز رحلتك الاستكشافية",
+                feat1_title: "معتمد من FAA", feat1_desc: "مناهجنا تتبع بدقة معايير إدارة الطيران الفيدرالية لضمان أعلى مستويات الأمان والتعليم.",
+                feat2_title: "أسطول حديث", feat2_desc: "تدرب على طائرات حديثة مجهزة بأحدث تقنيات قمرة القيادة الزجاجية (Garmin G1000).",
+                feat3_title: "مدربون خبراء", feat3_desc: "تعلم من مدربين يمتلكون آلاف الساعات من الخبرة. مدربونا المعتمدون مكرسون لنجاحك.",
+                enroll_title: "جاهز للتحليق؟", enroll_desc: "أكمل النموذج أدناه وسيتواصل معك فريق القبول لدينا خلال 24 ساعة.",
+                form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (يفضل واتساب)", form_prog_default: "اختر البرنامج المطلوب", form_btn: "طلب معلومات",
+                success_msg: "✅ شكراً لك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً.",
+                btn_sending: "جاري الإرسال..."
             }
         };
 
@@ -99,22 +162,80 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
-            
-            // تغيير اتجاه الصفحة
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
-
-            // تغيير نص زر اللغة
             document.getElementById('langBtnText').innerText = currentLang === 'en' ? 'العربية' : 'English';
 
-            // تبديل كل النصوص اللي واخدة attribute data-i18n
+            // ترجمة النصوص العادية
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    element.innerText = translations[currentLang][key];
-                }
+                if (translations[currentLang][key]) element.innerText = translations[currentLang][key];
+            });
+
+            // ترجمة الـ Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang][key]) element.placeholder = translations[currentLang][key];
             });
         }
+
+        // --- 2. إرسال البيانات (Supabase + Web3Forms) ---
+        const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const btn = document.getElementById('submitBtn');
+            const successMsgDiv = document.getElementById('successMsg');
+            
+            // تغيير شكل الزرار أثناء الإرسال
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLang]['btn_sending']}`;
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            successMsgDiv.classList.add('hidden'); // إخفاء الرسالة لو كانت ظاهرة من قبل
+
+            const rowData = {
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone').value,
+                service_type: document.getElementById('program').value // أنت كنت مسميه program في الـ HTML ومسميه service_type في قاعدة البيانات
+            };
+
+            try {
+                // إرسال لـ Supabase (تأكد إن الجدول اسمه contacts زي ما إنت كاتب)
+                const { error } = await _supabase.from('contacts').insert([rowData]);
+                if (error) throw error;
+
+                // إرسال لـ Web3Forms
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc",
+                        subject: "🚀 عميل جديد من موقع WeFlySmart: " + rowData.full_name,
+                        from_name: "WeFlySmart System",
+                        name: rowData.full_name,
+                        email: rowData.email,
+                        message: `رقم التليفون: ${rowData.phone_number}\nالبرنامج المطلوب: ${rowData.service_type}\n\n*البيانات محفوظة أيضاً في قاعدة بيانات Supabase.*`
+                    })
+                });
+
+                // إظهار رسالة النجاح الشيك بدل الـ Alert
+                successMsgDiv.innerText = translations[currentLang]['success_msg'];
+                successMsgDiv.classList.remove('hidden');
+                document.getElementById('leadForm').reset();
+
+            } catch (err) {
+                console.error('Error details:', err);
+                alert('❌ Error sending request. Please check your internet connection.');
+            } finally {
+                // إرجاع الزرار لشكله الطبيعي
+                btn.innerHTML = `<span data-i18n="form_btn">${translations[currentLang]['form_btn']}</span> <i class="fas fa-paper-plane"></i>`;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
+        });
     </script>
 </body>
 </html>
