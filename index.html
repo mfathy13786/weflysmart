@@ -8,6 +8,7 @@
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
     <meta name="keywords" content="flight school USA, flying club Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
     <meta name="author" content="WeFlySmart Aero Club">
+    <meta name="robots" content="index, follow">
     
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
@@ -56,11 +57,11 @@
                 <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[140px] sm:w-[180px] md:w-[220px] h-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span style="display:none;" class="text-navy text-xl font-extrabold" data-i18n="logo">WeFlySmart</span>
             </a>
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
-                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Flight Programs</a>
-                <a href="#online" class="hover:text-accent transition-all" data-i18n="nav_online">Online Courses</a>
-                <a href="#why" class="hover:text-accent transition-all" data-i18n="nav_why">Why Us</a>
+            <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold text-gray-600">
+                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Programs</a>
+                <a href="#online" class="hover:text-accent transition-all" data-i18n="nav_online">Online</a>
                 <a href="#team" class="hover:text-accent transition-all" data-i18n="nav_team">Instructors</a>
+                <a href="#reviews" class="hover:text-accent transition-all" data-i18n="nav_reviews">Reviews</a>
             </nav>
             <div class="flex items-center gap-3">
                 <button onclick="toggleLanguage()" class="text-gray-600 hover:text-accent font-bold text-sm flex items-center gap-1 bg-gray-100 px-3 py-2 rounded-lg transition-all">
@@ -71,10 +72,10 @@
             </div>
         </div>
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full flex flex-col px-5 py-4 gap-4">
-            <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Flight Programs</a>
+            <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Programs</a>
             <a href="#online" class="text-navy font-bold text-lg" data-i18n="nav_online">Online Courses</a>
-            <a href="#why" class="text-navy font-bold text-lg" data-i18n="nav_why">Why Us</a>
             <a href="#team" class="text-navy font-bold text-lg" data-i18n="nav_team">Instructors</a>
+            <a href="#reviews" class="text-navy font-bold text-lg" data-i18n="nav_reviews">Reviews</a>
             <a href="#enroll" class="text-accent font-bold text-lg" data-i18n="nav_cta">Join the Club</a>
         </div>
     </header>
@@ -93,21 +94,29 @@
     <section class="bg-white py-6 border-b border-gray-100 shadow-sm relative z-10">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="h-12 w-12 md:h-14 md:w-14 bg-blue-50 rounded-full flex items-center justify-center text-navy text-xl md:text-2xl border-2 border-blue-100 shadow-sm"><i class="fas fa-file-signature"></i></div>
-                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase" data-i18n="badge_faa">FAA Approved</span>
+                <div class="flex flex-col items-center p-3 w-full rounded-xl hover:bg-gray-50 transition-all group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-12 w-12 md:h-14 md:w-14 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl mb-2 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase tracking-wide" data-i18n="badge_faa">FAA Approved</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="h-12 w-12 md:h-14 md:w-14 bg-gray-50 rounded-full flex items-center justify-center text-gray-700 text-xl md:text-2xl border-2 border-gray-200 shadow-sm"><i class="fas fa-plane"></i></div>
-                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase" data-i18n="badge_cessna">Cessna Fleet</span>
+                <div class="flex flex-col items-center p-3 w-full rounded-xl hover:bg-gray-50 transition-all group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-12 w-12 md:h-14 md:w-14 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl mb-2 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase tracking-wide" data-i18n="badge_cessna">Cessna Fleet</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="h-12 w-12 md:h-14 md:w-14 bg-orange-50 rounded-full flex items-center justify-center text-accent text-xl md:text-2xl border-2 border-orange-100 shadow-sm"><i class="fas fa-award"></i></div>
-                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase" data-i18n="badge_cfi">Certified Instructors</span>
+                <div class="flex flex-col items-center p-3 w-full rounded-xl hover:bg-gray-50 transition-all group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-12 w-12 md:h-14 md:w-14 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl mb-2 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase tracking-wide" data-i18n="badge_cfi">Certified Instructors</span>
                 </div>
-                <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="h-12 w-12 md:h-14 md:w-14 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-xl md:text-2xl border-2 border-green-100 shadow-sm"><i class="fas fa-shield-alt"></i></div>
-                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase" data-i18n="badge_safety">100% Safety</span>
+                <div class="flex flex-col items-center p-3 w-full rounded-xl hover:bg-gray-50 transition-all group" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="h-12 w-12 md:h-14 md:w-14 bg-navy rounded-full flex items-center justify-center text-accent text-xl md:text-2xl mb-2 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span class="font-bold text-navy text-[10px] md:text-xs text-center uppercase tracking-wide" data-i18n="badge_safety">100% Safety</span>
                 </div>
             </div>
         </div>
@@ -161,8 +170,9 @@
                     <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-6 py-2 md:py-3 rounded-lg font-bold text-sm md:text-base transition-all shadow-lg" data-i18n="online_btn">Enroll Online Now</a>
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                        <img src="images/online.jpg" alt="Online Training" class="w-full h-56 md:h-72 object-cover">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-gray-800">
+                        <img src="images/online.jpg" alt="Online Training" class="w-full h-56 md:h-72 object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display:none;" class="w-full h-56 md:h-72 items-center justify-center text-white text-sm font-bold">Image Missing: online.jpg</div>
                     </div>
                 </div>
             </div>
@@ -224,44 +234,91 @@
         </div>
     </section>
 
-    <section class="py-10 md:py-16 bg-white border-t border-gray-100">
+    <section id="reviews" class="py-10 md:py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2" data-i18n="testi_title">What Our Pilots Say</h2>
+                <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4 rtl:left-4 rtl:right-auto"></i>
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="images/student1.jpg" alt="Student" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white" onerror="this.src='https://ui-avatars.com/api/?name=John+D&background=0A2540&color=F9A03F'">
+                        <div>
+                            <h4 class="font-bold text-navy text-sm" data-i18n="testi_1_name">John D.</h4>
+                            <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic" data-i18n="testi_1_text">"Got my PPL in just 3 months! Capt. Mostafa is an incredible instructor. The planes are top-notch and the LA weather made scheduling a breeze."</p>
+                </div>
+
+                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4 rtl:left-4 rtl:right-auto"></i>
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="images/student2.jpg" alt="Student" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white" onerror="this.src='https://ui-avatars.com/api/?name=Sarah+M&background=0A2540&color=F9A03F'">
+                        <div>
+                            <h4 class="font-bold text-navy text-sm" data-i18n="testi_2_name">Sarah M.</h4>
+                            <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic" data-i18n="testi_2_text">"The Instrument Rating course was challenging but Capt. Youssef made the complex concepts so easy to understand. Highly recommend their online ground school too."</p>
+                </div>
+
+                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4 rtl:left-4 rtl:right-auto"></i>
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="images/student3.jpg" alt="Student" class="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white" onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+K&background=0A2540&color=F9A03F'">
+                        <div>
+                            <h4 class="font-bold text-navy text-sm" data-i18n="testi_3_name">Ahmed K.</h4>
+                            <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic" data-i18n="testi_3_text">"As an international student, the support I received was amazing. The club environment is extremely welcoming, and flying over California is a dream come true!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 md:py-16 bg-lightbg border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-3xl">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2" data-i18n="faq_title">Frequently Asked Questions</h2>
                 <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             <div class="space-y-3" dir="auto">
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_1_q">Do I need prior experience?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
                     <div class="text-gray-600 p-4 pt-0 text-xs md:text-sm leading-relaxed" data-i18n="faq_1_a">Not at all! We train from absolute zero. The Discovery Flight is a great start to see if flying is right for you.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_2_q">How long does a PPL take?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
                     <div class="text-gray-600 p-4 pt-0 text-xs md:text-sm leading-relaxed" data-i18n="faq_2_a">Typically 3 to 6 months if you fly 2-3 times a week consistently. It depends on your schedule and weather conditions.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_3_q">What are the age requirements?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
                     <div class="text-gray-600 p-4 pt-0 text-xs md:text-sm leading-relaxed" data-i18n="faq_3_a">You can start training at any age! However, you must be at least 16 to fly solo, and 17 to obtain your Private Pilot License.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_4_q">Do I need perfect vision?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
                     <div class="text-gray-600 p-4 pt-0 text-xs md:text-sm leading-relaxed" data-i18n="faq_4_a">No! As long as your vision is correctable to 20/40 (with glasses or contacts) for a Class 3 Medical, you are perfectly fine to fly.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_5_q">What is a FAA Medical Certificate?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
                     <div class="text-gray-600 p-4 pt-0 text-xs md:text-sm leading-relaxed" data-i18n="faq_5_a">It's a standard health check performed by an Aviation Medical Examiner (AME) to ensure you are fit to fly. We guide all our students through this simple process.</div>
                 </details>
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-100 transition-all">
                     <summary class="flex justify-between items-center font-bold cursor-pointer p-4 text-navy text-sm md:text-base">
                         <span data-i18n="faq_6_q">Are your programs FAA approved?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
@@ -286,9 +343,9 @@
             </div>
             
             <div id="progModalBody" class="hidden flex flex-col gap-4 mt-2">
-                <div class="w-full h-40 md:h-56 rounded-xl shadow-sm overflow-hidden bg-lightbg relative">
-                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div style="display:none;" class="absolute inset-0 items-center justify-center text-gray-500 font-bold bg-gray-100">Image Missing</div>
+                <div class="w-full h-40 md:h-56 rounded-xl shadow-sm overflow-hidden bg-gray-800 relative" id="progImageContainer">
+                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program">
+                    <div id="progMissingImg" style="display:none;" class="absolute inset-0 flex items-center justify-center text-gray-400 font-bold bg-gray-100">Image Missing</div>
                 </div>
                 
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
@@ -297,8 +354,8 @@
                 </div>
                 <div id="progModalDesc" class="text-gray-600 text-xs md:text-sm leading-relaxed space-y-3"></div>
                 
-                <div class="mt-2 pt-3">
-                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-5 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md">
+                <div class="mt-2 pt-3 border-t border-gray-100">
+                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-5 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md transform hover:scale-105">
                         <i class="fab fa-whatsapp text-lg"></i> <span id="modalContactText">Inquire via WhatsApp</span>
                     </a>
                 </div>
@@ -337,7 +394,7 @@
                             <option value="Online Ground School">Online Ground School 💻</option>
                         </select>
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2 shadow-md">
+                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2 shadow-md transform hover:scale-105">
                         <span data-i18n="form_btn">Send Request</span>
                     </button>
                     <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg shadow-sm text-sm font-bold flex items-center justify-center gap-2"></div>
@@ -361,7 +418,7 @@
                         <li><a href="#programs" class="hover:text-accent transition-colors" data-i18n="nav_programs">Flight Programs</a></li>
                         <li><a href="#online" class="hover:text-accent transition-colors" data-i18n="nav_online">Online Courses</a></li>
                         <li><a href="#team" class="hover:text-accent transition-colors" data-i18n="nav_team">Instructors</a></li>
-                        <li><a href="#enroll" class="hover:text-accent transition-colors" data-i18n="nav_cta">Join the Club</a></li>
+                        <li><a href="#reviews" class="hover:text-accent transition-colors" data-i18n="nav_reviews">Reviews</a></li>
                     </ul>
                 </div>
 
@@ -375,7 +432,7 @@
                 
                 <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center md:items-start rtl:md:items-end">
                     <h4 class="text-white font-bold text-base md:text-lg mb-4" data-i18n="footer_contact_title">Contact LA</h4>
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-400 text-left rtl:text-right w-full">
+                    <ul class="space-y-3 text-xs md:text-sm text-gray-400 text-center md:text-left rtl:md:text-right w-full">
                         <li class="flex items-start gap-2 justify-center md:justify-start rtl:md:justify-end">
                             <i class="fas fa-map-marker-alt text-accent mt-1"></i><span data-i18n="footer_address">Los Angeles, California, USA</span>
                         </li>
@@ -423,7 +480,7 @@
 
         const translations = {
             en: {
-                logo: "WeFlySmart", nav_programs: "Flight Programs", nav_online: "Online Courses", nav_why: "Why Us", nav_team: "Instructors", nav_cta: "Join the Club",
+                logo: "WeFlySmart", nav_programs: "Programs", nav_online: "Online", nav_why: "Why Us", nav_team: "Instructors", nav_reviews: "Reviews", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft.", hero_btn: "Book Discovery Flight",
                 badge_faa: "FAA Approved", badge_cfi: "Certified Instructors", badge_cessna: "Cessna Fleet", badge_safety: "100% Safety",
                 courses_title: "Flight Training Programs", courses_subtitle: "FAA-approved structured training.",
@@ -433,6 +490,12 @@
                 why_title: "Why Choose Us?", why_1_title: "Ideal LA Weather", why_1_desc: "300+ sunny days a year for uninterrupted training.", why_2_title: "Exclusive Community", why_2_desc: "Network and grow with supportive aviation enthusiast.", why_3_title: "FAA Certified Fleet", why_3_desc: "Train on meticulous Cessnas, Pipers, Diamonds.",
                 team_title: "Club Instructors", read_more: "Read More",
                 
+                // المراجعات الانجليزي
+                testi_title: "What Our Pilots Say",
+                testi_1_name: "John D.", testi_1_text: `"Got my PPL in just 3 months! Capt. Mostafa is an incredible instructor. The planes are top-notch and the LA weather made scheduling a breeze."`,
+                testi_2_name: "Sarah M.", testi_2_text: `"The Instrument Rating course was challenging but Capt. Youssef made the complex concepts so easy to understand. Highly recommend their online ground school too."`,
+                testi_3_name: "Ahmed K.", testi_3_text: `"As an international student, the support I received was amazing. The club environment is extremely welcoming, and flying over California is a dream come true!"`,
+
                 pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_short_bio: "Based in Los Angeles, Mostafa provides personalized, high-quality flight training tailored to each student’s goals.",
                 pilot1_full_bio: `<p>Mostafa Hassan is a dedicated Certified Flight Instructor based in Los Angeles, passionate about helping others turn their aviation dreams into reality. With extensive experience flying a variety of aircraft—including Cessna, Piper, Diamond, and Sling—he provides personalized, high-quality flight training tailored to each student’s goals.</p><p>Whether you’re stepping into an aircraft for the first time or pursuing a professional pilot career, Mostafa offers a supportive and structured learning environment designed to build both confidence and skill.</p><br><p><strong>He specializes in:</strong><br>• Discovery Flights over Los Angeles<br>• Private & Commercial Pilot Training<br>• Checkride & Written Test Preparation<br>• One-on-One Ground School</p><br><p>Known for his patient teaching style and real-world approach, Mostafa ensures that every lesson is efficient, engaging, and safety-focused. His mission is simple: make flight training clear, enjoyable, and accessible.</p>`,
                 pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_short_bio: "Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.",
@@ -447,7 +510,7 @@
                 faq_6_q: "Are your programs FAA approved?", faq_6_a: "Yes, all our flight training programs strictly adhere to Federal Aviation Administration (FAA) regulations, ensuring you receive globally recognized training.",
                 
                 enroll_title: "Join WeFlySmart", enroll_desc: "Leave details to schedule.", form_name: "Full Name", form_email: "Email", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", 
-                success_msg: "Thank you! Your request has been sent successfully. Our team will contact you shortly.",
+                success_msg: "Request sent successfully! Our team will contact you shortly.",
                 footer_about: "An exclusive flying club in LA for premier training.", footer_links_title: "Links", footer_legal_title: "Legal", nav_privacy: "Privacy Policy", nav_terms: "Terms & Conditions", footer_contact_title: "Contact LA", footer_address: "Los Angeles, California", footer_social_title: "Follow Us", footer_social_desc: "Stay updated with flights.",
                 modal_contact_btn: "Inquire via WhatsApp",
                 
@@ -458,7 +521,7 @@
                 terms_text: `<p>By accessing the WeFlySmart website and enrolling in our programs, you agree to the following terms:</p><br><p><strong>1. Flight Training & Safety:</strong><br>All flight training is subject to Federal Aviation Administration (FAA) regulations. WeFlySmart Instructors hold the final authority regarding flight dispatch based on weather, aircraft maintenance, and student readiness to ensure 100% safety.</p><br><p><strong>2. Discovery Flights:</strong><br>Discovery flights are introductory experiences and do not guarantee the issuance of a pilot license. Participants must follow all instructor safety guidelines during the flight.</p><br><p><strong>3. Course Durations:</strong><br>The flight hours (e.g., 40 hours for PPL) are FAA minimums. Actual completion times vary based on individual student proficiency, weather conditions, and scheduling frequency.</p>`
             },
             ar: {
-                logo: "وي فلاي سمارت", nav_programs: "البرامج", nav_online: "أونلاين", nav_why: "لماذا نحن", nav_team: "المدربون", nav_cta: "انضم",
+                logo: "وي فلاي سمارت", nav_programs: "البرامج", nav_online: "أونلاين", nav_why: "لماذا نحن", nav_team: "المدربون", nav_reviews: "الآراء", nav_cta: "انضم",
                 hero_subtitle: "نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع طيران حصري. نوفر تدريباً عملياً على أحدث الطائرات.", hero_btn: "احجز رحلة استكشافية",
                 badge_faa: "معتمد من FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول سيسنا", badge_safety: "أمان 100%",
                 courses_title: "برامج التدريب", courses_subtitle: "تدريب منظم ومعتمد من FAA.",
@@ -467,6 +530,12 @@
                 online_badge: "ادرس من أي مكان", online_title: "المدرسة الأرضية أونلاين", online_desc: "احترف النظرية من منزلك. الأيروديناميكا، الطقس، وتحضير FAA.", online_btn: "سجل الآن",
                 why_title: "لماذا تختارنا؟", why_1_title: "طقس مثالي في LA", why_1_desc: "أكثر من 300 يوم مشمس لتدريب مستمر.", why_2_title: "مجتمع حصري", why_2_desc: "تبادل الخبرات وابنِ علاقات مع شغوفي الطيران.", why_3_title: "أسطول FAA حديث", why_3_desc: "تدرب على طائرات سيسنا وبايبر ودايموند.",
                 team_title: "مدربو النادي", read_more: "التفاصيل",
+                
+                // المراجعات العربي
+                testi_title: "ماذا يقول طيارونا",
+                testi_1_name: "جون د.", testi_1_text: `"حصلت على رخصة PPL في 3 أشهر فقط! كابتن مصطفى مدرب رائع، والطائرات ممتازة وطقس لوس أنجلوس جعل جدولة الرحلات سهلة جداً."`,
+                testi_2_name: "سارة م.", testi_2_text: `"كورس الطيران الآلي كان تحدياً، لكن كابتن يوسف بسّط المفاهيم المعقدة جداً. أنصح وبشدة بالمدرسة الأرضية الأونلاين الخاصة بهم."`,
+                testi_3_name: "أحمد خ.", testi_3_text: `"كطالب دولي، الدعم الذي تلقيته كان مذهلاً. بيئة النادي مرحبة جداً، والطيران فوق كاليفورنيا حلم يتحقق!"`,
                 
                 pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_short_bio: "انطلاقاً من لوس أنجلوس، يقدم مصطفى تدريباً مخصصاً وعالي الجودة يناسب أهداف كل متدرب لتحويل حلمه لواقع.",
                 pilot1_full_bio: `<p>مصطفى حسن هو مدرب طيران معتمد مقيم في لوس أنجلوس، شغوف بمساعدة الآخرين على تحويل أحلامهم في الطيران إلى حقيقة. يتمتع بخبرة واسعة في الطيران على مجموعة متنوعة من الطائرات بما في ذلك سيسنا، بايبر، دايموند، وسلينغ، مما يتيح له تقديم تدريب عالي الجودة ومخصص ليناسب أهداف كل طالب.</p><p>سواء كنت تدخل طائرة للمرة الأولى أو تسعى لمهنة طيار محترف، يوفر مصطفى بيئة تعليمية منظمة وداعمة مصممة لبناء الثقة والمهارة.</p><br><p><strong>يتخصص مصطفى في:</strong><br>• الرحلات الاستكشافية فوق لوس أنجلوس<br>• تدريب الطيار الخاص والتجاري<br>• التحضير للاختبارات العملية والنظرية<br>• فصول دراسية أرضية (Ground School) فردية</p><br><p>يُعرف مصطفى بأسلوبه الصبور ونهجه الواقعي، ويضمن أن يكون كل درس فعالاً وشيقاً ويركز على الأمان بالمقام الأول.</p>`,
@@ -510,7 +579,6 @@
         const progBody = document.getElementById('progModalBody');
         const legalBody = document.getElementById('legalModalBody');
         
-        // ربط البرامج بأسماء الصور اللي إنت رافعها
         const progData = {
             prog_disc: { 
                 icon: 'fas fa-binoculars', img: 'images/discovery.jpg',
@@ -553,12 +621,13 @@
                 document.getElementById('progModalName').innerText = data[currentLang].name;
                 document.getElementById('progModalDesc').innerHTML = data[currentLang].desc;
                 
-                // الحل الجذري عشان الصورة تظهر كل مرة وتعمل Refresh لنفسها
+                // هندسة إظهار الصورة وتحديثها عشان متعملش شاشة سودة
                 const imgEl = document.getElementById('progModalImg');
-                const missingEl = imgEl.nextElementSibling;
+                const missingEl = document.getElementById('progMissingImg');
+                
                 imgEl.src = data.img;
-                imgEl.style.display = 'block'; // بنجبر الصورة إنها تظهر
-                missingEl.style.display = 'none'; // بنخفي رسالة الخطأ
+                imgEl.onload = function() { imgEl.style.display = 'block'; missingEl.style.display = 'none'; };
+                imgEl.onerror = function() { imgEl.style.display = 'none'; missingEl.style.display = 'flex'; };
                 
                 const msgTemplate = currentLang === 'ar' 
                     ? `مرحباً، أتواصل معكم من موقع WeFlySmart. أرغب في الاستفسار عن تفاصيل (${data.whatsappName.ar}).` 
