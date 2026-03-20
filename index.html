@@ -6,20 +6,16 @@
     
     <title>WeFlySmart | Premier Flying Club in the USA</title>
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training (PPL, CPL, IR) on modern aircraft. نادي وي فلاي سمارت لتدريب الطيران في أمريكا.">
-    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy, pilot training, flight instructor, مدرسة طيران في أمريكا, نادي طيران, رخصة طيار خاص, رخصة طيار تجاري, تعلم الطيران, مدرب طيران">
-    <meta name="author" content="WeFlySmart Aero Club">
+    <meta name="keywords" content="flight school USA, flying club, learn to fly Los Angeles, PPL, CPL, Instrument Rating, aviation academy, pilot training, flight instructor, online ground school, مدرسة طيران في أمريكا, نادي طيران, رخصة طيار, تعلم الطيران اونلاين">
     
-    <meta property="og:title" content="WeFlySmart | Premier Flying Club">
-    <meta property="og:description" content="Join our exclusive community of passionate aviators and get your pilot license in the USA.">
-    <meta property="og:image" content="https://weflysmart.com/images/hero-plane.jpg">
-    <meta property="og:url" content="https://weflysmart.com">
-    <meta property="og:type" content="website">
-
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
@@ -61,6 +57,9 @@
 
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* Social Icons Hover */
+        .social-icon:hover { transform: translateY(-3px); color: #F9A03F; }
     </style>
 </head>
 <body class="antialiased">
@@ -71,8 +70,9 @@
                 <img src="images/logo.png" alt="WeFlySmart Logo" class="w-[160px] sm:w-[200px] md:w-[240px] h-auto object-contain">
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
-                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Programs</a>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
+                <a href="#programs" class="hover:text-accent transition-all" data-i18n="nav_programs">Flight Programs</a>
+                <a href="#online" class="hover:text-accent transition-all" data-i18n="nav_online">Online Courses</a>
                 <a href="#why" class="hover:text-accent transition-all" data-i18n="nav_why">Why Us</a>
                 <a href="#team" class="hover:text-accent transition-all" data-i18n="nav_team">Instructors</a>
             </nav>
@@ -89,8 +89,8 @@
         </div>
 
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-full flex flex-col px-5 py-4 gap-4">
-            <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Programs</a>
-            <a href="#why" class="text-navy font-bold text-lg" data-i18n="nav_why">Why Us</a>
+            <a href="#programs" class="text-navy font-bold text-lg" data-i18n="nav_programs">Flight Programs</a>
+            <a href="#online" class="text-navy font-bold text-lg" data-i18n="nav_online">Online Courses</a>
             <a href="#team" class="text-navy font-bold text-lg" data-i18n="nav_team">Instructors</a>
             <a href="#enroll" class="text-accent font-bold text-lg" data-i18n="nav_cta">Join the Club</a>
         </div>
@@ -98,7 +98,7 @@
 
     <section class="hero-light flex flex-col justify-center items-start px-6 pt-32 pb-20 md:pt-40 md:pb-32">
         <div class="container mx-auto">
-            <div class="max-w-2xl text-left rtl:text-right">
+            <div class="max-w-2xl text-left rtl:text-right" data-aos="fade-up" data-aos-duration="1000">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm" data-i18n="hero_subtitle">Welcome to the Premier Flying Club</p>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight" data-i18n="hero_title">
                     Start Your Aviation Journey in the USA
@@ -106,7 +106,7 @@
                 <p class="text-gray-200 mb-8 text-sm md:text-base leading-relaxed" data-i18n="hero_desc">
                     Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.
                 </p>
-                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-6 py-3 rounded-lg font-bold text-base shadow-lg transition-all" data-i18n="hero_btn">
+                <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-6 py-3 rounded-lg font-bold text-base shadow-lg transition-all transform hover:scale-105" data-i18n="hero_btn">
                     Book Discovery Flight
                 </a>
             </div>
@@ -116,50 +116,47 @@
     <section class="bg-white py-6 border-b border-gray-100 shadow-sm relative z-10">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2" data-aos="fade-in" data-aos-delay="100">
                     <i class="fas fa-check-circle text-2xl text-accent"></i>
                     <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_faa">FAA Standards</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2" data-aos="fade-in" data-aos-delay="200">
                     <i class="fas fa-award text-2xl text-accent"></i>
                     <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_cfi">Certified Instructors</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2" data-aos="fade-in" data-aos-delay="300">
                     <i class="fas fa-plane text-2xl text-accent"></i>
-                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_cessna">Cessna & Piper Fleet</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-2xl text-accent"></i>
-                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_safety">100% Safety Record</span>
+                    <span class="font-bold text-navy text-sm md:text-base tracking-wide uppercase" data-i18n="badge_cessna">Modern Fleet</span>
                 </div>
             </div>
         </div>
     </section>
+
     <section id="programs" class="py-12 md:py-16 bg-lightbg">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
+            <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="courses_title">Flight Training Programs</h2>
                 <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-sm" data-i18n="courses_subtitle">FAA-approved programs structured to take you from a beginner to a professional.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-2 transition-all" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-binoculars text-3xl text-accent mb-4"></i>
                     <h3 class="text-lg font-bold text-navy mb-2" data-i18n="course_disc_title">Discovery Flight</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_disc_desc">Your first step into the sky. Experience the thrill of flying over Los Angeles with an expert instructor.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-2 transition-all" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-plane text-3xl text-accent mb-4"></i>
                     <h3 class="text-lg font-bold text-navy mb-2">Private Pilot (PPL)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_ppl_desc">The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-2 transition-all" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-cloud text-3xl text-accent mb-4"></i>
                     <h3 class="text-lg font-bold text-navy mb-2">Instrument Rating (IR)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_ir_desc">Fly with precision through clouds by relying solely on your aircraft's advanced instruments.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent transition-all">
+                <div class="bg-white p-6 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-2 transition-all" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-user-tie text-3xl text-accent mb-4"></i>
                     <h3 class="text-lg font-bold text-navy mb-2">Commercial Pilot (CPL)</h3>
                     <p class="text-gray-600 text-sm" data-i18n="course_cpl_desc">Elevate your skills to the professional standard required for a career in aviation.</p>
@@ -168,56 +165,77 @@
         </div>
     </section>
 
+    <section id="online" class="py-12 md:py-16 bg-navy relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="w-full md:w-1/2 text-center md:text-left rtl:md:text-right" data-aos="fade-right">
+                    <span class="inline-block bg-accent/20 text-accent font-bold px-3 py-1 rounded-full text-xs mb-4 uppercase tracking-wider" data-i18n="online_badge">Anywhere, Anytime</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4" data-i18n="online_title">Online Ground School</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-6" data-i18n="online_desc">
+                        Master aviation theory from the comfort of your home. Our interactive online courses cover aerodynamics, weather, navigation, and FAA test prep, designed by our expert instructors to ensure you pass your written exams with confidence.
+                    </p>
+                    <ul class="text-gray-300 text-sm mb-8 space-y-3">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-accent"></i> <span data-i18n="online_feature1">Interactive Video Lessons</span></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-accent"></i> <span data-i18n="online_feature2">FAA Written Test Preparation</span></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-accent"></i> <span data-i18n="online_feature3">1-on-1 Virtual Tutoring Sessions</span></li>
+                    </ul>
+                    <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold transition-all shadow-lg" data-i18n="online_btn">Enroll Online Now</a>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Online Aviation Courses" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-navy/20"></div>
+                        <i class="fas fa-laptop-house absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl text-white opacity-80"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="why" class="py-12 md:py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
+            <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="why_title">Why Fly With Us?</h2>
                 <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform">
                         <i class="fas fa-sun"></i>
                     </div>
                     <h4 class="font-bold text-navy mb-2" data-i18n="why_1_title">Ideal LA Weather</h4>
                     <p class="text-gray-600 text-sm" data-i18n="why_1_desc">Enjoy over 300 days of sunshine a year in Los Angeles, allowing for consistent and uninterrupted flight training.</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform">
                         <i class="fas fa-users"></i>
                     </div>
                     <h4 class="font-bold text-navy mb-2" data-i18n="why_2_title">Exclusive Community</h4>
                     <p class="text-gray-600 text-sm" data-i18n="why_2_desc">Join a premium club of aviation enthusiasts. Network, share experiences, and grow with supportive peers.</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-2xl mb-4 hover:scale-110 transition-transform">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h4 class="font-bold text-navy mb-2" data-i18n="why_3_title">Uncompromising Safety</h4>
                     <p class="text-gray-600 text-sm" data-i18n="why_3_desc">Safety is our core. We strictly adhere to FAA standards with a meticulously maintained modern fleet.</p>
                 </div>
             </div>
-
-            <div class="bg-navy rounded-2xl p-8 text-center text-white shadow-xl relative overflow-hidden">
-                <div class="relative z-10">
-                    <h3 class="text-xl md:text-2xl font-bold text-accent mb-2" data-i18n="fleet_title">Modern Training Fleet</h3>
-                    <p class="text-gray-300 text-sm md:text-base" data-i18n="fleet_desc">Train on top-tier aircraft including Cessna, Piper, Diamond, and Sling, equipped with advanced avionics.</p>
-                </div>
-                <i class="fas fa-plane absolute -right-10 -bottom-10 text-9xl text-white opacity-5"></i>
-            </div>
         </div>
     </section>
 
     <section id="team" class="py-12 md:py-16 bg-lightbg">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
+            <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="team_title">Meet the Club Instructors</h2>
                 <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="100">
                     <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot1_name">Mostafa Hassan</h4>
@@ -229,7 +247,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left rtl:sm:text-right gap-5 bg-white p-6 rounded-2xl shadow-soft hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="200">
                     <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-xl font-bold text-navy mb-1" data-i18n="pilot2_name">Youssef A. Youssef</h4>
@@ -259,44 +277,9 @@
         </div>
     </div>
 
-    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-3" data-i18n="faq_title">Frequently Asked Questions</h2>
-                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
-            </div>
-
-            <div class="space-y-4" dir="auto">
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_1_q">Do I need prior experience to start flying?</span>
-                        <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed" data-i18n="faq_1_a">Not at all! Our programs are designed to take you from absolute zero to a fully certified pilot. The Discovery Flight is the perfect way to start without any commitment.</div>
-                </details>
-
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_2_q">How long does it take to get a Private Pilot License?</span>
-                        <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed" data-i18n="faq_2_a">It depends on your availability and weather, but most students flying 2-3 times a week can complete their PPL in about 3 to 6 months.</div>
-                </details>
-
-                <details class="group bg-lightbg rounded-xl shadow-sm border border-gray-100 open:bg-white transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer p-5 text-navy">
-                        <span data-i18n="faq_3_q">Are your programs FAA approved?</span>
-                        <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed" data-i18n="faq_3_a">Yes, all our flight training programs strictly adhere to Federal Aviation Administration (FAA) regulations, ensuring you receive globally recognized licenses.</div>
-                </details>
-            </div>
-        </div>
-    </section>
-
     <section id="enroll" class="py-12 md:py-16 bg-navy relative">
         <div class="container mx-auto px-5">
-            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-2xl relative z-10">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-2xl relative z-10" data-aos="zoom-in">
                 <div class="text-center mb-6">
                     <h2 class="text-2xl font-extrabold text-navy mb-2" data-i18n="enroll_title">Join WeFlySmart Club</h2>
                     <p class="text-gray-500 text-sm" data-i18n="enroll_desc">Leave your details and we will reach out to schedule your first flight.</p>
@@ -322,11 +305,11 @@
                                 <option value="PPL">Private Pilot (PPL)</option>
                                 <option value="CPL">Commercial Pilot (CPL)</option>
                                 <option value="IR">Instrument Rating (IR)</option>
-                            </select>
+                                <option value="Online Ground School">Online Ground School 💻</option> </select>
                         </div>
                     </div>
                     
-                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2">
+                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition-all flex justify-center items-center gap-2 hover:shadow-lg">
                         <span data-i18n="form_btn">Send Request</span>
                     </button>
                     <div id="successMsg" class="hidden mt-4 p-3 bg-green-50 text-green-700 rounded-lg text-center text-sm font-bold"></div>
@@ -335,15 +318,71 @@
         </div>
     </section>
 
-    <footer class="bg-[#051320] text-gray-400 text-center py-6 text-sm">
-        <p>&copy; 2026 WeFlySmart Aero Club. All rights reserved.</p>
+    <footer class="bg-[#020b14] text-gray-300 pt-16 pb-8 border-t-4 border-accent">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/logo.png" alt="WeFlySmart" class="w-40 mb-4 brightness-0 invert opacity-90">
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4" data-i18n="footer_about">
+                        WeFlySmart is an exclusive flying club in Los Angeles dedicated to providing premier flight training and building a community of passionate, safe, and skilled aviators.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer_links_title">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#programs" class="hover:text-accent transition-colors" data-i18n="nav_programs">Flight Programs</a></li>
+                        <li><a href="#online" class="hover:text-accent transition-colors" data-i18n="nav_online">Online Courses</a></li>
+                        <li><a href="#team" class="hover:text-accent transition-colors" data-i18n="nav_team">Instructors</a></li>
+                        <li><a href="#enroll" class="hover:text-accent transition-colors" data-i18n="nav_cta">Join the Club</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer_contact_title">Contact Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-accent mt-1"></i>
+                            <span data-i18n="footer_address">Los Angeles, California, USA</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-accent"></i>
+                            <a href="tel:+13233849083" class="hover:text-white transition-colors">+1 (323) 384-9083</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer_social_title">Follow Our Journey</h4>
+                    <p class="text-sm text-gray-400 mb-4" data-i18n="footer_social_desc">Stay updated with our latest flights, student achievements, and club news.</p>
+                    <div class="flex gap-4 text-xl">
+                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 WeFlySmart Aero Club. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <a href="https://wa.me/13233849083" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 rtl:left-6 rtl:right-auto bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // تشغيل الحركات الاحترافية
+        AOS.init({ once: true, duration: 800, offset: 100 });
+
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
@@ -351,19 +390,21 @@
 
         const translations = {
             en: {
-                nav_programs: "Programs", nav_why: "Why Us", nav_team: "Instructors", nav_cta: "Join the Club",
+                nav_programs: "Flight Programs", nav_online: "Online Courses", nav_why: "Why Us", nav_team: "Instructors", nav_cta: "Join the Club",
                 hero_subtitle: "Welcome to the Premier Flying Club", hero_title: "Start Your Aviation Journey in the USA", hero_desc: "Join an exclusive community of passionate aviators. We provide top-tier flight training on modern aircraft in a supportive, club-style environment.", hero_btn: "Book Discovery Flight",
                 
-                badge_faa: "FAA Standards", badge_cfi: "Certified Instructors", badge_cessna: "Cessna & Piper Fleet", badge_safety: "100% Safety Record",
+                badge_faa: "FAA Standards", badge_cfi: "Certified Instructors", badge_cessna: "Modern Fleet",
                 
                 courses_title: "Flight Training Programs", courses_subtitle: "FAA-approved programs structured to take you from a beginner to a professional.",
                 course_disc_title: "Discovery Flight", course_disc_desc: "Your first step into the sky. Experience the thrill of flying over Los Angeles with an expert instructor.",
                 course_ppl_desc: "The foundation of your aviation journey. Learn aircraft control and regulations to fly safely.", course_ir_desc: "Fly with precision through clouds by relying solely on your aircraft's advanced instruments.", course_cpl_desc: "Elevate your skills to the professional standard required for a career in aviation.",
                 
+                online_badge: "Anywhere, Anytime", online_title: "Online Ground School", online_desc: "Master aviation theory from the comfort of your home. Our interactive online courses cover aerodynamics, weather, navigation, and FAA test prep, designed by our expert instructors to ensure you pass your written exams with confidence.",
+                online_feature1: "Interactive Video Lessons", online_feature2: "FAA Written Test Preparation", online_feature3: "1-on-1 Virtual Tutoring Sessions", online_btn: "Enroll Online Now",
+
                 why_title: "Why Fly With Us?", why_1_title: "Ideal LA Weather", why_1_desc: "Enjoy over 300 days of sunshine a year in Los Angeles, allowing for consistent and uninterrupted flight training.",
                 why_2_title: "Exclusive Community", why_2_desc: "Join a premium club of aviation enthusiasts. Network, share experiences, and grow with supportive peers.",
                 why_3_title: "Uncompromising Safety", why_3_desc: "Safety is our core. We strictly adhere to FAA standards with a meticulously maintained modern fleet.",
-                fleet_title: "Modern Training Fleet", fleet_desc: "Train on top-tier aircraft including Cessna, Piper, Diamond, and Sling, equipped with advanced avionics.",
                 
                 team_title: "Meet the Club Instructors", read_more: "Read Full Bio",
                 pilot1_name: "Mostafa Hassan", pilot1_title: "Certified Flight Instructor (CFI)", pilot1_short_bio: "Based in Los Angeles, Mostafa provides personalized, high-quality flight training tailored to each student’s goals.",
@@ -371,27 +412,27 @@
                 pilot2_name: "Youssef A. Youssef", pilot2_title: "Instrument Specialist (CFI-I)", pilot2_short_bio: "Youssef is a dedicated aviation professional specializing in training pilots with a strong emphasis on instrument proficiency.",
                 pilot2_full_bio: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`,
                 
-                faq_title: "Frequently Asked Questions",
-                faq_1_q: "Do I need prior experience to start flying?", faq_1_a: "Not at all! Our programs are designed to take you from absolute zero to a fully certified pilot. The Discovery Flight is the perfect way to start without any commitment.",
-                faq_2_q: "How long does it take to get a Private Pilot License?", faq_2_a: "It depends on your availability and weather, but most students flying 2-3 times a week can complete their PPL in about 3 to 6 months.",
-                faq_3_q: "Are your programs FAA approved?", faq_3_a: "Yes, all our flight training programs strictly adhere to Federal Aviation Administration (FAA) regulations, ensuring you receive globally recognized licenses.",
+                enroll_title: "Join WeFlySmart Club", enroll_desc: "Leave your details and we will reach out to schedule your first flight or online course.", form_name: "Full Name", form_email: "Email Address", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Request sent successfully!", btn_sending: "Sending...",
 
-                enroll_title: "Join WeFlySmart Club", enroll_desc: "Leave your details and we will reach out to schedule your first flight.", form_name: "Full Name", form_email: "Email Address", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", success_msg: "✅ Request sent successfully!", btn_sending: "Sending..."
+                footer_about: "WeFlySmart is an exclusive flying club in Los Angeles dedicated to providing premier flight training and building a community of passionate, safe, and skilled aviators.",
+                footer_links_title: "Quick Links", footer_contact_title: "Contact Us", footer_address: "Los Angeles, California, USA", footer_social_title: "Follow Our Journey", footer_social_desc: "Stay updated with our latest flights, student achievements, and club news."
             },
             ar: {
-                nav_programs: "البرامج", nav_why: "لماذا نحن", nav_team: "المدربون", nav_cta: "انضم للنادي",
+                nav_programs: "برامج الطيران", nav_online: "أونلاين", nav_why: "لماذا نحن", nav_team: "المدربون", nav_cta: "انضم للنادي",
                 hero_subtitle: "مرحباً بك في نادي الطيران الرائد", hero_title: "ابدأ رحلة الطيران من الولايات المتحدة", hero_desc: "انضم لمجتمع حصري من شغوفي الطيران. نوفر لك تدريباً عملياً في بيئة داعمة ومميزة لنادي طيران حقيقي.", hero_btn: "احجز رحلة استكشافية",
                 
-                badge_faa: "معايير FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول سيسنا وبايبر", badge_safety: "أمان بنسبة 100%",
+                badge_faa: "معايير FAA", badge_cfi: "مدربون معتمدون", badge_cessna: "أسطول حديث",
 
                 courses_title: "برامج تدريب الطيران", courses_subtitle: "برامج معتمدة من FAA لتأخذك من الصفر وحتى الاحتراف.",
                 course_disc_title: "الرحلة الاستكشافية", course_disc_desc: "خطوتك الأولى نحو السماء. جرب متعة الطيران فوق لوس أنجلوس مع مدرب محترف.",
                 course_ppl_desc: "الأساس لرحلتك الجوية. تعلم التحكم في الطائرة، والقوانين لتطير بأمان.", course_ir_desc: "حلّق بدقة وسط السحب وانعدام الرؤية بالاعتماد كلياً على الأجهزة.", course_cpl_desc: "ارتقِ بمهاراتك للمستوى الاحترافي المطلوب للعمل في الخطوط الجوية.",
                 
+                online_badge: "من أي مكان، في أي وقت", online_title: "المدرسة الأرضية أونلاين", online_desc: "احترف نظرية الطيران من راحة منزلك. كورساتنا التفاعلية تغطي الديناميكا الهوائية، الطقس، الملاحة، والتحضير لاختبارات FAA، مصممة بواسطة مدربينا لضمان نجاحك بثقة.",
+                online_feature1: "دروس فيديو تفاعلية", online_feature2: "تحضير لاختبارات FAA الكتابية", online_feature3: "جلسات توجيه فردية أونلاين", online_btn: "سجل في الأونلاين الآن",
+
                 why_title: "لماذا تختار نادينا؟", why_1_title: "طقس مثالي في LA", why_1_desc: "استمتع بأكثر من 300 يوم مشمس سنوياً في لوس أنجلوس، مما يضمن استمرارية التدريب بدون انقطاع.",
                 why_2_title: "مجتمع حصري", why_2_desc: "انضم لنخبة من شغوفي الطيران. تبادل الخبرات، وابنِ شبكة علاقات قوية في بيئة داعمة.",
                 why_3_title: "أمان لا مساومة فيه", why_3_desc: "الأمان هو جوهر عملنا. نلتزم بمعايير FAA بصرامة مع أسطول طائرات حديث وصيانة دورية دقيقة.",
-                fleet_title: "أسطول تدريب حديث", fleet_desc: "تدرب على طائرات من الطراز الأول تشمل سيسنا، بايبر، دايموند، وسلينغ، مجهزة بأحدث التقنيات.",
                 
                 team_title: "تعرف على مدربي النادي", read_more: "اقرأ السيرة كاملة",
                 pilot1_name: "مصطفى حسن", pilot1_title: "مدرب طيران معتمد (CFI)", pilot1_short_bio: "انطلاقاً من لوس أنجلوس، يقدم مصطفى تدريباً مخصصاً وعالي الجودة يناسب أهداف كل متدرب لتحويل حلمه لواقع.",
@@ -399,12 +440,10 @@
                 pilot2_name: "يوسف أ. يوسف", pilot2_title: "خبير الطيران الآلي (CFI-I)", pilot2_short_bio: "يوسف هو محترف طيران متفاني يتخصص في تدريب الطيارين مع تركيز قوي على كفاءة الطيران الآلي واتخاذ القرارات.",
                 pilot2_full_bio: `<p>يوسف أ. يوسف هو محترف طيران شغوف ومدرب طيران آلي معتمد (CFI-I) بخبرة تتجاوز الثماني سنوات في الصناعة. يتخصص في تدريب الطيارين في مختلف مراحل تطورهم، مع تركيز قوي على كفاءة الطيران الآلي، الانضباط الإجرائي، واتخاذ القرارات الواقعية.</p><p>يدمج نهجه التعليمي بين التدريب التقليدي والأدوات الحديثة، بما في ذلك أجهزة المحاكاة وأنظمة الواقع الافتراضي، لتعزيز استخدام قوائم التحقق (Checklists) والوعي التشغيلي.</p><br><p>إلى جانب خبرته الجوية، يمتلك يوسف خلفية أكاديمية في نظم المعلومات الجغرافية (GIS)، مما يمنحه منظوراً يعتمد على البيانات في الملاحة والتخطيط. وقد قام بتطوير مناهج منظمة للطلاب تشمل برامج تدريبية مفصلة.</p><br><p>يُعرف يوسف بأسلوبه العملي وقدرته على تبسيط المفاهيم المعقدة، وهو ملتزم بإعداد الطلاب ليس فقط لاجتياز الاختبارات، بل ليصبحوا طيارين آمنين وأكفاء في ظروف العالم الحقيقي.</p>`,
                 
-                faq_title: "الأسئلة الشائعة",
-                faq_1_q: "هل أحتاج لخبرة سابقة لبدء الطيران؟", faq_1_a: "إطلاقاً! برامجنا مصممة لتأخذك من الصفر وحتى الحصول على الرخصة. الرحلة الاستكشافية هي أفضل طريقة للبدء وتجربة الطيران بدون أي التزام.",
-                faq_2_q: "كم من الوقت يستغرق الحصول على رخصة الطيار الخاص؟", faq_2_a: "يعتمد ذلك على تفرغك والطقس، ولكن معظم الطلاب الذين يطيرون 2-3 مرات أسبوعياً ينهون التدريب في غضون 3 إلى 6 أشهر.",
-                faq_3_q: "هل برامجكم معتمدة من إدارة الطيران الفيدرالية (FAA)؟", faq_3_a: "نعم، جميع برامجنا التدريبية تلتزم بدقة بقوانين إدارة الطيران الفيدرالية (FAA)، مما يضمن حصولك على رخص معترف بها عالمياً.",
+                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك وسيتواصل معك فريقنا لتنسيق رحلتك أو لدراسة الأونلاين.", form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال بنجاح!", btn_sending: "جاري الإرسال...",
 
-                enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك وسيتواصل معك مدربونا لتنسيق رحلتك.", form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_phone: "رقم الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", success_msg: "✅ تم الإرسال بنجاح!", btn_sending: "جاري الإرسال..."
+                footer_about: "نادي وي فلاي سمارت هو مجتمع طيران حصري في لوس أنجلوس مكرس لتقديم تدريب طيران بأعلى المعايير وبناء مجتمع من الطيارين الشغوفين والآمنين والمهرة.",
+                footer_links_title: "روابط سريعة", footer_contact_title: "تواصل معنا", footer_address: "لوس أنجلوس، كاليفورنيا، الولايات المتحدة", footer_social_title: "تابع رحلتنا", footer_social_desc: "ابق على اطلاع بأحدث رحلاتنا وإنجازات المتدربين وأخبار النادي."
             }
         };
 
