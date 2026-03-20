@@ -33,9 +33,9 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
-        /* خلفية نهارية مشرقة لطيارة تدريب */
+        /* خلفية نهارية لطيارة تدريب (تم تعديل الرابط لطيارة سيسنا حقيقية) */
         .hero-light {
-            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.4)), url('https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(to right, rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.3)), url('https://images.unsplash.com/photo-1522858102927-4c070cbccf30?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -209,7 +209,6 @@
     </footer>
 
     <script>
-        // --- الترجمة ---
         const translations = {
             en: {
                 logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Club", nav_cta: "Join the Club",
@@ -262,7 +261,6 @@
             });
         }
 
-        // --- إرسال البيانات (Supabase + Web3Forms) ---
         const SUPABASE_URL = 'https://rcgxzmmnzjbumwfedmlf.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
