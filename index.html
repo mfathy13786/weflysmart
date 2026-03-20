@@ -17,6 +17,7 @@
 
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -37,6 +38,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
         html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
         
+        /* خلفية الهيرو */
         .hero-light {
             background-color: #0A2540;
             background-image: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.1) 100%), url('images/hero-plane.jpg');
@@ -54,7 +56,7 @@
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .transition-all { transition: all 0.3s ease-in-out; }
 
-        /* ستايل الـ Modal الزجاجي (الترند) */
+        /* ستايل الـ Modal الزجاجي */
         .glass-modal { background: rgba(10, 37, 64, 0.85); backdrop-filter: blur(8px); }
         .modal-content-enter { animation: modalPop 0.3s ease-out forwards; }
         @keyframes modalPop {
@@ -67,9 +69,10 @@
 
     <header class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="container mx-auto px-5 py-3 flex justify-between items-center relative">
-            <a href="#" class="text-navy text-2xl font-extrabold flex items-center gap-2">
-                <i class="fas fa-plane-departure text-accent"></i>
-                <span data-i18n="logo">WeFlySmart</span>
+            
+            <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
+                <img src="images/logo.png" alt="WeFlySmart Logo" class="h-10 md:h-12 object-contain" onerror="this.style.display='none'">
+                <span class="text-navy text-xl md:text-2xl font-extrabold ml-2 rtl:ml-0 rtl:mr-2" data-i18n="logo">WeFlySmart</span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
@@ -177,21 +180,19 @@
 
     <div id="bioModal" class="fixed inset-0 z-[100] hidden items-center justify-center glass-modal transition-opacity opacity-0 px-4">
         <div class="absolute inset-0" onclick="closeBioModal()"></div>
-        
         <div id="bioModalContent" class="bg-white rounded-3xl w-full max-w-2xl p-6 md:p-8 relative shadow-2xl max-h-[85vh] overflow-y-auto" dir="auto">
             <button onclick="closeBioModal()" class="absolute top-4 right-4 rtl:left-4 rtl:right-auto text-gray-400 hover:text-navy text-3xl focus:outline-none">&times;</button>
-            
             <div class="flex flex-col md:flex-row gap-6 items-center md:items-start mt-4">
                 <img id="modalImg" src="" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg border-4 border-lightbg flex-shrink-0">
                 <div class="text-center md:text-left rtl:md:text-right">
                     <h3 id="modalName" class="text-2xl md:text-3xl font-extrabold text-navy mb-1"></h3>
                     <p id="modalTitle" class="text-accent font-bold text-sm mb-4"></p>
-                    <div id="modalBio" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-3">
-                        </div>
+                    <div id="modalBio" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-3"></div>
                 </div>
             </div>
         </div>
     </div>
+
     <section id="enroll" class="py-12 md:py-16 bg-navy">
         <div class="container mx-auto px-5">
             <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-xl">
@@ -244,7 +245,7 @@
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
 
-        // بيانات الترجمة والمحتوى الكامل
+        // Translations & Data
         const translations = {
             en: {
                 logo: "WeFlySmart", nav_programs: "Programs", nav_team: "Instructors", nav_about: "The Club", nav_cta: "Join the Club",
@@ -295,27 +296,22 @@
             });
         }
 
-        // ================= Modal Logic (نظام اقرأ المزيد الذكي) =================
+        // Modal Logic
         const modal = document.getElementById('bioModal');
         const modalContent = document.getElementById('bioModalContent');
         
         function openBioModal(pilotId) {
-            // تحديث محتوى الـ Modal بناءً على المدرب واللغة الحالية
             document.getElementById('modalName').innerHTML = translations[currentLang][`${pilotId}_name`];
             document.getElementById('modalTitle').innerHTML = translations[currentLang][`${pilotId}_title`];
             document.getElementById('modalBio').innerHTML = translations[currentLang][`${pilotId}_full_bio`];
+            document.getElementById('modalImg').src = pilotId === 'pilot1' ? 'images/mostafa.jpg' : 'images/youssef.jpg';
             
-            // تحديد الصورة
-            const imgSrc = pilotId === 'pilot1' ? 'images/mostafa.jpg' : 'images/youssef.jpg';
-            document.getElementById('modalImg').src = imgSrc;
-            
-            // إظهار الـ Modal بأنيميشن
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.add('modal-content-enter');
             }, 10);
-            document.body.style.overflow = 'hidden'; // منع السكرول في الصفحة الخلفية
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeBioModal() {
@@ -323,10 +319,9 @@
             modalContent.classList.remove('modal-content-enter');
             setTimeout(() => {
                 modal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // إرجاع السكرول
+                document.body.style.overflow = 'auto';
             }, 300);
         }
-        // =========================================================================
 
         // Supabase & Web3Forms
         const _supabase = supabase.createClient('https://rcgxzmmnzjbumwfedmlf.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjZ3h6bW1uempidW13ZmVkbWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDQzODAsImV4cCI6MjA4ODkyMDM4MH0.G9bIRaop0HeH14ewhkyZIL0DC31jt1iSoNr2C_QGlMY');
