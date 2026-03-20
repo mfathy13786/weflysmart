@@ -8,10 +8,9 @@
     <meta name="description" content="Start your aviation journey in the USA with WeFlySmart. An exclusive flying club offering top-tier FAA-approved flight training.">
     <meta name="keywords" content="flight school USA, flying club Los Angeles, PPL, CPL, Instrument Rating, aviation academy">
     <meta name="author" content="WeFlySmart Aero Club">
-    <meta name="robots" content="index, follow">
     
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png?v=2" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png?v=2">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -64,6 +63,13 @@
                 <a href="#reviews" class="hover:text-accent transition-all" data-i18n="nav_reviews">Reviews</a>
             </nav>
             <div class="flex items-center gap-3">
+                <a href="tel:+13233849083" class="hidden lg:flex items-center gap-1 text-navy hover:text-accent font-bold text-sm transition-all mr-2">
+                    <i class="fas fa-phone-alt"></i> <span dir="ltr">+1 (323) 384-9083</span>
+                </a>
+                <a href="tel:+13233849083" class="lg:hidden text-navy hover:text-accent text-lg transition-all mr-1">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+
                 <button onclick="toggleLanguage()" class="text-gray-600 hover:text-accent font-bold text-sm flex items-center gap-1 bg-gray-100 px-3 py-2 rounded-lg transition-all">
                     <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
                 </button>
@@ -253,7 +259,6 @@
                     </div>
                     <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic" data-i18n="testi_1_text">"Got my PPL in just 3 months! Capt. Mostafa is an incredible instructor. The planes are top-notch and the LA weather made scheduling a breeze."</p>
                 </div>
-
                 <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4 rtl:left-4 rtl:right-auto"></i>
                     <div class="flex items-center gap-4 mb-4">
@@ -265,7 +270,6 @@
                     </div>
                     <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic" data-i18n="testi_2_text">"The Instrument Rating course was challenging but Capt. Youssef made the complex concepts so easy to understand. Highly recommend their online ground school too."</p>
                 </div>
-
                 <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4 rtl:left-4 rtl:right-auto"></i>
                     <div class="flex items-center gap-4 mb-4">
@@ -343,8 +347,8 @@
             </div>
             
             <div id="progModalBody" class="hidden flex flex-col gap-4 mt-2">
-                <div class="w-full h-40 md:h-56 rounded-xl shadow-sm overflow-hidden bg-gray-800 relative" id="progImageContainer">
-                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program">
+                <div class="w-full h-40 md:h-56 rounded-xl shadow-sm overflow-hidden bg-lightbg relative">
+                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div id="progMissingImg" style="display:none;" class="absolute inset-0 flex items-center justify-center text-gray-400 font-bold bg-gray-100">Image Missing</div>
                 </div>
                 
@@ -399,11 +403,23 @@
                     </button>
                     <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg shadow-sm text-sm font-bold flex items-center justify-center gap-2"></div>
                 </form>
-            </div>
+
+                <div class="mt-8 border-t border-gray-100 pt-5 text-center">
+                    <p class="text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider" data-i18n="we_accept">We Securely Accept</p>
+                    <div class="flex justify-center items-center gap-4 text-gray-400 text-2xl md:text-3xl">
+                        <i class="fab fa-cc-visa hover:text-blue-700 transition-colors cursor-pointer" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard hover:text-orange-500 transition-colors cursor-pointer" title="Mastercard"></i>
+                        <i class="fab fa-cc-amex hover:text-blue-500 transition-colors cursor-pointer" title="American Express"></i>
+                        <i class="fab fa-cc-paypal hover:text-blue-400 transition-colors cursor-pointer" title="PayPal"></i>
+                        <i class="fab fa-apple-pay hover:text-black transition-colors cursor-pointer" title="Apple Pay"></i>
+                        <i class="fab fa-bitcoin hover:text-yellow-500 transition-colors cursor-pointer" title="Crypto / Bitcoin"></i>
+                    </div>
+                </div>
+                </div>
         </div>
     </section>
 
-    <footer class="bg-[#020b14] text-gray-300 pt-12 pb-6 border-t-4 border-accent">
+    <footer class="bg-[#020b14] text-gray-300 pt-12 pb-4 border-t-4 border-accent">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center md:text-left rtl:md:text-right">
                 
@@ -432,18 +448,12 @@
                 
                 <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center md:items-start rtl:md:items-end">
                     <h4 class="text-white font-bold text-base md:text-lg mb-4" data-i18n="footer_contact_title">Contact LA</h4>
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-400 text-center md:text-left rtl:md:text-right w-full">
-                        <li class="flex items-start gap-2 justify-center md:justify-start rtl:md:justify-end">
-                            <i class="fas fa-map-marker-alt text-accent mt-1"></i><span data-i18n="footer_address">Los Angeles, California, USA</span>
-                        </li>
-                        <li class="flex items-center gap-2 justify-center md:justify-start rtl:md:justify-end">
-                            <i class="fas fa-phone-alt text-accent"></i><a href="tel:+13233849083" class="hover:text-white transition-colors">+1 (323) 384-9083</a>
-                        </li>
-                        <li class="flex items-center gap-2 justify-center md:justify-start rtl:md:justify-end">
-                            <i class="fas fa-envelope text-accent"></i><a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a>
-                        </li>
+                    <ul class="space-y-3 text-xs md:text-sm text-gray-400 text-left rtl:text-right w-full flex flex-col items-center md:items-start rtl:md:items-end">
+                        <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-accent mt-1"></i><span data-i18n="footer_address">Los Angeles, California, USA</span></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-accent"></i><a href="tel:+13233849083" class="hover:text-white transition-colors">+1 (323) 384-9083</a></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-envelope text-accent"></i><a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a></li>
                     </ul>
-                    <div class="flex gap-4 text-lg md:text-xl justify-center md:justify-start rtl:md:justify-end mt-4">
+                    <div class="flex gap-4 text-lg md:text-xl mt-4">
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-youtube"></i></a>
@@ -451,7 +461,18 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+
+            <div class="border-t border-gray-800 pt-8 pb-6 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <img src="images/faa.png" alt="FAA" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">FAA APPROVED</span>
+
+                <img src="images/cessna.png" alt="Cessna" class="h-6 md:h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">CESSNA FLEET</span>
+
+                <img src="images/aopa.png" alt="AOPA" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">AOPA MEMBER</span>
+            </div>
+            <div class="pt-4 text-center text-xs text-gray-600 border-t border-gray-800/50">
                 <p>&copy; 2026 WeFlySmart Aero Club. All rights reserved.</p>
             </div>
         </div>
@@ -490,7 +511,6 @@
                 why_title: "Why Choose Us?", why_1_title: "Ideal LA Weather", why_1_desc: "300+ sunny days a year for uninterrupted training.", why_2_title: "Exclusive Community", why_2_desc: "Network and grow with supportive aviation enthusiast.", why_3_title: "FAA Certified Fleet", why_3_desc: "Train on meticulous Cessnas, Pipers, Diamonds.",
                 team_title: "Club Instructors", read_more: "Read More",
                 
-                // المراجعات الانجليزي
                 testi_title: "What Our Pilots Say",
                 testi_1_name: "John D.", testi_1_text: `"Got my PPL in just 3 months! Capt. Mostafa is an incredible instructor. The planes are top-notch and the LA weather made scheduling a breeze."`,
                 testi_2_name: "Sarah M.", testi_2_text: `"The Instrument Rating course was challenging but Capt. Youssef made the complex concepts so easy to understand. Highly recommend their online ground school too."`,
@@ -510,7 +530,8 @@
                 faq_6_q: "Are your programs FAA approved?", faq_6_a: "Yes, all our flight training programs strictly adhere to Federal Aviation Administration (FAA) regulations, ensuring you receive globally recognized training.",
                 
                 enroll_title: "Join WeFlySmart", enroll_desc: "Leave details to schedule.", form_name: "Full Name", form_email: "Email", form_phone: "Phone (WhatsApp)", form_prog_default: "Select a program", form_btn: "Send Request", 
-                success_msg: "Request sent successfully! Our team will contact you shortly.",
+                success_msg: "Thank you! Your request has been sent successfully. Our team will contact you shortly.",
+                we_accept: "We Securely Accept",
                 footer_about: "An exclusive flying club in LA for premier training.", footer_links_title: "Links", footer_legal_title: "Legal", nav_privacy: "Privacy Policy", nav_terms: "Terms & Conditions", footer_contact_title: "Contact LA", footer_address: "Los Angeles, California", footer_social_title: "Follow Us", footer_social_desc: "Stay updated with flights.",
                 modal_contact_btn: "Inquire via WhatsApp",
                 
@@ -531,7 +552,6 @@
                 why_title: "لماذا تختارنا؟", why_1_title: "طقس مثالي في LA", why_1_desc: "أكثر من 300 يوم مشمس لتدريب مستمر.", why_2_title: "مجتمع حصري", why_2_desc: "تبادل الخبرات وابنِ علاقات مع شغوفي الطيران.", why_3_title: "أسطول FAA حديث", why_3_desc: "تدرب على طائرات سيسنا وبايبر ودايموند.",
                 team_title: "مدربو النادي", read_more: "التفاصيل",
                 
-                // المراجعات العربي
                 testi_title: "ماذا يقول طيارونا",
                 testi_1_name: "جون د.", testi_1_text: `"حصلت على رخصة PPL في 3 أشهر فقط! كابتن مصطفى مدرب رائع، والطائرات ممتازة وطقس لوس أنجلوس جعل جدولة الرحلات سهلة جداً."`,
                 testi_2_name: "سارة م.", testi_2_text: `"كورس الطيران الآلي كان تحدياً، لكن كابتن يوسف بسّط المفاهيم المعقدة جداً. أنصح وبشدة بالمدرسة الأرضية الأونلاين الخاصة بهم."`,
@@ -552,6 +572,7 @@
                 
                 enroll_title: "انضم لنادي وي فلاي سمارت", enroll_desc: "اترك بياناتك للتنسيق.", form_name: "الاسم بالكامل", form_email: "الإيميل", form_phone: "الهاتف (واتساب)", form_prog_default: "اختر البرنامج", form_btn: "إرسال الطلب", 
                 success_msg: "تم إرسال طلبك بنجاح! سيتواصل معك فريقنا في أقرب وقت.",
+                we_accept: "نقبل الدفع الآمن عبر",
                 footer_about: "مجتمع طيران حصري في LA لتدريب احترافي.", footer_links_title: "روابط", footer_legal_title: "قانوني", nav_privacy: "سياسة الخصوصية", nav_terms: "الشروط والأحكام", footer_contact_title: "تواصل معنا", footer_address: "لوس أنجلوس، كاليفورنيا", footer_social_title: "تابعنا", footer_social_desc: "ابقَ على اطلاع.",
                 modal_contact_btn: "تواصل للاستفسار عبر واتساب",
                 
@@ -621,7 +642,6 @@
                 document.getElementById('progModalName').innerText = data[currentLang].name;
                 document.getElementById('progModalDesc').innerHTML = data[currentLang].desc;
                 
-                // هندسة إظهار الصورة وتحديثها عشان متعملش شاشة سودة
                 const imgEl = document.getElementById('progModalImg');
                 const missingEl = document.getElementById('progMissingImg');
                 
