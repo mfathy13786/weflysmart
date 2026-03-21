@@ -14,7 +14,6 @@
     <meta property="og:image" content="https://weflysmart.com/images/hero-plane.jpg">
     <meta property="og:url" content="https://weflysmart.com">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="images/favicon.png?v=3" type="image/png">
     <link rel="apple-touch-icon" href="images/favicon.png?v=3">
@@ -34,17 +33,13 @@
 
     <style>
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
-        
         #heroSection { transition: background-image 1.5s ease-in-out; background-size: cover; background-position: center; }
-        
-        .shadow-soft { box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+        .shadow-soft { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .glass-modal { background: rgba(10, 37, 64, 0.95); backdrop-filter: blur(12px); }
         .modal-content-enter { animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         @keyframes modalPop { 0% { transform: scale(0.9) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
-
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
-
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn span:nth-child(2) { width: 70%; margin-left: auto; margin-right: 0; }
         #mobileMenuBtn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
@@ -64,8 +59,8 @@
             <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold text-gray-600">
                 <a href="#about" class="hover:text-accent transition-all">About Us</a>
                 <a href="#programs" class="hover:text-accent transition-all">Programs</a>
+                <a href="#fleet" class="hover:text-accent transition-all">Our Fleet</a>
                 <a href="#team" class="hover:text-accent transition-all">Instructors</a>
-                <a href="#reviews" class="hover:text-accent transition-all">Reviews</a>
             </nav>
             <div class="flex items-center gap-3">
                 <a href="tel:+13233474099" class="hidden lg:flex items-center gap-1 text-navy hover:text-accent font-bold text-sm transition-all mr-2">
@@ -81,8 +76,8 @@
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full flex flex-col px-5 py-4 gap-4">
             <a href="#about" class="text-navy font-bold text-lg">About Us</a>
             <a href="#programs" class="text-navy font-bold text-lg">Flight Programs</a>
+            <a href="#fleet" class="text-navy font-bold text-lg">Our Fleet</a>
             <a href="#team" class="text-navy font-bold text-lg">Instructors</a>
-            <a href="#reviews" class="text-navy font-bold text-lg">Reviews</a>
             <a href="#enroll" class="text-accent font-bold text-lg">Join the Club</a>
         </div>
     </header>
@@ -121,123 +116,196 @@
         </div>
     </section>
 
-    <section id="about" class="py-12 md:py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
-                <div class="w-full md:w-1/2" data-aos="fade-right">
-                    <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">About Fly Smart Aero Club</p>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-tight">Fly Smart. Train Better.<br><span class="text-accent">Soar Higher.</span></h2>
+    <section id="about" class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-accent opacity-5 rounded-full blur-3xl -ml-20 -mt-20"></div>
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="inline-block bg-navy text-white font-bold px-3 py-1 rounded text-xs mb-4 uppercase tracking-widest">About Fly Smart</div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-navy mb-6 leading-tight">Fly Smart.<br>Train Better.<br><span class="text-accent">Soar Higher.</span></h2>
                     
-                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
-                        Fly Smart Aero Club is a modern aviation training community founded by experienced, independent flight instructors who share a deep passion for flight. Our goal is to inspire the next generation of pilots, introduce newcomers to the freedom of the skies, and contribute to the growth of the aviation industry in Southern California.
+                    <p class="text-gray-600 mb-6 leading-relaxed text-base">
+                        Fly Smart Aero Club is a modern aviation training community founded by experienced, independent flight instructors who share a deep passion for flight. Our goal is to inspire the next generation of pilots, introduce newcomers to the freedom of the skies, and contribute to the growth of the aviation industry in <strong class="text-navy">Los Angeles</strong>.
                     </p>
                     
-                    <p class="font-bold text-navy mb-3 text-sm md:text-base">Our mission is to make aviation:</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center gap-3 text-gray-600 text-sm md:text-base"><i class="fas fa-check-circle text-accent"></i> More accessible</li>
-                        <li class="flex items-center gap-3 text-gray-600 text-sm md:text-base"><i class="fas fa-check-circle text-accent"></i> More affordable</li>
-                        <li class="flex items-center gap-3 text-gray-600 text-sm md:text-base"><i class="fas fa-check-circle text-accent"></i> More personalized</li>
-                    </ul>
+                    <div class="bg-lightbg p-6 rounded-xl border-l-4 border-accent mb-6">
+                        <p class="font-bold text-navy mb-3 text-lg">Our mission is to make aviation:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check text-accent text-lg"></i> More accessible</li>
+                            <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check text-accent text-lg"></i> More affordable</li>
+                            <li class="flex items-center gap-3 text-gray-700 font-medium"><i class="fas fa-check text-accent text-lg"></i> More personalized</li>
+                        </ul>
+                    </div>
                     
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base mb-6">
+                    <p class="text-gray-600 leading-relaxed text-base mb-6">
                         We partner with trusted flight schools and aircraft owners who are committed to supporting the aviation community. Through these partnerships, we provide students with the opportunity to train on a variety of aircrafts at lower costs than traditional training programs—without compromising on quality or safety.
                     </p>
-                    <p class="text-navy font-semibold italic border-l-4 border-accent pl-4 py-2">
-                        "At Fly Smart Aero Club, we believe that becoming a pilot shouldn’t be limited by high costs or barriers to entry—it should be an achievable and exciting journey for anyone with the passion to fly."
+                    <p class="text-navy font-bold italic text-lg leading-relaxed">
+                        "Becoming a pilot shouldn’t be limited by high costs. It should be an achievable and exciting journey for anyone with the passion to fly."
                     </p>
                 </div>
                 
-                <div class="w-full md:w-1/2" data-aos="fade-left">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="images/about.jpg" alt="Fly Smart Pilots" class="w-full h-auto object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80'">
-                        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-accent rounded-full opacity-20 blur-xl"></div>
-                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-navy rounded-full opacity-10 blur-xl"></div>
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
+                    <img src="images/about.jpg" alt="Fly Smart Instructors" class="w-full h-[500px] object-cover rounded-2xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center text-accent text-2xl">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-navy text-xl">50+</h4>
+                            <p class="text-gray-500 text-xs font-bold uppercase">Active Pilots</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="py-12 md:py-20 bg-lightbg">
+    <section id="programs" class="py-12 md:py-20 bg-lightbg border-t border-gray-200">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-10" data-aos="fade-up">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Our Training</p>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Flight Training Programs</h2>
-                <div class="w-12 h-1 bg-accent mx-auto rounded-full mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm">FAA-approved programs structured to take you from a beginner to a professional in Los Angeles.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Flight Training Programs</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">FAA-approved programs structured to take you from a beginner to a professional in Los Angeles.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5 justify-center">
-                <div class="bg-white p-4 md:p-5 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-1 transition-all cursor-pointer group" onclick="openModal('prog_disc')" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-binoculars text-2xl md:text-3xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-sm md:text-base font-bold text-navy mb-2">Discovery Flight</h3>
-                    <p class="text-gray-600 text-xs mb-3 line-clamp-2">Your first step into the sky. Experience LA from above.</p>
-                    <span class="text-navy font-bold text-xs group-hover:text-accent flex items-center gap-1 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all cursor-pointer group" onclick="openModal('prog_disc')" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-orange-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-accent transition-colors">
+                        <i class="fas fa-binoculars text-3xl text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-navy mb-3">Discovery Flight</h3>
+                    <p class="text-gray-500 text-sm mb-5 leading-relaxed">Your first step into the sky. Experience LA from above with zero pressure.</p>
+                    <span class="text-navy font-bold text-sm group-hover:text-accent flex items-center gap-2 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="bg-white p-4 md:p-5 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-1 transition-all cursor-pointer group" onclick="openModal('prog_ppl')" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-plane text-2xl md:text-3xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-sm md:text-base font-bold text-navy mb-2">Private Pilot (PPL)</h3>
-                    <p class="text-gray-600 text-xs mb-3 line-clamp-2">The foundation of your aviation journey. Learn control & regulations.</p>
-                    <span class="text-navy font-bold text-xs group-hover:text-accent flex items-center gap-1 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
+
+                <div class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all cursor-pointer group" onclick="openModal('prog_ppl')" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-navy transition-colors">
+                        <i class="fas fa-plane text-3xl text-navy group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-navy mb-3">Private Pilot (PPL)</h3>
+                    <p class="text-gray-500 text-sm mb-5 leading-relaxed">The foundation of your aviation journey. Learn aircraft control & regulations.</p>
+                    <span class="text-navy font-bold text-sm group-hover:text-accent flex items-center gap-2 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="bg-white p-4 md:p-5 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-1 transition-all cursor-pointer group" onclick="openModal('prog_ir')" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-cloud text-2xl md:text-3xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-sm md:text-base font-bold text-navy mb-2">Instrument Rating (IR)</h3>
-                    <p class="text-gray-600 text-xs mb-3 line-clamp-2">Fly with precision through clouds relying solely on instruments.</p>
-                    <span class="text-navy font-bold text-xs group-hover:text-accent flex items-center gap-1 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
+
+                <div class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all cursor-pointer group" onclick="openModal('prog_ir')" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-navy transition-colors">
+                        <i class="fas fa-cloud text-3xl text-navy group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-navy mb-3">Instrument Rating</h3>
+                    <p class="text-gray-500 text-sm mb-5 leading-relaxed">Fly with precision through clouds relying solely on instruments securely.</p>
+                    <span class="text-navy font-bold text-sm group-hover:text-accent flex items-center gap-2 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
-                <div class="bg-white p-4 md:p-5 rounded-xl shadow-soft border border-gray-100 hover:border-accent hover:-translate-y-1 transition-all cursor-pointer group" onclick="openModal('prog_cpl')" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-user-tie text-2xl md:text-3xl text-accent mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-sm md:text-base font-bold text-navy mb-2">Commercial Pilot (CPL)</h3>
-                    <p class="text-gray-600 text-xs mb-3 line-clamp-2">Elevate your skills to the professional standard for a career.</p>
-                    <span class="text-navy font-bold text-xs group-hover:text-accent flex items-center gap-1 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
-                </div>
-                <div class="bg-navy p-4 md:p-5 rounded-xl shadow-soft border border-navy hover:border-accent hover:-translate-y-1 transition-all cursor-pointer group relative overflow-hidden" onclick="openModal('prog_online')" data-aos="fade-up" data-aos-delay="500">
-                    <div class="absolute -right-4 -bottom-4 opacity-10"><i class="fas fa-laptop-code text-8xl text-white"></i></div>
-                    <i class="fas fa-laptop-code text-2xl md:text-3xl text-accent mb-3 group-hover:scale-110 transition-transform relative z-10"></i>
-                    <h3 class="text-sm md:text-base font-bold text-white mb-2 relative z-10">Online Ground School</h3>
-                    <p class="text-gray-300 text-xs mb-3 line-clamp-2 relative z-10">Master theory from home. Aero, weather, and FAA test prep.</p>
-                    <span class="text-accent font-bold text-xs flex items-center gap-1 transition-colors relative z-10">Read More <i class="fas fa-arrow-right"></i></span>
+
+                <div class="bg-white p-6 rounded-2xl shadow-soft border border-gray-100 hover:border-accent hover:shadow-lg hover:-translate-y-2 transition-all cursor-pointer group" onclick="openModal('prog_cpl')" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-orange-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-accent transition-colors">
+                        <i class="fas fa-user-tie text-3xl text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-navy mb-3">Commercial Pilot</h3>
+                    <p class="text-gray-500 text-sm mb-5 leading-relaxed">Elevate your skills to the professional standard for a rewarding career.</p>
+                    <span class="text-navy font-bold text-sm group-hover:text-accent flex items-center gap-2 transition-colors">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="why" class="py-12 md:py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Why Fly With Us?</h2>
-                <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-14 h-14 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-xl mb-3"><i class="fas fa-sun"></i></div>
-                    <h4 class="font-bold text-navy mb-2 text-sm md:text-base">Ideal LA Weather</h4>
-                    <p class="text-gray-600 text-xs md:text-sm">Over 300 days of sunshine a year in Los Angeles ensure continuous and uninterrupted flight training.</p>
+    <section id="online" class="py-12 md:py-20 bg-navy relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                    <span class="inline-block bg-accent/20 text-accent font-bold px-3 py-1 rounded-full text-xs mb-4 uppercase tracking-wider">Anywhere, Anytime</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Online Ground School</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-8">Master aviation theory from the comfort of your home. Our interactive online courses cover aerodynamics, weather, navigation, and FAA test prep, designed by our expert instructors.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center justify-center md:justify-start gap-3 text-gray-300"><i class="fas fa-check-circle text-accent"></i> Interactive Video Lessons</li>
+                        <li class="flex items-center justify-center md:justify-start gap-3 text-gray-300"><i class="fas fa-check-circle text-accent"></i> FAA Written Test Preparation</li>
+                        <li class="flex items-center justify-center md:justify-start gap-3 text-gray-300"><i class="fas fa-check-circle text-accent"></i> 1-on-1 Virtual Tutoring</li>
+                    </ul>
+                    <a href="#enroll" class="inline-block bg-accent text-white hover:bg-orange-500 px-8 py-3 rounded-lg font-bold text-lg transition-all shadow-lg transform hover:scale-105">Enroll Online Now</a>
                 </div>
-                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-14 h-14 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-xl mb-3"><i class="fas fa-users"></i></div>
-                    <h4 class="font-bold text-navy mb-2 text-sm md:text-base">Affordable Training</h4>
-                    <p class="text-gray-600 text-xs md:text-sm">Through our partnerships, we provide access to quality aircraft at lower costs than traditional schools.</p>
-                </div>
-                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="w-14 h-14 mx-auto bg-blue-50 text-accent rounded-full flex items-center justify-center text-xl mb-3"><i class="fas fa-shield-alt"></i></div>
-                    <h4 class="font-bold text-navy mb-2 text-sm md:text-base">Safety First</h4>
-                    <p class="text-gray-600 text-xs md:text-sm">We never compromise on quality or safety. Our instructors hold the final authority on flight dispatch.</p>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <div class="relative rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] border-4 border-white/10">
+                        <img src="images/online.jpg" alt="Online Aviation Training" class="w-full h-72 md:h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute inset-0 bg-navy/30 flex items-center justify-center hover:bg-navy/10 transition-colors cursor-pointer">
+                            <i class="fas fa-play-circle text-7xl text-white opacity-90 drop-shadow-lg"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="team" class="py-12 md:py-16 bg-lightbg">
+    <section id="fleet" class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-accent font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Fly The Best</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Our Training Fleet</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">We operate a meticulously maintained fleet of modern aircraft equipped with advanced avionics to ensure you train safely and effectively.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-100 hover:shadow-lg transition-shadow group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden relative bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cessna172-skyhawk.jpg/800px-Cessna172-skyhawk.jpg" alt="Cessna 172" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-navy text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Primary Trainer</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-extrabold text-navy mb-2">Cessna 172 Skyhawk</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">The most popular and reliable training aircraft in aviation history. Perfect for PPL and Instrument training.</p>
+                        <ul class="space-y-2 text-sm text-gray-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Avionics: Garmin G1000 / Analog</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> Capacity: 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-tachometer-alt text-accent w-4"></i> Cruise: 122 knots</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-100 hover:shadow-lg transition-shadow group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Piper_PA-28-161_Warrior_II_arp.jpg/800px-Piper_PA-28-161_Warrior_II_arp.jpg" alt="Piper Cherokee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-extrabold text-navy mb-2">Piper Cherokee PA-28</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">A versatile, low-wing trainer known for its stable flight characteristics and excellent visibility.</p>
+                        <ul class="space-y-2 text-sm text-gray-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Avionics: Advanced IFR Panel</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> Capacity: 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-tachometer-alt text-accent w-4"></i> Cruise: 125 knots</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-100 hover:shadow-lg transition-shadow group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 overflow-hidden relative bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Diamond_DA40_TDI_Star_OE-KRC_01.jpg/800px-Diamond_DA40_TDI_Star_OE-KRC_01.jpg" alt="Diamond DA40" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Advanced</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-extrabold text-navy mb-2">Diamond DA40 Star</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">A modern, sleek composite aircraft providing a realistic transition to commercial airline flight decks.</p>
+                        <ul class="space-y-2 text-sm text-gray-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Avionics: Full Glass Cockpit</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> Capacity: 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-tachometer-alt text-accent w-4"></i> Cruise: 150 knots</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-12 md:py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Meet Our Instructors</h2>
                 <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-white p-5 rounded-2xl shadow-soft hover:shadow-md transition-all cursor-pointer" onclick="openModal('pilot1')" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-lightbg p-5 rounded-2xl shadow-soft hover:shadow-md transition-all cursor-pointer" onclick="openModal('pilot1')" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-2 border-white" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-lg font-bold text-navy mb-1">Mostafa Hassan</h4>
                         <p class="text-accent font-bold text-xs mb-2">Certified Flight Instructor (CFI)</p>
@@ -245,8 +313,8 @@
                         <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center gap-1 justify-center sm:justify-start transition-colors">Read More <i class="fas fa-plus-circle"></i></span>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-white p-5 rounded-2xl shadow-soft hover:shadow-md transition-all cursor-pointer" onclick="openModal('pilot2')" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-2 border-gray-100" onerror="this.src='https://via.placeholder.com/150'">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-lightbg p-5 rounded-2xl shadow-soft hover:shadow-md transition-all cursor-pointer" onclick="openModal('pilot2')" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-sm border-2 border-white" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-lg font-bold text-navy mb-1">Youssef A. Youssef</h4>
                         <p class="text-accent font-bold text-xs mb-2">Instrument Specialist (CFI-I)</p>
@@ -258,87 +326,117 @@
         </div>
     </section>
 
-    <section id="reviews" class="py-12 md:py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">What Our Pilots Say</h2>
-                <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
+    <section id="reviews" class="py-16 md:py-24 bg-navy relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">What Our Pilots Say</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4"></i>
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Marcus+T&background=0A2540&color=F9A03F" alt="Student" class="w-12 h-12 rounded-full object-cover shadow-sm">
+                <div class="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/20 hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                        <img src="https://ui-avatars.com/api/?name=Marcus+T&background=F9A03F&color=fff&size=64" alt="Student" class="w-14 h-14 rounded-full shadow-md">
                         <div>
-                            <h4 class="font-bold text-navy text-sm">Marcus T.</h4>
+                            <h4 class="font-bold text-white text-base">Marcus T.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic">"Fly Smart Aero Club truly lives up to its name. The training was incredibly affordable compared to other LA schools, yet the quality of instruction with Capt. Mostafa was top-tier. Got my PPL smoothly!"</p>
+                    <p class="text-gray-200 text-sm leading-relaxed italic">"Fly Smart Aero Club truly lives up to its name. The training was incredibly affordable compared to other LA schools, yet the quality of instruction with Capt. Mostafa was top-tier. Got my PPL smoothly!"</p>
                 </div>
-                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4"></i>
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Emily+R&background=0A2540&color=F9A03F" alt="Student" class="w-12 h-12 rounded-full object-cover shadow-sm">
+                
+                <div class="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/20 hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                        <img src="https://ui-avatars.com/api/?name=Emily+R&background=F9A03F&color=fff&size=64" alt="Student" class="w-14 h-14 rounded-full shadow-md">
                         <div>
-                            <h4 class="font-bold text-navy text-sm">Emily R.</h4>
+                            <h4 class="font-bold text-white text-base">Emily R.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic">"The Instrument Rating course was challenging, but Capt. Youssef made complex concepts so easy to digest. Their online ground school is a game changer for busy schedules."</p>
+                    <p class="text-gray-200 text-sm leading-relaxed italic">"The Instrument Rating course was challenging, but Capt. Youssef made complex concepts so easy to digest. Their online ground school is a game changer for busy schedules."</p>
                 </div>
-                <div class="bg-lightbg p-6 rounded-2xl shadow-soft hover:shadow-md transition-all relative" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-quote-left text-3xl text-accent/20 absolute top-4 right-4"></i>
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Ethan+W&background=0A2540&color=F9A03F" alt="Student" class="w-12 h-12 rounded-full object-cover shadow-sm">
+                
+                <div class="bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/20 hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                        <img src="https://ui-avatars.com/api/?name=Ethan+W&background=F9A03F&color=fff&size=64" alt="Student" class="w-14 h-14 rounded-full shadow-md">
                         <div>
-                            <h4 class="font-bold text-navy text-sm">Ethan W.</h4>
+                            <h4 class="font-bold text-white text-base">Ethan W.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed italic">"I loved the club community vibe. It feels less like a strict academy and more like a family of aviators helping each other out. Best value for flight training in Southern California."</p>
+                    <p class="text-gray-200 text-sm leading-relaxed italic">"I loved the club community vibe. It feels less like a strict academy and more like a family of aviators helping each other out. Best value for flight training in Southern California."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12 md:py-16 bg-lightbg border-t border-gray-100">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-10" data-aos="fade-up">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Frequently Asked Questions</h2>
-                <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
+    <section class="py-16 md:py-24 bg-lightbg border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
+            
             <div class="space-y-4">
-                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-5 text-navy text-sm md:text-base">
-                        <span>Do I need prior experience?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>Do I need any prior aviation experience to start?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed border-t border-gray-50 mt-2">Not at all! We train from absolute zero. The Discovery Flight is a great start to see if flying is right for you.</div>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        <strong>Not at all!</strong> The majority of our students come to us with absolute zero flight experience. We build your knowledge from the ground up starting with the basics. If you're unsure if flying is right for you, we highly recommend booking a <strong>Discovery Flight</strong>. This allows you to get a hands-on experience in the cockpit alongside a certified instructor before committing to a full program.
+                    </div>
                 </details>
-                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-5 text-navy text-sm md:text-base">
-                        <span>How long does a PPL take?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>How long does it take to get a Private Pilot License (PPL)?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed border-t border-gray-50 mt-2">Typically 3 to 6 months if you fly 2-3 times a week consistently. It depends on your schedule and weather conditions.</div>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        The FAA requires a minimum of 40 flight hours, but the national average to complete the training is closer to 55-65 hours. If you fly consistently (about 2 to 3 times a week) and study your ground school materials, you can typically complete your PPL in <strong>3 to 6 months</strong>. Your dedication and weather conditions in Los Angeles play a big role in the timeline.
+                    </div>
                 </details>
-                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-5 text-navy text-sm md:text-base">
-                        <span>What are the age requirements?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>What are the exact age requirements for flight training?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed border-t border-gray-50 mt-2">You can start training at any age! However, you must be at least 16 to fly solo, and 17 to obtain your Private Pilot License.</div>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        You can begin taking flight lessons at <strong>any age</strong> (we have students starting in their early teens!). However, federal regulations require you to be at least <strong>16 years old</strong> to fly an airplane solo (by yourself), and you must be <strong>17 years old</strong> to take your final practical exam (checkride) and receive your Private Pilot Certificate.
+                    </div>
                 </details>
-                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-5 text-navy text-sm md:text-base">
-                        <span>Do I need perfect vision?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>Do I need 20/20 perfect vision to become a pilot?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed border-t border-gray-50 mt-2">No! As long as your vision is correctable to 20/40 (with glasses or contacts) for a Class 3 Medical, you are perfectly fine to fly.</div>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        <strong>No, perfect uncorrected vision is not required.</strong> As long as your vision can be corrected to 20/40 or better (using prescription glasses or contact lenses) for near and distant vision, you can successfully pass the FAA Class 3 Medical examination and fly safely. Color blindness may impose some night flying restrictions, but you can still get licensed.
+                    </div>
                 </details>
-                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-5 text-navy text-sm md:text-base">
-                        <span>Are your programs FAA approved?</span> <span class="transition group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>What is an FAA Medical Certificate and how do I get one?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
                     </summary>
-                    <div class="text-gray-600 p-5 pt-0 text-sm leading-relaxed border-t border-gray-50 mt-2">Yes, all our flight training programs strictly adhere to Federal Aviation Administration (FAA) regulations, ensuring you receive globally recognized training.</div>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        An FAA Medical Certificate is an official document ensuring you meet the health and fitness standards required to safely operate an aircraft. The examination is conducted by an FAA-designated <strong>Aviation Medical Examiner (AME)</strong>. It involves a basic physical, vision, and hearing test. We guide all our enrolled students on how to find an AME locally in LA and complete the MedXPress application.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                    <summary class="flex justify-between items-center font-bold p-5 md:p-6 text-navy text-base md:text-lg bg-white group-open:bg-gray-50 transition-colors">
+                        <span>Are your training programs and fleet officially FAA-approved?</span> 
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 p-5 md:p-6 pt-0 text-sm md:text-base leading-relaxed border-t border-gray-100 mt-2 bg-white">
+                        <strong>Absolutely.</strong> All our flight training programs, syllabi, and instructors operate in strict adherence to the Federal Aviation Administration (FAA) regulations under Part 61. Our partner fleet undergoes rigorous mandatory 100-hour and annual inspections by certified mechanics to ensure 100% compliance and safety for our students.
+                    </div>
                 </details>
             </div>
         </div>
@@ -346,62 +444,62 @@
 
     <div id="infoModal" class="fixed inset-0 z-[100] hidden items-center justify-center glass-modal transition-opacity opacity-0 px-4">
         <div class="absolute inset-0" onclick="closeModal()"></div>
-        <div id="modalContent" class="bg-white rounded-3xl w-full max-w-3xl p-5 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-navy text-2xl md:text-3xl focus:outline-none bg-gray-50 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center z-10 transition-colors">&times;</button>
+        <div id="modalContent" class="bg-white rounded-3xl w-full max-w-3xl p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-navy text-3xl focus:outline-none bg-gray-50 hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center z-10 transition-colors">&times;</button>
             
-            <div id="pilotModalBody" class="hidden flex flex-col md:flex-row gap-5 items-center md:items-start mt-2">
-                <img id="modalImg" src="" class="w-24 h-24 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-lightbg flex-shrink-0">
+            <div id="pilotModalBody" class="hidden flex flex-col md:flex-row gap-6 items-center md:items-start mt-2">
+                <img id="modalImg" src="" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg border-4 border-lightbg flex-shrink-0">
                 <div class="text-center md:text-left">
-                    <h3 id="modalName" class="text-xl md:text-3xl font-extrabold text-navy mb-1"></h3>
-                    <p id="modalTitle" class="text-accent font-bold text-xs md:text-sm mb-3"></p>
-                    <div id="modalBio" class="text-gray-600 text-xs md:text-sm leading-relaxed space-y-2"></div>
+                    <h3 id="modalName" class="text-2xl md:text-3xl font-extrabold text-navy mb-1"></h3>
+                    <p id="modalTitle" class="text-accent font-bold text-sm mb-4"></p>
+                    <div id="modalBio" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-3"></div>
                 </div>
             </div>
             
-            <div id="progModalBody" class="hidden flex flex-col gap-4 mt-2">
-                <div class="w-full h-40 md:h-56 rounded-xl shadow-sm overflow-hidden bg-gray-800 relative">
+            <div id="progModalBody" class="hidden flex flex-col gap-5 mt-2">
+                <div class="w-full h-48 md:h-64 rounded-xl shadow-sm overflow-hidden bg-gray-100 relative">
                     <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div id="progMissingImg" style="display:none;" class="absolute inset-0 flex items-center justify-center text-gray-400 font-bold bg-gray-100">Image Missing</div>
+                    <div id="progMissingImg" style="display:none;" class="absolute inset-0 flex items-center justify-center text-gray-400 text-lg font-bold bg-gray-100">Image Missing</div>
                 </div>
                 
-                <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
-                    <i id="progIcon" class="text-2xl md:text-3xl text-accent"></i>
-                    <h3 id="progModalName" class="text-xl md:text-2xl font-extrabold text-navy"></h3>
+                <div class="flex items-center gap-4 border-b border-gray-100 pb-4">
+                    <i id="progIcon" class="text-3xl md:text-4xl text-accent"></i>
+                    <h3 id="progModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
                 </div>
-                <div id="progModalDesc" class="text-gray-600 text-xs md:text-sm leading-relaxed space-y-3"></div>
+                <div id="progModalDesc" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4"></div>
                 
-                <div class="mt-2 pt-3 border-t border-gray-100">
-                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-5 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md transform hover:scale-105">
-                        <i class="fab fa-whatsapp text-lg"></i> <span>Inquire via WhatsApp</span>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a id="modalWhatsappBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#25D366] text-white hover:bg-green-600 px-6 py-3 rounded-lg font-bold text-base transition-all shadow-md transform hover:scale-105">
+                        <i class="fab fa-whatsapp text-xl"></i> <span>Inquire via WhatsApp</span>
                     </a>
                 </div>
             </div>
 
             <div id="legalModalBody" class="hidden flex flex-col gap-4 mt-2">
-                <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
-                    <i class="fas fa-shield-alt text-2xl md:text-3xl text-accent"></i>
-                    <h3 id="legalModalName" class="text-xl md:text-2xl font-extrabold text-navy"></h3>
+                <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+                    <i class="fas fa-shield-alt text-3xl text-accent"></i>
+                    <h3 id="legalModalName" class="text-2xl md:text-3xl font-extrabold text-navy"></h3>
                 </div>
-                <div id="legalModalDesc" class="text-gray-600 text-xs md:text-sm leading-relaxed space-y-3"></div>
+                <div id="legalModalDesc" class="text-gray-600 text-sm md:text-base leading-relaxed space-y-4"></div>
             </div>
         </div>
     </div>
 
-    <section id="enroll" class="py-12 md:py-16 bg-navy relative border-t-4 border-accent">
+    <section id="enroll" class="py-16 md:py-24 bg-navy relative border-t-4 border-accent">
         <div class="container mx-auto px-5">
-            <div class="max-w-3xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-2xl relative z-10" data-aos="zoom-in">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-navy mb-2">Join Fly Smart Aero Club</h2>
-                    <p class="text-gray-500 text-sm">Leave your details to schedule your flight or online course.</p>
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl relative z-10" data-aos="zoom-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Join Fly Smart Aero Club</h2>
+                    <p class="text-gray-500 text-base">Leave your details to schedule your flight or online course.</p>
                 </div>
                 <form id="leadForm">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <input type="text" id="full_name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" placeholder="Full Name">
-                        <input type="email" id="email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" placeholder="Email Address">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <input type="text" id="full_name" required class="w-full border-2 border-gray-200 px-5 py-3.5 rounded-xl focus:border-accent outline-none text-base transition-colors" placeholder="Full Name">
+                        <input type="email" id="email" required class="w-full border-2 border-gray-200 px-5 py-3.5 rounded-xl focus:border-accent outline-none text-base transition-colors" placeholder="Email Address">
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <input type="tel" id="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none text-sm" placeholder="Phone (WhatsApp)">
-                        <select id="program" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:border-accent outline-none bg-white text-sm text-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                        <input type="tel" id="phone" required class="w-full border-2 border-gray-200 px-5 py-3.5 rounded-xl focus:border-accent outline-none text-base transition-colors" placeholder="Phone (WhatsApp)">
+                        <select id="program" required class="w-full border-2 border-gray-200 px-5 py-3.5 rounded-xl focus:border-accent outline-none bg-white text-base text-gray-700 transition-colors">
                             <option value="" disabled selected>Select a program</option>
                             <option value="Discovery Flight">Discovery Flight</option>
                             <option value="PPL">Private Pilot (PPL)</option>
@@ -410,15 +508,15 @@
                             <option value="Online Ground School">Online Ground School 💻</option>
                         </select>
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-bold py-3.5 rounded-lg transition-all flex justify-center items-center gap-2 shadow-md transform hover:scale-[1.02]">
+                    <button type="submit" id="submitBtn" class="w-full bg-accent hover:bg-orange-500 text-white font-extrabold text-lg py-4 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg transform hover:scale-[1.02]">
                         Send Request
                     </button>
-                    <div id="successMsg" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg shadow-sm text-sm font-bold flex items-center justify-center gap-2"></div>
+                    <div id="successMsg" class="hidden mt-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl shadow-sm text-base font-bold flex items-center justify-center gap-2"></div>
                 </form>
 
-                <div class="mt-8 border-t border-gray-100 pt-5 text-center">
-                    <p class="text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider">We Securely Accept</p>
-                    <div class="flex justify-center items-center gap-4 text-gray-400 text-2xl md:text-3xl">
+                <div class="mt-10 border-t border-gray-100 pt-6 text-center">
+                    <p class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-widest">We Securely Accept</p>
+                    <div class="flex justify-center items-center gap-5 text-gray-300 text-3xl md:text-4xl">
                         <i class="fab fa-cc-visa hover:text-blue-700 transition-colors cursor-pointer" title="Visa"></i>
                         <i class="fab fa-cc-mastercard hover:text-orange-500 transition-colors cursor-pointer" title="Mastercard"></i>
                         <i class="fab fa-cc-amex hover:text-blue-500 transition-colors cursor-pointer" title="American Express"></i>
@@ -430,48 +528,48 @@
         </div>
     </section>
 
-    <footer class="bg-[#020b14] text-gray-300 pt-12 pb-6 border-t-4 border-accent">
+    <footer class="bg-[#020b14] text-gray-300 pt-16 pb-8 border-t-4 border-accent">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-center md:text-left">
                 
                 <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center md:items-start">
-                    <img src="images/logo.png" alt="Fly Smart Logo" class="w-36 md:w-40 mb-4 brightness-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span style="display:none;" class="text-white text-xl font-bold mb-4">Fly Smart Aero Club</span>
-                    <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Fly Smart Aero Club is a premier aviation community in Los Angeles dedicated to providing accessible, affordable flight training.</p>
+                    <img src="images/logo.png" alt="Fly Smart Logo" class="w-40 md:w-48 mb-5 brightness-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;" class="text-white text-2xl font-bold mb-4">Fly Smart Aero Club</span>
+                    <p class="text-sm text-gray-400 leading-relaxed">Fly Smart Aero Club is a premier aviation community in Los Angeles dedicated to providing accessible, affordable flight training.</p>
                 </div>
                 
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-white font-bold text-base md:text-lg mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                    <h4 class="text-white font-bold text-lg mb-5">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
                         <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
                         <li><a href="#programs" class="hover:text-accent transition-colors">Flight Programs</a></li>
-                        <li><a href="#online" class="hover:text-accent transition-colors">Online Courses</a></li>
+                        <li><a href="#fleet" class="hover:text-accent transition-colors">Our Fleet</a></li>
                         <li><a href="#reviews" class="hover:text-accent transition-colors">Reviews</a></li>
                     </ul>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <h4 class="text-white font-bold text-base md:text-lg mb-4">Legal</h4>
-                    <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                    <h4 class="text-white font-bold text-lg mb-5">Legal</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
                         <li><button onclick="openModal('privacy')" class="hover:text-accent transition-colors cursor-pointer">Privacy Policy</button></li>
                         <li><button onclick="openModal('terms')" class="hover:text-accent transition-colors cursor-pointer">Terms & Conditions</button></li>
                     </ul>
                 </div>
                 
                 <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center md:items-start">
-                    <h4 class="text-white font-bold text-base md:text-lg mb-4">Contact LA</h4>
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-400 text-left w-full flex flex-col items-center md:items-start">
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-map-marker-alt text-accent mt-1"></i><span>Los Angeles, California, USA</span>
+                    <h4 class="text-white font-bold text-lg mb-5">Contact LA</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 text-left w-full flex flex-col items-center md:items-start">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-accent mt-1 text-lg"></i><span>Los Angeles, California, USA</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-phone-alt text-accent"></i><a href="tel:+13233474099" class="hover:text-white transition-colors">+1 (323) 347-4099</a>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-accent text-lg"></i><a href="tel:+13233474099" class="hover:text-white transition-colors">+1 (323) 347-4099</a>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-envelope text-accent"></i><a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-accent text-lg"></i><a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a>
                         </li>
                     </ul>
-                    <div class="flex gap-4 text-lg md:text-xl mt-5">
+                    <div class="flex gap-5 text-xl mt-6">
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-youtube"></i></a>
@@ -480,24 +578,24 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 pb-4 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="images/faa.png" alt="FAA" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">FAA APPROVED</span>
+            <div class="border-t border-gray-800 pt-10 pb-4 flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img src="images/faa.png" alt="FAA" class="h-10 md:h-12 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-500 font-extrabold text-xl tracking-widest">FAA APPROVED</span>
 
-                <img src="images/cessna.png" alt="Cessna" class="h-6 md:h-8 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">CESSNA FLEET</span>
+                <img src="images/cessna.png" alt="Cessna" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-500 font-extrabold text-xl tracking-widest">CESSNA FLEET</span>
 
-                <img src="images/aopa.png" alt="AOPA" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-400 font-bold text-lg md:text-xl tracking-widest">AOPA MEMBER</span>
+                <img src="images/aopa.png" alt="AOPA" class="h-10 md:h-12 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="text-gray-500 font-extrabold text-xl tracking-widest">AOPA MEMBER</span>
             </div>
 
-            <div class="pt-4 text-center text-xs text-gray-600 border-t border-gray-800/50">
+            <div class="pt-6 text-center text-sm text-gray-600 border-t border-gray-800/50 mt-6">
                 <p>&copy; 2026 Fly Smart Aero Club. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/13233849083" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 rtl:left-5 rtl:right-auto bg-[#25D366] text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/13233849083" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -528,23 +626,23 @@
                 desc: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`
             },
             prog_disc: {
-                icon: 'fas fa-binoculars', img: 'images/discovery.jpg', name: "Discovery Flight", whatsapp: "Discovery Flight",
+                icon: 'fas fa-binoculars', img: 'images/discovery.jpg', name: "Discovery Flight",
                 desc: `<div class="space-y-3"><p><strong>The Perfect Introduction to Aviation</strong></p><p>Not sure if flying is for you? The Discovery Flight is a zero-pressure introduction to the pilot seat. It includes a comprehensive pre-flight ground briefing followed by actual flight time where YOU take the controls under the safe guidance of an FAA Certified Instructor.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>30-minute Ground Briefing & Pre-flight Inspection.</li><li>60-minute Flight over scenic Los Angeles.</li><li>Introduction to basic aircraft controls and maneuvers.</li><li>Logbook endorsement (this counts towards your future license!).</li></ul></div>`
             },
             prog_ppl: {
-                icon: 'fas fa-plane', img: 'images/ppl.jpg', name: "Private Pilot License (PPL)", whatsapp: "Private Pilot License (PPL)",
+                icon: 'fas fa-plane', img: 'images/ppl.jpg', name: "Private Pilot License (PPL)",
                 desc: `<div class="space-y-3"><p><strong>Your First Step to Becoming a Pilot</strong></p><p>The PPL allows you to fly a single-engine aircraft carrying passengers in Visual Flight Rules (VFR). This is the foundational course for all future aviation training.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Minimum 40 Hours Total Flight Time (FAA Part 61/141).</li><li>20 Hours of Flight Instruction (Including cross-country & night flying).</li><li>10 Hours of Solo Flight.</li><li>Class 3 FAA Medical Certificate Required.</li><li>Passing the FAA Written Exam & Practical Checkride.</li></ul></div>`
             },
             prog_ir: {
-                icon: 'fas fa-cloud', img: 'images/unnamed.jpg', name: "Instrument Rating (IR)", whatsapp: "Instrument Rating (IR)",
+                icon: 'fas fa-cloud', img: 'images/unnamed.jpg', name: "Instrument Rating (IR)",
                 desc: `<div class="space-y-3"><p><strong>Master the Clouds</strong></p><p>The Instrument Rating allows you to fly inside clouds and in low-visibility conditions under Instrument Flight Rules (IFR). It makes you a safer, more precise pilot.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Hold a valid Private Pilot License (PPL).</li><li>50 Hours of Cross-Country Pilot-in-Command time.</li><li>40 Hours of Actual or Simulated Instrument Time.</li><li>Mastering holding patterns, IFR flight plans, and instrument approaches.</li><li>Passing the Instrument Written Exam & Checkride.</li></ul></div>`
             },
             prog_cpl: {
-                icon: 'fas fa-user-tie', img: 'images/cpl.jpg', name: "Commercial Pilot License (CPL)", whatsapp: "Commercial Pilot License (CPL)",
+                icon: 'fas fa-user-tie', img: 'images/cpl.jpg', name: "Commercial Pilot License (CPL)",
                 desc: `<div class="space-y-3"><p><strong>Turn Your Passion into a Career</strong></p><p>The CPL allows you to be legally compensated for your flying services. You will master advanced maneuvers, complex aircraft operations, and professional flight standards.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Must hold a PPL (IR recommended).</li><li>Minimum 250 Hours Total Flight Time (FAA Part 61).</li><li>100 Hours of Pilot-in-Command (PIC) Time.</li><li>Training in Complex or Technically Advanced Aircraft (TAA).</li><li>Passing the Commercial Written Exam & Checkride.</li></ul></div>`
             },
             prog_online: {
-                icon: 'fas fa-laptop-code', img: 'images/online.jpg', name: "Online Ground School", whatsapp: "Online Ground School",
+                icon: 'fas fa-laptop-code', img: 'images/online.jpg', name: "Online Ground School",
                 desc: `<div class="space-y-3"><p><strong>Study Anywhere, Anytime</strong></p><p>Master aviation theory from the comfort of your home. Our interactive online courses cover aerodynamics, weather, navigation, and FAA test prep, designed by our expert instructors to ensure you pass your written exams with confidence.</p><ul class="list-disc list-inside pl-4 text-gray-600"><li>Interactive Video Lessons.</li><li>FAA Written Test Preparation.</li><li>1-on-1 Virtual Tutoring Sessions available.</li></ul></div>`
             },
             privacy: {
@@ -573,7 +671,7 @@
                 document.getElementById('modalImg').src = modalData[id].img;
                 pilotBody.classList.remove('hidden');
             } else if (id.startsWith('prog')) {
-                document.getElementById('progIcon').className = modalData[id].icon + " text-2xl md:text-3xl text-accent";
+                document.getElementById('progIcon').className = modalData[id].icon + " text-3xl md:text-4xl text-accent";
                 document.getElementById('progModalName').innerText = modalData[id].name;
                 document.getElementById('progModalDesc').innerHTML = modalData[id].desc;
                 
@@ -583,7 +681,7 @@
                 imgEl.onload = function() { imgEl.style.display = 'block'; missingEl.style.display = 'none'; };
                 imgEl.onerror = function() { imgEl.style.display = 'none'; missingEl.style.display = 'flex'; };
                 
-                document.getElementById('modalWhatsappBtn').href = `https://wa.me/13233849083?text=Hello, I am contacting you from the Fly Smart website. I would like to inquire about the (${modalData[id].whatsapp}).`;
+                document.getElementById('modalWhatsappBtn').href = `https://wa.me/13233849083?text=Hello, I am contacting you from the Fly Smart website. I would like to inquire about the (${modalData[id].name}).`;
                 progBody.classList.remove('hidden');
             } else if (id === 'privacy' || id === 'terms') {
                 document.getElementById('legalModalName').innerText = modalData[id].title;
@@ -612,7 +710,7 @@
             try {
                 await _supabase.from('contacts').insert([data]);
                 await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: "3449b9d4-8570-41c1-9c84-0c1e0ce2c0dc", subject: "🛫 Lead: " + data.full_name, name: data.full_name, email: data.email, message: `${data.phone_number}\n${data.service_type}` }) });
-                successMsg.innerHTML = `<i class="fas fa-check-circle text-xl"></i> <span>Request sent successfully! Our team will contact you shortly.</span>`; 
+                successMsg.innerHTML = `<i class="fas fa-check-circle text-2xl"></i> <span>Request sent successfully! Our team will contact you shortly.</span>`; 
                 successMsg.classList.remove('hidden'); document.getElementById('leadForm').reset();
             } catch (err) { alert('Error sending request. Please try again.'); } finally { btn.innerHTML = "Send Request"; btn.disabled = false; }
         });
