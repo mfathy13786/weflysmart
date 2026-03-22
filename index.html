@@ -30,41 +30,38 @@
         html, body { overflow-x: hidden; width: 100%; position: relative; scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; }
         
-        /* ================= Header Fixes ================= */
+        /* Header Fixes */
         .header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 6px 15px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
-        #mainHeader { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding-top: 5px; padding-bottom: 5px; transition: all 0.3s ease; }
+        #mainHeader { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); transition: all 0.3s ease; }
         
         /* ZULU Clock */
-        .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; font-size: 12px; }
+        .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 4px 8px; border-radius: 6px; letter-spacing: 1px; display: flex; align-items: center; gap: 4px; }
 
-        /* ================= Hero Section ================= */
-        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 70vh; padding-top: 100px; }
-        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 110px; } }
+        /* Hero Section */
+        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 70vh; padding-top: 120px; padding-bottom: 80px; }
+        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 140px; padding-bottom: 100px; } }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
         .hero-bg.active { opacity: 1; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
         .hero-content { position: relative; z-index: 3; }
         
+        /* Dynamic Text Fix (No Overlap) */
+        .text-wrapper { position: relative; min-height: 260px; width: 100%; }
+        @media (min-width: 768px) { .text-wrapper { min-height: 220px; } }
         .dynamic-text { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; transition: opacity 1s ease-in-out; pointer-events: none; }
-        .dynamic-text.active { opacity: 1; position: relative; pointer-events: auto; }
+        .dynamic-text.active { opacity: 1; z-index: 10; pointer-events: auto; }
 
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        
-        /* Hobbs Meter */
         .hobbs-box { background: #111; color: #fff; padding: 8px 15px; border-radius: 4px; border: 3px solid #333; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 900; letter-spacing: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); display: inline-flex; align-items: center; }
 
-        /* إيفيكتات الأيقونات */
         .icon-bounce { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .group:hover .icon-bounce, .hover-trigger:hover .icon-bounce { transform: scale(1.2) translateY(-2px); color: #F9A03F; }
-
         .line-icon { font-size: 2.5rem; background: -webkit-linear-gradient(45deg, #0A2540, #F9A03F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* زوم الأونلاين (Drag to Pan & Scale) */
         .ecommerce-zoom-container { overflow: hidden; position: relative; border-radius: 1rem; background: #0A2540; cursor: crosshair; }
         .ecommerce-zoom-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s ease-out; transform-origin: center center; }
 
-        /* Modal */
         .glass-modal { background: rgba(10, 37, 64, 0.95); backdrop-filter: blur(12px); }
         .modal-content-enter { animation: modalPop 0.3s ease-out forwards; }
         @keyframes modalPop { 0% { transform: scale(0.95) translateY(10px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
@@ -77,23 +74,15 @@
         #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
         #mobileMenuBtn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
-        /* ATC Button */
-        .atc-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
-        .atc-btn.playing { background: rgba(37, 211, 102, 0.2); border-color: rgba(37, 211, 102, 0.5); }
-        .atc-btn.playing i { color: #25D366; animation: pulseIcon 1.5s infinite; }
-        @keyframes pulseIcon { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-
         /* METAR Terminal WOW Factor */
         .metar-terminal { background: #000; border: 2px solid #333; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; color: #0f0; font-size: 11px; overflow: hidden; position: relative; box-shadow: inset 0 0 15px rgba(0,255,0,0.1); }
         .metar-terminal::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.05) 2px, rgba(0, 255, 0, 0.05) 4px); pointer-events: none; }
         .typing-cursor { display: inline-block; width: 8px; height: 12px; background-color: #0f0; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-        /* رادار متحرك */
         .radar-sweep { position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.6)); transform-origin: bottom left; animation: sweep 3s linear infinite; }
         @keyframes sweep { to { transform: rotate(360deg); } }
 
-        /* Back to Top (في الشمال) */
+        /* Back to Top (في الشمال يا شمال) */
         #backToTop { position: fixed; bottom: 20px; left: 20px; width: 45px; height: 45px; border-radius: 50%; background: #0A2540; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
         #backToTop.show { opacity: 1; visibility: visible; }
         #backToTop:hover { background: #F9A03F; border-color: #F9A03F; transform: translateY(-3px); }
@@ -112,10 +101,10 @@
             <i class="fas fa-plane-departure mr-2"></i> Limited Slots Available for Summer PPL Enrollment in Los Angeles! <a href="#enroll" class="underline ml-1 hover:text-navy transition-colors">Book Now</a>
         </div>
 
-        <header id="mainHeader">
-            <div class="container mx-auto px-4 md:px-5 flex justify-between items-center relative h-[55px] md:h-[60px]">
-                <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
-                    <img src="images/logo.png" alt="Fly Smart Logo" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <header id="mainHeader" class="h-[70px] md:h-[80px] flex items-center">
+            <div class="container mx-auto px-4 md:px-5 flex justify-between items-center h-full">
+                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity">
+                    <img src="images/logo.png" alt="Fly Smart Logo" class="h-full w-auto object-contain max-h-[50px] md:max-h-[65px]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart</span>
                 </a>
                 
@@ -132,7 +121,11 @@
                         <i class="far fa-clock text-accent"></i> <span id="zuluDisplay">00:00:00Z</span>
                     </div>
 
-                    <a href="tel:+13233474099" class="hidden lg:flex items-center gap-2 text-navy hover:text-accent font-bold text-sm transition-all bg-gray-50 px-4 py-1.5 rounded-full border border-gray-200 group shadow-sm">
+                    <a href="tel:+13233474099" class="text-navy hover:text-accent text-xl transition-all md:hidden px-1">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    
+                    <a href="tel:+13233474099" class="hidden md:flex items-center gap-2 text-navy hover:text-accent font-bold text-sm transition-all bg-gray-50 px-4 py-1.5 rounded-full border border-gray-200 group shadow-sm">
                         <i class="fas fa-phone-alt text-accent icon-bounce"></i> <span dir="ltr">+1 (323) 347-4099</span>
                     </a>
                     
@@ -152,10 +145,6 @@
                 <a href="#fleet" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Our Fleet</a>
                 <a href="#radar" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Live Radar</a>
                 <a href="#team" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Instructors</a>
-                <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg mt-1 border border-gray-100">
-                    <span class="font-bold text-sm text-gray-500">ZULU Time:</span>
-                    <span class="font-mono font-bold text-navy" id="zuluMobileDisplay">00:00:00Z</span>
-                </div>
                 <a href="#enroll" class="bg-accent text-white text-center font-bold text-lg py-3 rounded-lg mt-2 shadow-md">Join the Club</a>
             </div>
         </header>
@@ -169,24 +158,24 @@
         <div class="hero-overlay"></div>
         
         <div class="container mx-auto hero-content w-full">
-            <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0 relative min-h-[220px]">
+            <div class="text-wrapper text-center md:text-left mx-auto md:mx-0 max-w-3xl">
                 <div class="dynamic-text active" id="text1">
                     <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
                         <span class="w-8 h-0.5 bg-accent"></span> <i class="fas fa-star text-accent icon-bounce text-[10px]"></i> Los Angeles' Premier Flying Club
                     </p>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight">Start Your Aviation<br>Journey Today</h1>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight drop-shadow-lg">Start Your Aviation<br>Journey Today</h1>
                     <p class="text-gray-200 mb-8 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">Join an exclusive community of passionate aviators. We provide accessible, affordable, and professional FAA-approved flight training.</p>
                 </div>
                 <div class="dynamic-text" id="text2">
                     <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
                         <span class="w-8 h-0.5 bg-accent"></span> <i class="fas fa-trophy text-accent icon-bounce text-[10px]"></i> Train Better. Soar Higher.
                     </p>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight">Turn Your Passion<br>Into a Profession</h1>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight drop-shadow-lg">Turn Your Passion<br>Into a Profession</h1>
                     <p class="text-gray-200 mb-8 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">From Discovery Flights to Commercial Licenses. Train on a modern fleet with certified instructors in Southern California.</p>
                 </div>
             </div>
             
-            <div class="text-center md:text-left mt-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-center md:text-left mt-2 md:mt-6" data-aos="fade-up" data-aos-delay="200">
                 <a href="#enroll" class="inline-flex items-center gap-3 bg-accent text-white hover:bg-orange-500 px-8 py-4 rounded-xl font-extrabold text-lg shadow-xl transition-transform transform hover:-translate-y-1 hover-trigger">
                     Book Discovery Flight <i class="fas fa-plane-departure icon-bounce"></i>
                 </a>
@@ -511,8 +500,6 @@
     </section>
 
     <section id="radar" class="py-16 md:py-24 bg-navy relative border-y border-white/10">
-        <audio id="atcAudio" src="https://s1.liveatc.net/klax_twr" preload="none"></audio>
-
         <div class="container mx-auto px-5 max-w-6xl">
             <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
                 <div class="w-full md:w-1/3 text-center md:text-left" data-aos="fade-right">
@@ -520,15 +507,15 @@
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Live CA Radar</h2>
                     <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">Track real-time flight traffic over Los Angeles. Experience the airspace our students navigate every day.</p>
                     
-                    <div class="metar-terminal text-left mb-5">
+                    <div class="metar-terminal text-left mb-6">
                         <div>> Fetching KLAX Weather Data...</div>
                         <div class="mt-1">> KLAX 221253Z 00000KT 10SM CLR 15/07 A2992</div>
                         <div class="mt-1 text-accent">> STATUS: VFR (CLEARED TO FLY)<span class="typing-cursor"></span></div>
                     </div>
-
-                    <button id="atcPlayBtn" onclick="toggleATC()" class="atc-btn text-white font-bold py-3 px-6 rounded-xl w-full text-sm md:text-base flex items-center justify-center gap-3 transition-all mb-5 shadow-lg group hover-trigger">
-                        <i class="fas fa-play-circle text-2xl icon-bounce"></i> <span id="atcText">Listen to LAX Tower</span>
-                    </button>
+                    
+                    <a href="#enroll" class="inline-flex items-center justify-center bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-3 px-8 rounded-xl text-sm transition-all shadow-md group w-full md:w-auto">
+                        Join Them in the Sky <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
                 </div>
                 
                 <div class="w-full md:w-2/3 h-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative" data-aos="fade-left">
@@ -902,11 +889,11 @@
                 }
             }
 
-            // إظهار زرار الواتساب الطولي على الموبايل بعد قسم About
+            // إظهار زرار الواتساب الطولي على الموبايل
             const waBtn = document.getElementById('waVerticalBtn');
             const aboutSec = document.getElementById('about');
             if(waBtn && aboutSec) {
-                if(window.scrollY > aboutSec.offsetTop - 200) {
+                if(window.scrollY > aboutSec.offsetTop - 100) {
                     waBtn.classList.add('show');
                 } else {
                     waBtn.classList.remove('show');
@@ -929,7 +916,7 @@
             texts[textIndex].classList.add('active');
         }, 7000);
 
-        // E-commerce Image Zoom (Hover to scale & pan)
+        // E-commerce Image Zoom
         function zoomMove(e) {
             const container = e.currentTarget;
             const img = document.getElementById('onlineZoomImg');
@@ -963,33 +950,6 @@
             thumb.classList.add('opacity-100', 'border-accent');
         }
         window.changeZoomImg = changeZoomImg;
-
-        // ATC Audio Player - Using the LiveATC URL provided by user!
-        let atcAudio = null;
-        const atcPlayBtn = document.getElementById('atcPlayBtn');
-        const atcText = document.getElementById('atcText');
-        
-        function toggleATC() {
-            if (!atcAudio) {
-                // الكود اللي إنت جبته، هيقرا البث اللايف مباشرة
-                atcAudio = new Audio('https://s1.liveatc.net/klax_twr');
-            }
-
-            if (atcAudio.paused) {
-                atcText.innerText = 'Connecting...';
-                atcAudio.play().then(() => {
-                    atcPlayBtn.classList.add('playing');
-                    atcText.innerText = 'Connected: LAX Tower';
-                }).catch(e => {
-                    atcText.innerText = 'Stream Blocked by Browser';
-                    atcPlayBtn.classList.remove('playing');
-                });
-            } else {
-                atcAudio.pause();
-                atcPlayBtn.classList.remove('playing');
-                atcText.innerText = 'Listen to LAX Tower';
-            }
-        }
 
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
