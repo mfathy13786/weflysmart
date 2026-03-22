@@ -33,14 +33,14 @@
         /* Header Wrapper Fixed */
         .header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 6px 15px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
-        #mainHeader { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        #mainHeader { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); transition: all 0.3s ease; width: 100%; }
         
         /* ZULU Clock */
         .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 4px 8px; border-radius: 6px; letter-spacing: 1px; display: flex; align-items: center; gap: 4px; }
 
-        /* Hero Section Fixes for Mobile (No huge gaps, tight padding) */
-        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; padding-top: 110px; padding-bottom: 70px; display: flex; align-items: flex-start; }
-        @media (min-width: 768px) { #heroSection { min-height: 70vh; padding-top: 140px; padding-bottom: 90px; align-items: center; } }
+        /* Hero Section */
+        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 85vh; padding-top: 130px; padding-bottom: 120px; display: flex; align-items: flex-start; }
+        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 160px; padding-bottom: 100px; align-items: center; } }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
         .hero-bg.active { opacity: 1; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
@@ -71,19 +71,19 @@
         #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
         #mobileMenuBtn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
-        /* METAR Terminal WOW Factor (No ATC Button) */
+        /* METAR Terminal WOW Factor */
         .metar-terminal { background: #000; border: 2px solid #333; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; color: #0f0; font-size: 11px; overflow: hidden; position: relative; box-shadow: inset 0 0 15px rgba(0,255,0,0.1); }
         .metar-terminal::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.05) 2px, rgba(0, 255, 0, 0.05) 4px); pointer-events: none; }
         .typing-cursor { display: inline-block; width: 8px; height: 12px; background-color: #0f0; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         
-        /* Back to Top (Left Side Fixed) */
+        /* Back to Top */
         #backToTop { position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #0A2540; color: white; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
         #backToTop.show { opacity: 1; visibility: visible; }
         #backToTop:hover { background: #F9A03F; border-color: #F9A03F; transform: translateY(-3px); }
         @media (max-width: 768px) { #backToTop { bottom: 80px; left: 15px; } }
 
-        /* Vertical WhatsApp Button for Mobile (Hidden Initially) */
+        /* Vertical WhatsApp Button for Mobile */
         .wa-vertical-btn { position: fixed; right: 0; top: 55%; transform: translateY(-50%) translateX(100px); writing-mode: vertical-rl; text-orientation: mixed; background-color: #25D366; color: white; padding: 12px 6px; border-radius: 8px 0 0 8px; font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 8px; z-index: 50; box-shadow: -2px 0 10px rgba(37,211,102,0.4); text-decoration: none; letter-spacing: 1px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .wa-vertical-btn.show { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
         .wa-vertical-btn i { transform: rotate(90deg); font-size: 20px; margin-bottom: 4px; }
@@ -97,8 +97,8 @@
         </div>
 
         <header id="mainHeader" class="h-[70px] md:h-[80px] flex items-center">
-            <div class="container mx-auto px-4 md:px-5 flex justify-between items-center h-full">
-                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity">
+            <div class="w-full px-2 md:px-5 flex justify-between items-center h-full max-w-7xl mx-auto">
+                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity pl-1">
                     <img src="images/logo.png" alt="Fly Smart Logo" class="h-full w-auto object-contain max-h-[50px] md:max-h-[65px]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart</span>
                 </a>
@@ -111,7 +111,7 @@
                     <a href="#team" class="hover:text-accent transition-colors">Instructors</a>
                 </nav>
                 
-                <div class="flex items-center gap-3 md:gap-4">
+                <div class="flex items-center gap-3 md:gap-4 pr-1">
                     <div class="zulu-clock text-[10px] md:text-xs" title="Aviation ZULU Time">
                         <i class="far fa-clock text-accent"></i> <span id="zuluDisplay">00:00:00Z</span>
                     </div>
@@ -156,8 +156,8 @@
         
         <div class="hero-overlay"></div>
         
-        <div class="container mx-auto hero-content w-full flex flex-col justify-start">
-            <div class="text-left w-full md:max-w-3xl relative">
+        <div class="container mx-auto hero-content w-full flex flex-col justify-start px-5">
+            <div class="text-left w-full md:max-w-3xl relative min-h-[200px] mt-8 md:mt-0">
                 
                 <div class="dynamic-text active" id="text1">
                     <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-sm flex items-center justify-start gap-2 hover-trigger">
@@ -900,7 +900,7 @@
                 }
             }
 
-            // إظهار زرار الواتساب الطولي على الموبايل
+            // إظهار زرار الواتساب الطولي
             const waBtn = document.getElementById('waVerticalBtn');
             const aboutSec = document.getElementById('about');
             if(waBtn && aboutSec) {
@@ -967,7 +967,7 @@
         btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('hidden'); });
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => { btn.classList.remove('active'); menu.classList.add('hidden'); }));
 
-        // Full Bios & Details Restored
+        // Full Bios & Details 
         const modalData = {
             pilot1: {
                 name: "Mostafa Hassan", title: "Certified Flight Instructor (CFI)", img: "images/mostafa.jpg",
