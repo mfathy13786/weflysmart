@@ -6,7 +6,7 @@
     
     <title>Fly Smart Aero Club | Premier Flight Training in Los Angeles</title>
     <meta name="description" content="Start your aviation journey with Fly Smart Aero Club. We provide accessible, affordable, and professional FAA-approved flight training in Southern California. From Discovery Flights to Commercial Pilot Licenses.">
-    <meta name="keywords" content="flight school Los Angeles, flying club California, PPL, CPL, Instrument Rating, affordable pilot training">
+    <meta name="keywords" content="flight school Los Angeles, flying club California, PPL, CPL, Instrument Rating, affordable pilot training, aviation ground school, KVNY flight training">
     <meta name="author" content="Integrated Solutions (3yuon.com)">
 
     <link rel="icon" href="images/favicon.png?v=3" type="image/png">
@@ -30,22 +30,24 @@
         html, body { overflow-x: hidden; width: 100%; position: relative; scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; }
         
+        /* Header Wrapper Fixed */
         .header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 6px 15px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
         #mainHeader { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); transition: all 0.3s ease; }
         
+        /* ZULU Clock */
         .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 4px 8px; border-radius: 6px; letter-spacing: 1px; display: flex; align-items: center; gap: 4px; }
 
-        /* Hero Section Fixes for Mobile Overlap */
-        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 80vh; padding-top: 130px; padding-bottom: 120px; }
-        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 150px; padding-bottom: 80px; } }
+        /* Hero Section Fixes for Mobile (Text Left, Smaller, Pushed Up) */
+        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 85vh; padding-top: 130px; padding-bottom: 120px; display: flex; align-items: flex-start; }
+        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 160px; padding-bottom: 100px; align-items: center; } }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
         .hero-bg.active { opacity: 1; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
         .hero-content { position: relative; z-index: 3; width: 100%; }
         
         .dynamic-text { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; transition: opacity 1s ease-in-out; pointer-events: none; }
-        .dynamic-text.active { opacity: 1; position: relative; pointer-events: auto; }
+        .dynamic-text.active { opacity: 1; position: relative; pointer-events: auto; z-index: 10; }
 
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .hobbs-box { background: #111; color: #fff; padding: 8px 15px; border-radius: 4px; border: 3px solid #333; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 900; letter-spacing: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); display: inline-flex; align-items: center; }
@@ -69,6 +71,7 @@
         #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
         #mobileMenuBtn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
+        /* METAR Terminal WOW Factor (No ATC Button) */
         .metar-terminal { background: #000; border: 2px solid #333; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; color: #0f0; font-size: 11px; overflow: hidden; position: relative; box-shadow: inset 0 0 15px rgba(0,255,0,0.1); }
         .metar-terminal::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.05) 2px, rgba(0, 255, 0, 0.05) 4px); pointer-events: none; }
         .typing-cursor { display: inline-block; width: 8px; height: 12px; background-color: #0f0; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
@@ -80,7 +83,7 @@
         #backToTop:hover { background: #F9A03F; border-color: #F9A03F; transform: translateY(-3px); }
         @media (max-width: 768px) { #backToTop { bottom: 80px; width: 40px; height: 40px; left: 15px; } }
 
-        /* Vertical WhatsApp Button */
+        /* Vertical WhatsApp Button for Mobile (Hidden Initially) */
         .wa-vertical-btn { position: fixed; right: 0; top: 55%; transform: translateY(-50%) translateX(100px); writing-mode: vertical-rl; text-orientation: mixed; background-color: #25D366; color: white; padding: 12px 6px; border-radius: 8px 0 0 8px; font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 8px; z-index: 50; box-shadow: -2px 0 10px rgba(37,211,102,0.4); text-decoration: none; letter-spacing: 1px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .wa-vertical-btn.show { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
         .wa-vertical-btn i { transform: rotate(90deg); font-size: 20px; margin-bottom: 4px; }
@@ -95,7 +98,7 @@
 
         <header id="mainHeader" class="h-[70px] md:h-[80px] flex items-center">
             <div class="container mx-auto px-4 md:px-5 flex justify-between items-center h-full">
-                <a href="#" class="h-full py-2 flex items-center hover:opacity-90 transition-opacity">
+                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity">
                     <img src="images/logo.png" alt="Fly Smart Logo" class="h-full w-auto object-contain max-h-[50px] md:max-h-[65px]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart</span>
                 </a>
@@ -146,33 +149,44 @@
         </header>
     </div>
 
-    <section id="heroSection" class="flex flex-col justify-start items-start px-5">
+    <section id="heroSection">
         <div class="hero-bg active" style="background-image: url('images/hero-plane.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80)'"></div>
         <div class="hero-bg" style="background-image: url('images/slide2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1920&q=80)'"></div>
         <div class="hero-bg" style="background-image: url('images/slide3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80)'"></div>
         
         <div class="hero-overlay"></div>
         
-        <div class="container mx-auto hero-content w-full relative h-full">
-            <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0 relative min-h-[260px] md:min-h-[220px]">
+        <div class="container mx-auto hero-content w-full h-full flex flex-col justify-start">
+            <div class="text-left w-full md:max-w-3xl relative min-h-[200px]">
+                
                 <div class="dynamic-text active" id="text1">
-                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-[10px] md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
+                    <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-sm flex items-center justify-start gap-2 hover-trigger">
                         <span class="w-6 md:w-8 h-0.5 bg-accent"></span> <i class="fas fa-star text-accent icon-bounce text-[10px]"></i> Los Angeles' Premier Flying Club
                     </p>
-                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4 leading-[1.1] drop-shadow-lg">Start Your Aviation<br>Journey Today</h1>
-                    <p class="text-gray-200 mb-6 md:mb-8 text-sm md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">Join an exclusive community of passionate aviators. We provide accessible, affordable, and professional FAA-approved flight training.</p>
+                    <h1 class="text-[28px] sm:text-4xl md:text-6xl font-extrabold text-white mb-3 leading-[1.2] drop-shadow-lg pr-4">
+                        Start Your<br>Aviation Journey<br>Today
+                    </h1>
+                    <p class="text-gray-200 mb-5 text-xs sm:text-sm md:text-lg leading-relaxed font-light w-[85%] sm:w-[90%] md:max-w-2xl mx-0">
+                        Join an exclusive community of passionate aviators. We provide accessible, affordable, and professional FAA-approved flight training.
+                    </p>
                 </div>
+
                 <div class="dynamic-text" id="text2">
-                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-[10px] md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
+                    <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-sm flex items-center justify-start gap-2 hover-trigger">
                         <span class="w-6 md:w-8 h-0.5 bg-accent"></span> <i class="fas fa-trophy text-accent icon-bounce text-[10px]"></i> Train Better. Soar Higher.
                     </p>
-                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4 leading-[1.1] drop-shadow-lg">Turn Your Passion<br>Into a Profession</h1>
-                    <p class="text-gray-200 mb-6 md:mb-8 text-sm md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">From Discovery Flights to Commercial Licenses. Train on a modern fleet with certified instructors in Southern California.</p>
+                    <h1 class="text-[28px] sm:text-4xl md:text-6xl font-extrabold text-white mb-3 leading-[1.2] drop-shadow-lg pr-4">
+                        Turn Your<br>Passion Into<br>A Profession
+                    </h1>
+                    <p class="text-gray-200 mb-5 text-xs sm:text-sm md:text-lg leading-relaxed font-light w-[85%] sm:w-[90%] md:max-w-2xl mx-0">
+                        From Discovery Flights to Commercial Licenses. Train on a modern fleet with certified instructors in Southern California.
+                    </p>
                 </div>
+
             </div>
             
-            <div class="text-center md:text-left mt-2 md:mt-4 pb-10" data-aos="fade-up" data-aos-delay="200">
-                <a href="#enroll" class="inline-flex items-center gap-3 bg-accent text-white hover:bg-orange-500 px-6 py-3 md:px-8 md:py-4 rounded-xl font-extrabold text-sm md:text-lg shadow-xl transition-transform transform hover:-translate-y-1 hover-trigger">
+            <div class="text-left mt-4 md:mt-6 pb-10 w-full" data-aos="fade-up" data-aos-delay="200">
+                <a href="#enroll" class="inline-flex items-center gap-2 md:gap-3 bg-accent text-white hover:bg-orange-500 px-6 py-3.5 md:px-8 md:py-4 rounded-xl font-extrabold text-sm md:text-lg shadow-xl transition-transform transform hover:-translate-y-1 hover-trigger">
                     Book Discovery Flight <i class="fas fa-plane-departure icon-bounce"></i>
                 </a>
             </div>
@@ -505,7 +519,7 @@
                         <div class="mt-1 text-accent">> STATUS: VFR (CLEARED TO FLY)<span class="typing-cursor"></span></div>
                     </div>
                     
-                    <a href="#enroll" class="inline-flex items-center justify-center bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-3 px-8 rounded-xl text-sm transition-all shadow-md group w-full md:w-auto">
+                    <a href="#enroll" class="inline-flex items-center justify-center bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-3 px-8 rounded-xl text-sm transition-all shadow-md group w-full md:w-auto hover-trigger">
                         Join Them in the Sky <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -836,11 +850,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 z-40 shadow-[0_-5px_20px_rgba(0,0,0,0.08)] flex justify-between items-center">
-        <div class="text-navy font-extrabold text-sm">Ready to fly?</div>
-        <a href="#enroll" class="bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-md">Book Now</a>
-    </div>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 600 });
@@ -886,7 +895,7 @@
                 }
             }
 
-            // إظهار زرار الواتساب الطولي على الموبايل بعد سكرول
+            // إظهار الواتساب بعد سكرول
             const waBtn = document.getElementById('waVerticalBtn');
             const aboutSec = document.getElementById('about');
             if(waBtn && aboutSec) {
@@ -913,7 +922,7 @@
             texts[textIndex].classList.add('active');
         }, 7000);
 
-        // E-commerce Image Zoom (Hover to scale & pan)
+        // E-commerce Image Zoom
         function zoomMove(e) {
             const container = e.currentTarget;
             const img = document.getElementById('onlineZoomImg');
@@ -953,7 +962,7 @@
         btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('hidden'); });
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => { btn.classList.remove('active'); menu.classList.add('hidden'); }));
 
-        // Full Bios & Details Restored
+        // Full Bios & Details
         const modalData = {
             pilot1: {
                 name: "Mostafa Hassan", title: "Certified Flight Instructor (CFI)", img: "images/mostafa.jpg",
