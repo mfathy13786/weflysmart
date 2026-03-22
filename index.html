@@ -18,10 +18,10 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
+
     <script>
         tailwind.config = {
-            theme: { extend: { colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' }, fontFamily: { sans: ['Montserrat', 'sans-serif'], mono: ['Courier New', 'monospace'] } } }
+            theme: { extend: { colors: { navy: '#0A2540', accent: '#F9A03F', lightbg: '#F8FAFC' }, fontFamily: { sans: ['Montserrat', 'sans-serif'] } } }
         }
     </script>
 
@@ -29,59 +29,50 @@
         html, body { overflow-x: hidden; width: 100%; position: relative; }
         body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; color: #334155; scroll-behavior: smooth; }
         
-        .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 5px 15px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; z-index: 100; position: relative; }
+        .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 6px 15px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; z-index: 100; position: relative; }
         
-        /* تقليل مساحة الهيدر وتظبيطه */
-        #mainHeader { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        /* هيدر ملموم وصغير */
+        #mainHeader { padding-top: 8px; padding-bottom: 8px; }
         
-        /* Hero Section (منع الزوم المبالغ فيه) */
-        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 55vh; }
+        /* Hero Section مستقر */
+        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 60vh; }
         @media (min-width: 768px) { #heroSection { min-height: 75vh; } }
-        .hero-bg { position: absolute; inset: -2%; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out, transform 10s linear; transform: scale(1); z-index: 1; }
-        .hero-bg.active { opacity: 1; transform: scale(1.03); } /* زوم خفيف جداً بدل 1.1 */
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(10, 37, 64, 0.2) 100%); z-index: 2; }
+        .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
+        .hero-bg.active { opacity: 1; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
         .hero-content { position: relative; z-index: 3; }
         
-        .dynamic-text { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; transition: opacity 1s ease-in-out, transform 1s ease-in-out; transform: translateY(15px); pointer-events: none; }
-        .dynamic-text.active { opacity: 1; position: relative; transform: translateY(0); pointer-events: auto; }
+        .dynamic-text { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; transition: opacity 1s ease-in-out; pointer-events: none; }
+        .dynamic-text.active { opacity: 1; position: relative; pointer-events: auto; }
 
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         
         /* Line Icons */
         .line-icon { font-size: 2.5rem; background: -webkit-linear-gradient(45deg, #0A2540, #F9A03F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .group:hover .line-icon { background: -webkit-linear-gradient(45deg, #F9A03F, #F9A03F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transform: scale(1.1); transition: all 0.3s ease; }
 
-        /* E-commerce Image Zoom Style */
-        .zoom-container { overflow: hidden; position: relative; cursor: crosshair; }
-        .zoom-container img { transition: transform 0.1s ease; transform-origin: center center; }
+        /* زوم الأونلاين (E-commerce Style) */
+        .ecommerce-zoom-container { overflow: hidden; position: relative; border-radius: 1rem; background: #000; cursor: crosshair; }
+        .ecommerce-zoom-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s ease-out; transform-origin: center center; }
 
-        /* Hobbs Meter Style */
-        .hobbs-box { background: #111; color: #fff; padding: 8px 15px; border-radius: 4px; border: 3px solid #333; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 900; letter-spacing: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); display: inline-flex; align-items: center; }
-        .hobbs-box span:last-child { background: white; color: black; padding: 0 4px; border-radius: 2px; }
-
-        /* ZULU Clock (Wow Factor) */
-        .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; display: flex; align-items: center; gap: 5px; font-size: 11px; }
-
-        /* ATC Button */
-        .atc-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
-        .atc-btn.playing { background: rgba(37, 211, 102, 0.2); border-color: rgba(37, 211, 102, 0.5); }
-        .atc-btn.playing i { color: #25D366; animation: pulseIcon 1.5s infinite; }
-        @keyframes pulseIcon { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-
-        /* Attitude Indicator Animation (Wow Factor 2) */
-        .attitude-indicator { display: inline-block; animation: bank 6s ease-in-out infinite alternate; transform-origin: center; }
-        @keyframes bank { 0% { transform: rotate(-15deg); } 100% { transform: rotate(15deg); } }
-
-        /* Glass Modal */
+        /* Modal */
         .glass-modal { background: rgba(10, 37, 64, 0.95); backdrop-filter: blur(12px); }
-        .modal-content-enter { animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .modal-content-enter { animation: modalPop 0.3s ease-out forwards; }
         @keyframes modalPop { 0% { transform: scale(0.95) translateY(10px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        /* Mobile Menu Icon */
+        #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
+        #mobileMenuBtn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
+        #mobileMenuBtn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
         /* Back to Top */
-        #backToTop { position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: rgba(10, 37, 64, 0.8); color: white; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        #backToTop { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: #0A2540; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
         #backToTop.show { opacity: 1; visibility: visible; }
-        #backToTop:hover { background: #F9A03F; }
-        @media (max-width: 768px) { #backToTop { bottom: 70px; } }
+        #backToTop:hover { background: #F9A03F; border-color: #F9A03F; transform: translateY(-3px); }
+        @media (max-width: 768px) { #backToTop { bottom: 80px; width: 40px; height: 40px; right: 15px; } }
     </style>
 </head>
 <body class="antialiased">
@@ -92,96 +83,98 @@
 
     <header class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300" id="mainHeader">
         <div class="container mx-auto px-4 sm:px-5 flex justify-between items-center relative">
-            <a href="#" class="flex items-center hover:opacity-90 transition-opacity py-2">
-                <img src="images/logo.png" alt="Fly Smart Logo" class="w-[120px] md:w-[150px] h-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
+                <img src="images/logo.png" alt="Fly Smart Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-bold text-gray-600">
                 <a href="#about" class="hover:text-accent transition-colors">About Us</a>
                 <a href="#programs" class="hover:text-accent transition-colors">Programs</a>
-                <a href="#fleet" class="hover:text-accent transition-colors">Fleet</a>
-                <a href="#radar" class="hover:text-accent transition-colors">Radar</a>
+                <a href="#fleet" class="hover:text-accent transition-colors">Our Fleet</a>
+                <a href="#radar" class="hover:text-accent transition-colors">Live Radar</a>
                 <a href="#team" class="hover:text-accent transition-colors">Instructors</a>
             </nav>
             
             <div class="flex items-center gap-3">
-                <div class="zulu-clock hidden lg:flex" title="Aviation ZULU Time">
-                    <i class="far fa-clock text-accent"></i> <span id="zuluDisplay">00:00Z</span>
-                </div>
-                
                 <a href="tel:+13233474099" class="hidden lg:flex items-center gap-2 text-navy hover:text-accent font-bold text-sm transition-all bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
-                    <i class="fas fa-phone-alt text-xs"></i> <span dir="ltr">+1 (323) 347-4099</span>
+                    <i class="fas fa-phone-alt text-accent"></i> <span dir="ltr">+1 (323) 347-4099</span>
                 </a>
-                <button id="mobileMenuBtn" class="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5 p-1 focus:outline-none">
-                    <span class="block w-full h-0.5 bg-navy transition-all"></span>
-                    <span class="block w-2/3 h-0.5 bg-navy transition-all ml-auto"></span>
-                    <span class="block w-full h-0.5 bg-navy transition-all"></span>
+                <a href="tel:+13233474099" class="lg:hidden text-navy hover:text-accent text-lg transition-all mr-2">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                
+                <a href="#enroll" class="hidden lg:inline-block bg-navy text-white hover:bg-accent px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">Join the Club</a>
+                
+                <button id="mobileMenuBtn" class="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5 focus:outline-none">
+                    <span class="block w-full h-0.5 bg-navy"></span>
+                    <span class="block w-full h-0.5 bg-navy"></span>
+                    <span class="block w-full h-0.5 bg-navy"></span>
                 </button>
             </div>
         </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-2xl absolute w-full left-0 top-full flex flex-col px-6 py-5 gap-4 z-40">
+            <a href="#about" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">About Us</a>
+            <a href="#programs" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Programs</a>
+            <a href="#fleet" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Our Fleet</a>
+            <a href="#radar" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Live Radar</a>
+            <a href="#team" class="text-navy font-bold text-lg border-b border-gray-50 pb-2">Instructors</a>
+            <a href="#enroll" class="bg-accent text-white text-center font-bold text-lg py-3 rounded-lg mt-2 shadow-md">Join the Club</a>
+        </div>
     </header>
 
-    <section id="heroSection" class="flex flex-col justify-center items-start px-5 pt-16 pb-12 md:pt-28 md:pb-20">
+    <section id="heroSection" class="flex flex-col justify-center items-start px-5">
         <div class="hero-bg active" style="background-image: url('images/hero-plane.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80)'"></div>
         <div class="hero-bg" style="background-image: url('images/slide2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1920&q=80)'"></div>
+        <div class="hero-bg" style="background-image: url('images/slide3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80)'"></div>
         
         <div class="hero-overlay"></div>
         
-        <div class="container mx-auto hero-content w-full">
+        <div class="container mx-auto hero-content w-full pt-8">
             <div class="max-w-2xl text-center md:text-left mx-auto md:mx-0 relative min-h-[180px] md:min-h-[200px]">
-                
                 <div class="dynamic-text active" id="text1">
                     <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-xs flex items-center justify-center md:justify-start gap-2">
                         <span class="w-6 md:w-8 h-0.5 bg-accent"></span> Los Angeles' Premier Flying Club
                     </p>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">Start Your Aviation<br>Journey Today</h1>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">Start Your Aviation<br>Journey Today</h1>
                     <p class="text-gray-200 mb-6 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto md:mx-0">Join an exclusive community of passionate aviators. We provide accessible, affordable, and professional FAA-approved flight training.</p>
                 </div>
-
                 <div class="dynamic-text" id="text2">
                     <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-xs flex items-center justify-center md:justify-start gap-2">
                         <span class="w-6 md:w-8 h-0.5 bg-accent"></span> Train Better. Soar Higher.
                     </p>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">Turn Your Passion<br>Into a Profession</h1>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">Turn Your Passion<br>Into a Profession</h1>
                     <p class="text-gray-200 mb-6 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto md:mx-0">From Discovery Flights to Commercial Licenses. Train on a modern fleet with certified instructors in Southern California.</p>
                 </div>
-
             </div>
             
-            <div class="text-center md:text-left mt-2" data-aos="fade-up" data-aos-delay="300">
-                <a href="#enroll" class="inline-flex items-center gap-2 bg-accent text-white hover:bg-orange-500 px-6 py-3 md:px-8 md:py-3.5 rounded-lg font-bold text-sm md:text-base shadow-lg transition-transform transform hover:-translate-y-1">
+            <div class="text-center md:text-left mt-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#enroll" class="inline-flex items-center gap-2 bg-accent text-white hover:bg-orange-500 px-8 py-3.5 rounded-xl font-bold text-base shadow-xl transition-transform transform hover:-translate-y-1">
                     Book Discovery Flight <i class="fas fa-plane-departure"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-6 border-b border-gray-100 shadow-sm relative z-10 mx-3 md:mx-auto md:max-w-6xl rounded-xl -mt-6 md:-mt-10">
+    <section class="bg-white py-5 border-b border-gray-100 shadow-sm relative z-10 -mt-8 mx-4 md:mx-auto md:max-w-6xl rounded-xl">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-gray-50 mb-4 md:mb-6 border-b border-gray-50 pb-4">
-                <div class="flex flex-col items-center justify-center py-1 group">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-gray-50">
+                <div class="flex flex-col items-center justify-center py-2 group">
                     <i class="fas fa-file-signature text-xl md:text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">FAA Approved</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-1 group">
+                <div class="flex flex-col items-center justify-center py-2 group">
                     <i class="fas fa-plane text-xl md:text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">Modern Fleet</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-1 group">
+                <div class="flex flex-col items-center justify-center py-2 group">
                     <i class="fas fa-award text-xl md:text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">CFI Instructors</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-1 group">
+                <div class="flex flex-col items-center justify-center py-2 group">
                     <i class="fas fa-shield-alt text-xl md:text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">100% Safety</span>
-                </div>
-            </div>
-            
-            <div class="flex flex-col items-center justify-center" id="hobbsContainer">
-                <p class="text-gray-400 text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-2"><i class="fas fa-tachometer-alt mr-1"></i> Safe Flight Hours Logged</p>
-                <div class="hobbs-box">
-                    <span id="hobbsMeter">00000</span><span>0</span>
                 </div>
             </div>
         </div>
@@ -193,13 +186,13 @@
             <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                 <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
                     <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                        <img src="images/about.jpg" alt="Fly Smart Experience" class="w-full h-[300px] md:h-[400px] object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80';">
+                        <img src="images/about.jpg" alt="Fly Smart Experience" class="w-full h-[350px] md:h-[450px] object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80';">
                     </div>
                 </div>
 
                 <div class="w-full lg:w-1/2" data-aos="fade-left">
                     <div class="inline-flex items-center gap-2 border border-accent text-accent font-bold px-3 py-1 rounded-full text-[10px] md:text-xs mb-4 uppercase tracking-widest bg-orange-50">
-                        <i class="fas fa-plane attitude-indicator text-sm"></i> About Fly Smart
+                        About Fly Smart
                     </div>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-4 leading-tight">Fly Smart.<br>Train Better.<br><span class="text-accent">Soar Higher.</span></h2>
                     
@@ -296,14 +289,13 @@
                 </div>
                 
                 <div class="w-full md:w-1/2" data-aos="fade-left">
-                    <div class="zoom-container relative rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10 h-60 md:h-80 bg-gray-800" onmousemove="zoomIn(event)" onmouseleave="zoomOut(event)">
-                        <img id="onlineZoomImg" src="images/online1.jpg" class="w-full h-full object-cover pointer-events-none" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80';">
-                        
-                        <div class="absolute bottom-3 right-3 bg-navy/80 backdrop-blur px-3 py-1.5 rounded text-white text-[10px] md:text-xs font-bold border border-white/20 pointer-events-none">
-                            <i class="fas fa-search-plus text-accent mr-1"></i> Hover to Inspect
+                    <div class="ecommerce-zoom-container h-60 md:h-80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10" id="zoomContainer" onmousemove="zoomMove(event)" onmouseleave="zoomLeave()">
+                        <img id="onlineZoomImg" src="images/online1.jpg" class="ecommerce-zoom-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80';">
+                        <div class="absolute bottom-3 right-3 bg-navy/80 backdrop-blur px-3 py-1.5 rounded text-white text-[10px] font-bold border border-white/20 pointer-events-none">
+                            <i class="fas fa-search text-accent mr-1"></i> Hover to Zoom
                         </div>
                     </div>
-                    <div class="flex gap-2 mt-3 justify-center md:justify-start">
+                    <div class="flex gap-2 mt-4 justify-center md:justify-start">
                         <img src="images/online1.jpg" class="w-16 h-12 object-cover rounded cursor-pointer border-2 border-accent opacity-100 hover:opacity-80 transition-opacity" onclick="changeZoomImg(this)" onerror="this.style.display='none'">
                         <img src="images/online2.jpg" class="w-16 h-12 object-cover rounded cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-opacity" onclick="changeZoomImg(this)" onerror="this.style.display='none'">
                         <img src="images/online3.jpg" class="w-16 h-12 object-cover rounded cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-opacity" onclick="changeZoomImg(this)" onerror="this.style.display='none'">
@@ -414,18 +406,15 @@
     </section>
 
     <section id="radar" class="py-12 md:py-16 bg-navy relative border-y border-white/10">
-        <audio id="atcAudio" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="none" loop></audio>
-        
         <div class="container mx-auto px-5 max-w-6xl">
             <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                 <div class="w-full md:w-1/3 text-center md:text-left" data-aos="fade-right">
                     <i class="fas fa-satellite-dish text-3xl md:text-4xl text-accent mb-3 animate-pulse"></i>
                     <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Live CA Flight Radar</h2>
                     <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-5">Track real-time flight traffic over Los Angeles. Experience the airspace our students navigate every day.</p>
-                    
-                    <button id="atcPlayBtn" onclick="toggleATC()" class="atc-btn text-white font-bold py-2.5 px-4 rounded-xl w-full text-xs md:text-sm flex items-center justify-center gap-2 transition-all mb-4 shadow-lg">
-                        <i class="fas fa-play-circle text-xl"></i> <span id="atcText">LAX Tower Chatter</span>
-                    </button>
+                    <a href="#enroll" class="bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-2.5 px-6 rounded-xl text-sm transition-all shadow-md inline-block">
+                        Join Them in the Sky <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
                 </div>
                 
                 <div class="w-full md:w-2/3 h-56 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10" data-aos="fade-left">
@@ -523,9 +512,7 @@
     </section>
 
     <section class="py-12 md:py-20 bg-lightbg border-t border-gray-100 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Los_Angeles_VFR_Sectional.jpg'); background-size: cover; background-position: center;"></div>
-        
-        <div class="container mx-auto px-5 max-w-3xl relative z-10">
+        <div class="container mx-auto px-5 max-w-4xl relative z-10">
             <div class="text-center mb-10" data-aos="fade-up">
                 <p class="text-accent font-bold uppercase tracking-widest mb-2 text-[10px] md:text-xs">Got Questions?</p>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Frequently Asked Questions</h2>
@@ -533,7 +520,7 @@
             </div>
             
             <div class="space-y-3">
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>Do I need any prior aviation experience to start?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -543,7 +530,7 @@
                     </div>
                 </details>
                 
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>How long does it take to get a Private Pilot License (PPL)?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -553,7 +540,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>What are the exact age requirements for flight training?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -563,7 +550,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>Do I need 20/20 perfect vision to become a pilot?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -573,7 +560,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>What is an FAA Medical Certificate and how do I get one?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -583,7 +570,7 @@
                     </div>
                 </details>
 
-                <details class="group bg-white/90 backdrop-blur rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 transition-all cursor-pointer overflow-hidden">
                     <summary class="flex justify-between items-center font-bold p-4 md:p-5 text-navy text-xs md:text-sm hover:bg-gray-50 transition-colors">
                         <span>Are your training programs and fleet officially FAA-approved?</span> 
                         <span class="transition-transform duration-300 group-open:rotate-180 text-accent"><i class="fas fa-chevron-down"></i></span>
@@ -612,10 +599,8 @@
             
             <div id="progModalBody" class="hidden flex flex-col gap-4 mt-2">
                 <div class="w-full h-40 md:h-56 rounded-2xl shadow-sm overflow-hidden bg-gray-100 relative">
-                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div id="progMissingImg" style="display:none;" class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm font-bold bg-gray-50">Image Missing</div>
+                    <img id="progModalImg" src="" class="w-full h-full object-cover" alt="Program" onerror="this.style.display='none';">
                 </div>
-                
                 <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
                     <i id="progIcon" class="text-2xl md:text-3xl text-accent"></i>
                     <h3 id="progModalName" class="text-xl md:text-2xl font-extrabold text-navy"></h3>
@@ -682,27 +667,26 @@
         </div>
     </section>
 
-    <footer class="bg-[#020b14] text-gray-300 pt-12 md:pt-16 pb-24 md:pb-6 border-t-4 border-accent relative">
+    <footer class="bg-[#020b14] text-gray-300 pt-12 pb-20 md:pb-6 border-t-4 border-accent relative">
         <div class="container mx-auto px-5 max-w-7xl relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center md:text-left">
                 
-                <div data-aos="fade-up" class="flex flex-col items-center md:items-start">
+                <div class="flex flex-col items-center md:items-start">
                     <img src="images/logo.png" alt="Fly Smart Logo" class="w-32 md:w-40 mb-4 brightness-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span style="display:none;" class="text-white text-xl font-bold mb-3">Fly Smart Aero Club</span>
+                    <span style="display:none;" class="text-white text-xl font-bold mb-3">Fly Smart</span>
                     <p class="text-xs text-gray-400 leading-relaxed mb-3">Fly Smart Aero Club is a premier aviation community in Los Angeles dedicated to providing accessible, affordable flight training.</p>
                 </div>
                 
-                <div data-aos="fade-up" data-aos-delay="100">
+                <div>
                     <h4 class="text-white font-bold text-sm md:text-base mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-xs text-gray-400">
                         <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
                         <li><a href="#programs" class="hover:text-accent transition-colors">Programs</a></li>
                         <li><a href="#fleet" class="hover:text-accent transition-colors">Our Fleet</a></li>
-                        <li><a href="#reviews" class="hover:text-accent transition-colors">Reviews</a></li>
                     </ul>
                 </div>
 
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div>
                     <h4 class="text-white font-bold text-sm md:text-base mb-4">Legal</h4>
                     <ul class="space-y-2 text-xs text-gray-400">
                         <li><button onclick="openModal('privacy')" class="hover:text-accent transition-colors cursor-pointer">Privacy Policy</button></li>
@@ -711,13 +695,13 @@
                     
                     <div class="mt-5">
                         <p class="text-[9px] text-gray-500 mb-2 uppercase tracking-widest">Scan & Save Contact</p>
-                        <div class="bg-white p-1.5 rounded-lg inline-block shadow-lg">
+                        <div class="bg-white p-1.5 rounded-lg inline-block shadow-lg border border-gray-100">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://weflysmart.com&color=0A2540" alt="QR Code" class="w-14 h-14 opacity-90 hover:opacity-100 transition-opacity">
                         </div>
                     </div>
                 </div>
                 
-                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-center md:items-start">
+                <div class="flex flex-col items-center md:items-start">
                     <h4 class="text-white font-bold text-sm md:text-base mb-4">Contact LA</h4>
                     <ul class="space-y-3 text-xs text-gray-400 text-left w-full flex flex-col items-center md:items-start">
                         <li class="flex items-start gap-2">
@@ -730,29 +714,18 @@
                             <i class="fas fa-envelope text-accent text-sm"></i><a href="mailto:info@weflysmart.com" class="hover:text-white transition-colors">info@weflysmart.com</a>
                         </li>
                     </ul>
-                    <div class="flex gap-4 text-lg mt-5">
-                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon text-gray-400 transition-all"><i class="fab fa-tiktok"></i></a>
-                    </div>
                 </div>
             </div>
 
             <div class="border-t border-gray-800 pt-8 pb-4 flex flex-wrap justify-center items-center gap-6 md:gap-16 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                <img src="images/faa.png" alt="FAA" class="h-6 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-500 font-extrabold text-[10px] md:text-sm tracking-widest">FAA APPROVED</span>
-
-                <img src="images/cessna.png" alt="Cessna" class="h-6 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-500 font-extrabold text-[10px] md:text-sm tracking-widest">CESSNA FLEET</span>
-
-                <img src="images/aopa.png" alt="AOPA" class="h-6 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none;" class="text-gray-500 font-extrabold text-[10px] md:text-sm tracking-widest">AOPA MEMBER</span>
+                <img src="images/faa.png" alt="FAA" class="h-6 md:h-10 object-contain" onerror="this.style.display='none';">
+                <img src="images/cessna.png" alt="Cessna" class="h-6 md:h-10 object-contain" onerror="this.style.display='none';">
+                <img src="images/aopa.png" alt="AOPA" class="h-6 md:h-10 object-contain" onerror="this.style.display='none';">
             </div>
 
             <div class="pt-4 text-center text-[9px] md:text-[10px] text-gray-500 border-t border-gray-800/50 mt-2 flex flex-col md:flex-row justify-between items-center gap-2">
                 <p>&copy; 2026 Fly Smart Aero Club. All rights reserved.</p>
-                <p class="text-gray-600">Crafted with <span class="text-accent text-xs">❤️</span> by <a href="https://3yuon.com" target="_blank" class="font-extrabold text-gray-400 hover:text-accent transition-colors">Integrated Solutions</a></p>
+                <p class="text-gray-400">Crafted with <span class="text-accent text-xs">❤️</span> by <a href="https://3yuon.com" target="_blank" class="font-extrabold text-white hover:text-accent transition-colors">Integrated Solutions</a></p>
             </div>
         </div>
     </footer>
@@ -766,7 +739,7 @@
         <a href="#enroll" class="bg-accent text-white px-4 py-2 rounded-lg text-xs font-bold shadow-md">Book Now</a>
     </div>
 
-    <a href="https://wa.me/13233849083" target="_blank" rel="noopener noreferrer" class="fixed bottom-[4.5rem] md:bottom-6 right-5 md:right-6 bg-[#25D366] text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/13233849083" target="_blank" class="fixed bottom-[4.5rem] md:bottom-6 right-5 md:right-6 bg-[#25D366] text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -774,32 +747,43 @@
     <script>
         AOS.init({ once: true, duration: 600 });
 
-        // ZULU Time Clock (Wow Factor)
-        function updateZuluTime() {
-            const now = new Date();
-            const hours = String(now.getUTCHours()).padStart(2, '0');
-            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-            const zuluDisplay = document.getElementById('zuluDisplay');
-            if(zuluDisplay) zuluDisplay.innerText = `${hours}:${minutes}Z`;
+        // E-commerce Image Zoom (Hover to scale)
+        function zoomMove(e) {
+            const container = e.currentTarget;
+            const img = container.querySelector('.ecommerce-zoom-img');
+            if(!img) return;
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+            img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            img.style.transform = 'scale(1.8)';
         }
-        setInterval(updateZuluTime, 1000);
-        updateZuluTime();
-
-        // Hobbs Meter (Animated Counter)
-        const hobbsMeter = document.getElementById('hobbsMeter');
-        let countStarted = false;
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start).toString().padStart(5, '0');
-                if (progress < 1) { window.requestAnimationFrame(step); }
-            };
-            window.requestAnimationFrame(step);
+        function zoomLeave() {
+            const img = document.getElementById('onlineZoomImg');
+            if(img){
+                img.style.transformOrigin = 'center center';
+                img.style.transform = 'scale(1)';
+            }
         }
+        window.zoomMove = zoomMove;
+        window.zoomLeave = zoomLeave;
 
-        // Header & Scroll Events
+        // Thumbnails Switcher
+        function changeZoomImg(thumb) {
+            if(!thumb || thumb.style.display === 'none') return;
+            document.getElementById('onlineZoomImg').src = thumb.src;
+            document.querySelectorAll('#online .flex img').forEach(img => {
+                img.classList.remove('opacity-100', 'border-accent');
+                img.classList.add('opacity-60', 'border-transparent');
+            });
+            thumb.classList.remove('opacity-60', 'border-transparent');
+            thumb.classList.add('opacity-100', 'border-accent');
+        }
+        window.changeZoomImg = changeZoomImg;
+
+        // Header & Scroll
         const header = document.getElementById('mainHeader');
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -808,18 +792,9 @@
             
             if (window.scrollY > 400) { backToTop.classList.add('show'); } 
             else { backToTop.classList.remove('show'); }
-
-            const hobbsContainer = document.getElementById('hobbsContainer');
-            if(hobbsContainer) {
-                const rect = hobbsContainer.getBoundingClientRect();
-                if(rect.top < window.innerHeight && !countStarted) {
-                    countStarted = true;
-                    animateValue(hobbsMeter, 0, 1245, 2500); // 12450 format
-                }
-            }
         });
 
-        // Dynamic Hero Slider
+        // Hero Slider
         const heroBgs = document.querySelectorAll('.hero-bg');
         const texts = document.querySelectorAll('.dynamic-text');
         let currentSlide = 0; let textIndex = 0;
@@ -834,73 +809,6 @@
             texts[textIndex].classList.add('active');
         }, 7000);
 
-        // Online Slider
-        const onlineSlides = document.querySelectorAll('.online-slide');
-        let onlineCurrent = 0;
-        setInterval(() => {
-            const visibleSlides = Array.from(onlineSlides).filter(slide => slide.style.display !== 'none');
-            if(visibleSlides.length > 1){
-                onlineSlides.forEach(slide => slide.classList.remove('active'));
-                onlineCurrent = (onlineCurrent + 1) % visibleSlides.length;
-                visibleSlides[onlineCurrent].classList.add('active');
-            }
-        }, 4000);
-
-        // E-commerce Style Zoom
-        function zoomIn(e) {
-            const el = e.currentTarget.querySelector('img.active') || e.currentTarget.querySelector('img');
-            if(!el) return;
-            const x = e.offsetX; const y = e.offsetY;
-            const w = e.currentTarget.offsetWidth; const h = e.currentTarget.offsetHeight;
-            const bgX = (x / w) * 100; const bgY = (y / h) * 100;
-            el.style.transformOrigin = `${bgX}% ${bgY}%`;
-            el.style.transform = "scale(2)";
-        }
-        function zoomOut(e) {
-            const el = e.currentTarget.querySelector('img.active') || e.currentTarget.querySelector('img');
-            if(!el) return;
-            el.style.transformOrigin = "center center";
-            el.style.transform = "scale(1)";
-        }
-        window.zoomIn = zoomIn; window.zoomOut = zoomOut;
-
-        // E-commerce Thumbnail Click
-        function changeZoomImg(thumb) {
-            if(!thumb || thumb.style.display === 'none') return;
-            document.querySelectorAll('.online-slide').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.zoom-container img').forEach(s => {
-                if(s.src === thumb.src) s.classList.add('active');
-            });
-            document.querySelectorAll('#online .flex img').forEach(img => {
-                img.classList.remove('opacity-100', 'border-accent');
-                img.classList.add('opacity-60', 'border-transparent');
-            });
-            thumb.classList.remove('opacity-60', 'border-transparent');
-            thumb.classList.add('opacity-100', 'border-accent');
-        }
-        window.changeZoomImg = changeZoomImg;
-
-        // Live ATC Audio Player (Fixed without Alert)
-        const atcAudio = document.getElementById('atcAudio');
-        const atcPlayBtn = document.getElementById('atcPlayBtn');
-        const atcText = document.getElementById('atcText');
-        function toggleATC() {
-            if (atcAudio.paused) {
-                atcAudio.play().then(() => {
-                    atcPlayBtn.classList.add('playing');
-                    atcText.innerText = 'Connected to Tower';
-                }).catch(e => {
-                    // Fail gracefully
-                    atcText.innerText = 'Stream Offline';
-                    atcPlayBtn.classList.remove('playing');
-                });
-            } else {
-                atcAudio.pause();
-                atcPlayBtn.classList.remove('playing');
-                atcText.innerText = 'LAX Tower Chatter';
-            }
-        }
-
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('hidden'); });
@@ -910,26 +818,26 @@
         const modalData = {
             pilot1: {
                 name: "Mostafa Hassan", title: "Certified Flight Instructor (CFI)", img: "images/mostafa.jpg",
-                desc: `<p>Mostafa Hassan is a dedicated Certified Flight Instructor based in Los Angeles, passionate about helping others turn their aviation dreams into reality. With extensive experience flying a variety of aircraft—including Cessna, Piper, Diamond, and Sling—he provides personalized, high-quality flight training tailored to each student’s goals.</p><br><p>Whether you’re stepping into an aircraft for the first time or pursuing a professional pilot career, Mostafa offers a supportive and structured learning environment designed to build both confidence and skill.</p><br><p><strong>He specializes in:</strong><br><ul class="list-disc pl-4 mt-1 space-y-1 text-gray-500 text-xs"><li>Discovery Flights over Los Angeles</li><li>Private & Commercial Pilot Training</li><li>Checkride & Written Test Preparation</li><li>One-on-One Ground School</li></ul></p><br><p>Known for his patient teaching style and real-world approach, Mostafa ensures that every lesson is efficient, engaging, and safety-focused. His mission is simple: make flight training clear, enjoyable, and accessible.</p>`
+                desc: `<p>Mostafa Hassan is a dedicated Certified Flight Instructor based in Los Angeles, passionate about helping others turn their aviation dreams into reality. With extensive experience flying a variety of aircraft—including Cessna, Piper, Diamond, and Sling—he provides personalized, high-quality flight training tailored to each student’s goals.</p><br><p>Whether you’re stepping into an aircraft for the first time or pursuing a professional pilot career, Mostafa offers a supportive and structured learning environment designed to build both confidence and skill.</p><br><p><strong>He specializes in:</strong><br><ul class="list-disc pl-4 mt-1 space-y-1 text-gray-500 text-xs"><li>Discovery Flights over Los Angeles</li><li>Private & Commercial Pilot Training</li><li>Checkride & Written Test Preparation</li><li>One-on-One Ground School</li></ul></p><br><p>Known for his patient teaching style and real-world approach, Mostafa ensures that every lesson is efficient, engaging, and safety-focused.</p>`
             },
             pilot2: {
                 name: "Youssef A. Youssef", title: "Instrument Specialist (CFI-I)", img: "images/youssef.jpg",
-                desc: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><br><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis. He has developed structured curricula for student pilots, including semester-based training programs.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`
+                desc: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><br><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`
             },
             prog_disc: { 
-                icon: 'fas fa-binoculars', img: 'images/discovery.jpg', name: "Discovery Flight",
+                icon: 'fas fa-binoculars', name: "Discovery Flight",
                 desc: `<div class="space-y-3"><p><strong>The Perfect Introduction to Aviation</strong></p><p>Not sure if flying is for you? The Discovery Flight is a zero-pressure introduction to the pilot seat. It includes a comprehensive pre-flight ground briefing followed by actual flight time where YOU take the controls under the safe guidance of an FAA Certified Instructor.</p><ul class="list-disc list-inside pl-4 text-gray-500 text-xs space-y-1"><li>30-minute Ground Briefing.</li><li>60-minute Flight over LA.</li><li>Intro to controls.</li><li>Logbook endorsement.</li></ul></div>`
             },
             prog_ppl: { 
-                icon: 'fas fa-plane', img: 'images/ppl.jpg', name: "Private Pilot License (PPL)",
+                icon: 'fas fa-plane', name: "Private Pilot License (PPL)",
                 desc: `<div class="space-y-3"><p><strong>Your First Step to Becoming a Pilot</strong></p><p>The PPL allows you to fly a single-engine aircraft carrying passengers in Visual Flight Rules (VFR). This is the foundational course for all future aviation training.</p><ul class="list-disc list-inside pl-4 text-gray-500 text-xs space-y-1"><li>Minimum 40 Hours Total Flight Time.</li><li>20 Hours of Flight Instruction.</li><li>10 Hours of Solo Flight.</li><li>FAA Medical Certificate Required.</li></ul></div>`
             },
             prog_ir: { 
-                icon: 'fas fa-cloud', img: 'images/unnamed.jpg', name: "Instrument Rating (IR)",
+                icon: 'fas fa-cloud', name: "Instrument Rating (IR)",
                 desc: `<div class="space-y-3"><p><strong>Master the Clouds</strong></p><p>The Instrument Rating allows you to fly inside clouds and in low-visibility conditions under Instrument Flight Rules (IFR). It makes you a safer, more precise pilot.</p><ul class="list-disc list-inside pl-4 text-gray-500 text-xs space-y-1"><li>Hold a valid PPL.</li><li>50 Hours of Cross-Country.</li><li>40 Hours of Instrument Time.</li><li>Mastering holding patterns.</li></ul></div>`
             },
             prog_cpl: { 
-                icon: 'fas fa-user-tie', img: 'images/cpl.jpg', name: "Commercial Pilot License (CPL)",
+                icon: 'fas fa-user-tie', name: "Commercial Pilot License (CPL)",
                 desc: `<div class="space-y-3"><p><strong>Turn Your Passion into a Career</strong></p><p>The CPL allows you to be legally compensated for your flying services. You will master advanced maneuvers, complex aircraft operations, and professional flight standards.</p><ul class="list-disc list-inside pl-4 text-gray-500 text-xs space-y-1"><li>Must hold a PPL (IR recommended).</li><li>250 Hours Total Flight Time.</li><li>100 Hours of Pilot-in-Command.</li><li>Training in Complex Aircraft.</li></ul></div>`
             },
             privacy: {
@@ -961,13 +869,6 @@
                 document.getElementById('progIcon').className = modalData[id].icon + " text-2xl md:text-3xl text-accent";
                 document.getElementById('progModalName').innerText = modalData[id].name;
                 document.getElementById('progModalDesc').innerHTML = modalData[id].desc;
-                
-                const imgEl = document.getElementById('progModalImg');
-                const missingEl = document.getElementById('progMissingImg');
-                imgEl.src = modalData[id].img;
-                imgEl.onload = function() { imgEl.style.display = 'block'; missingEl.style.display = 'none'; };
-                imgEl.onerror = function() { imgEl.style.display = 'none'; missingEl.style.display = 'flex'; };
-                
                 document.getElementById('modalWhatsappBtn').href = `https://wa.me/13233849083?text=Hello, I am contacting you from the Fly Smart website. I would like to inquire about the (${modalData[id].name}).`;
                 progBody.classList.remove('hidden');
             } else if (id === 'privacy' || id === 'terms') {
