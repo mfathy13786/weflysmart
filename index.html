@@ -31,12 +31,12 @@
         
         .announcement-bar { background: linear-gradient(90deg, #F9A03F, #ff7e14); color: white; padding: 6px 15px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; z-index: 100; position: relative; }
         
-        /* Sticky Header */
-        #mainHeader { padding-top: 12px; padding-bottom: 12px; transition: all 0.3s ease; position: sticky; top: 0; z-index: 50; }
+        /* الهيدر ثابت ومحندق */
+        #mainHeader { padding-top: 5px; padding-bottom: 5px; transition: all 0.3s ease; position: fixed; w-full top-0; z-index: 50; width: 100%; }
         
-        /* Hero Section */
-        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 70vh; }
-        @media (min-width: 768px) { #heroSection { min-height: 85vh; } }
+        /* Hero Section مستقر تحت الهيدر */
+        #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; min-height: 70vh; padding-top: 80px; }
+        @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 100px; } }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
         .hero-bg.active { opacity: 1; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
@@ -50,12 +50,15 @@
         /* Hobbs Meter */
         .hobbs-box { background: #111; color: #fff; padding: 8px 15px; border-radius: 4px; border: 3px solid #333; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 900; letter-spacing: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); display: inline-flex; align-items: center; }
 
-        /* Line Icons */
+        /* إيفيكتات الأيقونات (دلع الموقع) */
+        .icon-bounce { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .group:hover .icon-bounce, .hover-trigger:hover .icon-bounce { transform: scale(1.2) translateY(-2px); color: #F9A03F; }
+
         .line-icon { font-size: 2.5rem; background: -webkit-linear-gradient(45deg, #0A2540, #F9A03F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Zoom Online (Product Hover) */
-        .zoom-container { overflow: hidden; position: relative; border-radius: 1rem; cursor: crosshair; }
-        .zoom-container img { transition: transform 0.1s ease; transform-origin: center center; }
+        /* زوم الأونلاين (E-commerce Style) */
+        .ecommerce-zoom-container { overflow: hidden; position: relative; border-radius: 1rem; background: #000; cursor: crosshair; }
+        .ecommerce-zoom-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.1s linear; transform-origin: center center; }
 
         /* Modal */
         .glass-modal { background: rgba(10, 37, 64, 0.95); backdrop-filter: blur(12px); }
@@ -65,6 +68,7 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
+        /* Mobile Menu Icon */
         #mobileMenuBtn span { display: block; width: 100%; height: 3px; background-color: #0A2540; border-radius: 3px; transition: all 0.3s ease-in-out; }
         #mobileMenuBtn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
         #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
@@ -76,11 +80,15 @@
         .atc-btn.playing i { color: #25D366; animation: pulseIcon 1.5s infinite; }
         @keyframes pulseIcon { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
 
-        /* Back to Top */
-        #backToTop { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: #0A2540; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
+        /* رادار الطقس */
+        .radar-sweep { position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.6)); transform-origin: bottom left; animation: sweep 3s linear infinite; }
+        @keyframes sweep { to { transform: rotate(360deg); } }
+
+        /* Back to Top (في الشمال يا شمال) */
+        #backToTop { position: fixed; bottom: 20px; left: 20px; width: 45px; height: 45px; border-radius: 50%; background: #0A2540; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 50; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
         #backToTop.show { opacity: 1; visibility: visible; }
         #backToTop:hover { background: #F9A03F; border-color: #F9A03F; transform: translateY(-3px); }
-        @media (max-width: 768px) { #backToTop { bottom: 80px; right: 15px; } }
+        @media (max-width: 768px) { #backToTop { bottom: 80px; width: 40px; height: 40px; left: 15px; } }
     </style>
 </head>
 <body class="antialiased">
@@ -89,10 +97,10 @@
         <i class="fas fa-plane-departure mr-2"></i> Limited Slots Available for Summer PPL Enrollment in Los Angeles! <a href="#enroll" class="underline ml-1 hover:text-navy transition-colors">Book Now</a>
     </div>
 
-    <header class="bg-white shadow-sm" id="mainHeader">
-        <div class="container mx-auto px-5 flex justify-between items-center relative">
+    <header class="bg-white shadow-md border-b border-gray-100" id="mainHeader">
+        <div class="container mx-auto px-5 flex justify-between items-center relative h-[60px] md:h-[70px]">
             <a href="#" class="flex items-center hover:opacity-90 transition-opacity">
-                <img src="images/logo.png" alt="Fly Smart Logo" class="w-[140px] md:w-[180px] h-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="images/logo.png" alt="Fly Smart Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart Aero Club</span>
             </a>
             
@@ -105,8 +113,8 @@
             </nav>
             
             <div class="flex items-center gap-4">
-                <a href="tel:+13233474099" class="hidden lg:flex items-center gap-2 text-navy hover:text-accent font-bold text-sm transition-all bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
-                    <i class="fas fa-phone-alt text-accent text-xs"></i> <span dir="ltr">+1 (323) 347-4099</span>
+                <a href="tel:+13233474099" class="hidden lg:flex items-center gap-2 text-navy hover:text-accent font-bold text-sm transition-all bg-gray-50 px-4 py-2 rounded-full border border-gray-200 group">
+                    <i class="fas fa-phone-alt text-accent icon-bounce"></i> <span dir="ltr">+1 (323) 347-4099</span>
                 </a>
                 <a href="tel:+13233474099" class="lg:hidden text-navy hover:text-accent text-lg transition-all mr-2">
                     <i class="fas fa-phone-alt"></i>
@@ -132,7 +140,7 @@
         </div>
     </header>
 
-    <section id="heroSection" class="flex flex-col justify-center items-start px-5 pt-16 pb-16 md:pt-32 md:pb-28">
+    <section id="heroSection" class="flex flex-col justify-center items-start px-5">
         <div class="hero-bg active" style="background-image: url('images/hero-plane.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80)'"></div>
         <div class="hero-bg" style="background-image: url('images/slide2.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1920&q=80)'"></div>
         <div class="hero-bg" style="background-image: url('images/slide3.jpg');" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80)'"></div>
@@ -142,15 +150,15 @@
         <div class="container mx-auto hero-content w-full pt-8">
             <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0 relative min-h-[220px]">
                 <div class="dynamic-text active" id="text1">
-                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2">
-                        <span class="w-8 h-0.5 bg-accent"></span> Los Angeles' Premier Flying Club
+                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
+                        <span class="w-8 h-0.5 bg-accent"></span> <i class="fas fa-star text-accent icon-bounce text-[10px]"></i> Los Angeles' Premier Flying Club
                     </p>
                     <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight">Start Your Aviation<br>Journey Today</h1>
                     <p class="text-gray-200 mb-8 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">Join an exclusive community of passionate aviators. We provide accessible, affordable, and professional FAA-approved flight training.</p>
                 </div>
                 <div class="dynamic-text" id="text2">
-                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2">
-                        <span class="w-8 h-0.5 bg-accent"></span> Train Better. Soar Higher.
+                    <p class="text-accent font-bold uppercase tracking-widest mb-3 text-xs md:text-sm flex items-center justify-center md:justify-start gap-2 hover-trigger">
+                        <span class="w-8 h-0.5 bg-accent"></span> <i class="fas fa-trophy text-accent icon-bounce text-[10px]"></i> Train Better. Soar Higher.
                     </p>
                     <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-5 leading-tight">Turn Your Passion<br>Into a Profession</h1>
                     <p class="text-gray-200 mb-8 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto md:mx-0">From Discovery Flights to Commercial Licenses. Train on a modern fleet with certified instructors in Southern California.</p>
@@ -158,8 +166,8 @@
             </div>
             
             <div class="text-center md:text-left mt-6" data-aos="fade-up" data-aos-delay="200">
-                <a href="#enroll" class="inline-flex items-center gap-3 bg-accent text-white hover:bg-orange-500 px-8 py-4 rounded-xl font-extrabold text-lg shadow-xl transition-transform transform hover:-translate-y-1">
-                    Book Discovery Flight <i class="fas fa-plane-departure"></i>
+                <a href="#enroll" class="inline-flex items-center gap-3 bg-accent text-white hover:bg-orange-500 px-8 py-4 rounded-xl font-extrabold text-lg shadow-xl transition-transform transform hover:-translate-y-1 hover-trigger">
+                    Book Discovery Flight <i class="fas fa-plane-departure icon-bounce"></i>
                 </a>
             </div>
         </div>
@@ -169,25 +177,25 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-gray-50 mb-6 border-b border-gray-50 pb-6">
                 <div class="flex flex-col items-center justify-center py-2 group">
-                    <i class="fas fa-file-signature text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
+                    <i class="fas fa-file-signature text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">FAA Approved</span>
                 </div>
                 <div class="flex flex-col items-center justify-center py-2 group">
-                    <i class="fas fa-plane text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
+                    <i class="fas fa-plane text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">Modern Fleet</span>
                 </div>
                 <div class="flex flex-col items-center justify-center py-2 group">
-                    <i class="fas fa-award text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
+                    <i class="fas fa-award text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">CFI Instructors</span>
                 </div>
                 <div class="flex flex-col items-center justify-center py-2 group">
-                    <i class="fas fa-shield-alt text-2xl text-navy group-hover:text-accent transition-colors mb-2"></i>
+                    <i class="fas fa-shield-alt text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">100% Safety</span>
                 </div>
             </div>
             
             <div class="flex flex-col items-center justify-center" id="hobbsContainer">
-                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-3"><i class="fas fa-tachometer-alt mr-2 text-accent"></i> Safe Flight Hours Logged</p>
+                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-3 hover-trigger"><i class="fas fa-tachometer-alt mr-2 text-accent icon-bounce"></i> Safe Flight Hours Logged</p>
                 <div class="hobbs-box shadow-md">
                     <span id="hobbsMeter">00000</span>
                 </div>
@@ -199,9 +207,9 @@
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-lightbg rounded-full blur-3xl -mr-40 -mt-40 z-0 pointer-events-none"></div>
         <div class="container mx-auto px-5 max-w-6xl relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                <div class="w-full lg:w-1/2 relative hover-trigger" data-aos="fade-right">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="images/about.jpg" alt="Fly Smart Experience" class="w-full h-[400px] md:h-[500px] object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80';">
+                        <img src="images/about.jpg" alt="Fly Smart Experience" class="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80';">
                     </div>
                 </div>
 
@@ -216,20 +224,20 @@
                     </p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy">
-                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-unlock-alt text-accent mr-2"></i> Accessible</h4>
+                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy group">
+                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-unlock-alt text-accent mr-2 icon-bounce"></i> Accessible</h4>
                             <p class="text-gray-500 text-xs">Breaking barriers to entry for newcomers.</p>
                         </div>
-                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy">
-                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-wallet text-accent mr-2"></i> Affordable</h4>
+                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy group">
+                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-wallet text-accent mr-2 icon-bounce"></i> Affordable</h4>
                             <p class="text-gray-500 text-xs">Quality training at lower costs.</p>
                         </div>
-                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy">
-                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-user-check text-accent mr-2"></i> Personalized</h4>
+                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy group">
+                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-user-check text-accent mr-2 icon-bounce"></i> Personalized</h4>
                             <p class="text-gray-500 text-xs">1-on-1 instruction tailored to you.</p>
                         </div>
-                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy">
-                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-handshake text-accent mr-2"></i> Partnerships</h4>
+                        <div class="bg-lightbg p-4 rounded-xl border-l-4 border-navy group">
+                            <h4 class="font-bold text-navy text-sm mb-1"><i class="fas fa-handshake text-accent mr-2 icon-bounce"></i> Partnerships</h4>
                             <p class="text-gray-500 text-xs">Trusted flight schools & aircraft.</p>
                         </div>
                     </div>
@@ -257,28 +265,28 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-50 hover:border-accent hover:shadow-lg transition-all cursor-pointer group relative overflow-hidden" onclick="openModal('prog_disc')" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mb-6 relative z-10"><i class="fas fa-binoculars line-icon"></i></div>
+                    <div class="mb-6 relative z-10"><i class="fas fa-binoculars line-icon icon-bounce"></i></div>
                     <h3 class="text-lg font-extrabold text-navy mb-3">Discovery Flight</h3>
                     <p class="text-gray-500 text-sm mb-6 leading-relaxed">Your first step into the sky. Take the controls and experience LA from above.</p>
                     <span class="text-accent font-bold text-sm flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-50 hover:border-accent hover:shadow-lg transition-all cursor-pointer group relative overflow-hidden" onclick="openModal('prog_ppl')" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mb-6 relative z-10"><i class="fas fa-plane line-icon"></i></div>
+                    <div class="mb-6 relative z-10"><i class="fas fa-plane line-icon icon-bounce"></i></div>
                     <h3 class="text-lg font-extrabold text-navy mb-3">Private Pilot (PPL)</h3>
                     <p class="text-gray-500 text-sm mb-6 leading-relaxed">The foundation of your journey. Learn aircraft control, navigation, & regulations.</p>
                     <span class="text-accent font-bold text-sm flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-50 hover:border-accent hover:shadow-lg transition-all cursor-pointer group relative overflow-hidden" onclick="openModal('prog_ir')" data-aos="fade-up" data-aos-delay="300">
-                    <div class="mb-6 relative z-10"><i class="fas fa-cloud line-icon"></i></div>
+                    <div class="mb-6 relative z-10"><i class="fas fa-cloud line-icon icon-bounce"></i></div>
                     <h3 class="text-lg font-extrabold text-navy mb-3">Instrument Rating</h3>
                     <p class="text-gray-500 text-sm mb-6 leading-relaxed">Enhance safety. Learn to fly with precision relying solely on cockpit instruments.</p>
                     <span class="text-accent font-bold text-sm flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-50 hover:border-accent hover:shadow-lg transition-all cursor-pointer group relative overflow-hidden" onclick="openModal('prog_cpl')" data-aos="fade-up" data-aos-delay="400">
-                    <div class="mb-6 relative z-10"><i class="fas fa-user-tie line-icon"></i></div>
+                    <div class="mb-6 relative z-10"><i class="fas fa-user-tie line-icon icon-bounce"></i></div>
                     <h3 class="text-lg font-extrabold text-navy mb-3">Commercial Pilot</h3>
                     <p class="text-gray-500 text-sm mb-6 leading-relaxed">Turn your passion into a career. Master advanced maneuvers and standards.</p>
                     <span class="text-accent font-bold text-sm flex items-center gap-2">Read More <i class="fas fa-arrow-right"></i></span>
@@ -298,33 +306,34 @@
                     <p class="text-gray-300 text-base leading-relaxed mb-8">Master aviation theory from the comfort of your home. Our interactive online courses cover aerodynamics, weather, navigation, and FAA test prep, designed by our expert instructors to ensure you pass with confidence.</p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left">
-                            <i class="fas fa-video text-accent text-lg"></i> <span class="text-gray-200 text-sm font-medium">Interactive HD Lessons</span>
+                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left group">
+                            <i class="fas fa-video text-accent text-lg icon-bounce"></i> <span class="text-gray-200 text-sm font-medium">Interactive HD Lessons</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left">
-                            <i class="fas fa-file-alt text-accent text-lg"></i> <span class="text-gray-200 text-sm font-medium">FAA Written Test Prep</span>
+                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left group">
+                            <i class="fas fa-file-alt text-accent text-lg icon-bounce"></i> <span class="text-gray-200 text-sm font-medium">FAA Written Test Prep</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left">
-                            <i class="fas fa-chalkboard-teacher text-accent text-lg"></i> <span class="text-gray-200 text-sm font-medium">1-on-1 Virtual Tutoring</span>
+                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left group">
+                            <i class="fas fa-chalkboard-teacher text-accent text-lg icon-bounce"></i> <span class="text-gray-200 text-sm font-medium">1-on-1 Virtual Tutoring</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left">
-                            <i class="fas fa-mobile-alt text-accent text-lg"></i> <span class="text-gray-200 text-sm font-medium">100% Mobile Friendly</span>
+                        <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 text-left group">
+                            <i class="fas fa-mobile-alt text-accent text-lg icon-bounce"></i> <span class="text-gray-200 text-sm font-medium">100% Mobile Friendly</span>
                         </div>
                     </div>
                     
-                    <a href="#enroll" class="inline-flex items-center gap-2 bg-accent text-white hover:bg-orange-500 px-8 py-4 rounded-xl font-bold text-base transition-all shadow-lg">
-                        Enroll Online Now <i class="fas fa-arrow-right"></i>
+                    <a href="#enroll" class="inline-flex items-center gap-2 bg-accent text-white hover:bg-orange-500 px-8 py-4 rounded-xl font-bold text-base transition-all shadow-lg hover-trigger">
+                        Enroll Online Now <i class="fas fa-arrow-right icon-bounce"></i>
                     </a>
                 </div>
                 
                 <div class="w-full md:w-1/2" data-aos="fade-left">
-                    <div class="zoom-container relative rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10 h-64 md:h-96 bg-gray-800" onmousemove="zoomMove(event)" onmouseleave="zoomLeave(event)">
-                        <img id="onlineZoomImg" src="images/online1.jpg" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80';">
+                    <div class="ecommerce-zoom-container shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10 h-64 md:h-96 bg-gray-800 group" onmousemove="zoomMove(event)" onmouseleave="zoomLeave(event)">
+                        <img id="onlineZoomImg" src="images/online1.jpg" class="ecommerce-zoom-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80';">
                         
                         <div class="absolute bottom-4 right-4 bg-navy/90 backdrop-blur px-4 py-2 rounded-lg text-white text-xs font-bold border border-white/20 pointer-events-none shadow-lg">
                             <i class="fas fa-search-plus text-accent mr-1"></i> Hover to Zoom
                         </div>
                     </div>
+                    
                     <div class="flex gap-3 mt-5 justify-center md:justify-start">
                         <img src="images/online1.jpg" class="w-20 h-14 object-cover rounded-lg cursor-pointer border-2 border-accent opacity-100 hover:opacity-80 transition-opacity" onclick="changeZoomImg(this)" onerror="this.style.display='none'">
                         <img src="images/online2.jpg" class="w-20 h-14 object-cover rounded-lg cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-opacity" onclick="changeZoomImg(this)" onerror="this.style.display='none'">
@@ -335,7 +344,80 @@
         </div>
     </section>
 
-    <section id="fleet" class="py-16 md:py-24 bg-white border-t border-gray-100">
+    <section id="why" class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="text-accent font-bold uppercase tracking-widest mb-2 text-xs">The Fly Smart Advantage</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Why Train With Us?</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+                <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 border border-gray-100 rounded-2xl bg-lightbg hover:shadow-md transition-shadow group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl mb-4 shadow-sm"><i class="fas fa-sun icon-bounce"></i></div>
+                        <h4 class="font-bold text-navy mb-2 text-lg">Ideal CA Weather</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Over 300 days of sunshine a year in Southern California ensure continuous and uninterrupted flight training, saving you time and money.</p>
+                    </div>
+                    <div class="p-6 border border-gray-100 rounded-2xl bg-lightbg hover:shadow-md transition-shadow group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl mb-4 shadow-sm"><i class="fas fa-users icon-bounce"></i></div>
+                        <h4 class="font-bold text-navy mb-2 text-lg">Exclusive Community</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Join a premium club, not just a school. Network, share experiences, and grow with supportive aviation peers.</p>
+                    </div>
+                    <div class="p-6 border border-gray-100 rounded-2xl bg-lightbg hover:shadow-md transition-shadow group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl mb-4 shadow-sm"><i class="fas fa-plane-departure icon-bounce"></i></div>
+                        <h4 class="font-bold text-navy mb-2 text-lg">Modern Fleet</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Train on meticulously maintained Cessnas, Pipers, and Diamonds equipped with advanced avionics (Glass Cockpits).</p>
+                    </div>
+                    <div class="p-6 border border-gray-100 rounded-2xl bg-lightbg hover:shadow-md transition-shadow group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-accent text-xl mb-4 shadow-sm"><i class="fas fa-shield-alt icon-bounce"></i></div>
+                        <h4 class="font-bold text-navy mb-2 text-lg">Safety First Culture</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">We never compromise on safety. Our instructors hold final authority on dispatch, ensuring a secure training environment.</p>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/3" data-aos="fade-left">
+                    <div class="bg-navy rounded-2xl p-6 h-full flex flex-col justify-center relative overflow-hidden shadow-lg border border-navy/50">
+                        <div class="radar-container absolute top-[-50px] right-[-50px] w-[200px] h-[200px] rounded-full border border-green-500/20 overflow-hidden opacity-30 pointer-events-none">
+                            <div class="radar-sweep"></div>
+                        </div>
+
+                        <div class="absolute top-0 right-0 opacity-10 text-9xl -mr-4 -mt-4"><i class="fas fa-cloud-sun"></i></div>
+                        <h3 class="text-white font-bold text-xl mb-2 relative z-10 flex items-center gap-2 group">
+                            <i class="fas fa-map-marker-alt text-accent icon-bounce"></i> Van Nuys (KVNY)
+                        </h3>
+                        <p class="text-gray-400 text-xs font-semibold mb-6 relative z-10 uppercase tracking-wider">Southern California Weather</p>
+                        
+                        <div class="flex items-center gap-4 mb-6 relative z-10">
+                            <div class="text-5xl text-accent"><i class="fas fa-sun"></i></div>
+                            <div>
+                                <div class="text-4xl font-extrabold text-white">75°<span class="text-xl font-medium">F</span></div>
+                                <div class="text-gray-400 text-sm">Clear Skies</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/10 relative z-10">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-gray-300 text-sm">Flight Condition:</span>
+                                <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">VFR</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-gray-300 text-sm">Visibility:</span>
+                                <span class="text-white font-bold text-sm">10+ Miles</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300 text-sm">Winds:</span>
+                                <span class="text-white font-bold text-sm">Calm</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-accent text-xs mt-4 font-bold relative z-10"><i class="fas fa-check-circle"></i> Perfect conditions to fly today!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fleet" class="py-16 md:py-24 bg-lightbg border-t border-gray-200">
         <div class="container mx-auto px-5 max-w-7xl">
             <div class="text-center mb-12" data-aos="fade-up">
                 <p class="text-accent font-bold uppercase tracking-widest mb-2 text-xs">Fly The Best</p>
@@ -345,7 +427,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up">
                     <div class="h-48 overflow-hidden relative bg-gray-300">
                         <img src="images/cessna172.jpg" alt="Cessna 172" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cessna172-skyhawk.jpg/800px-Cessna172-skyhawk.jpg';">
                         <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-navy text-xs font-bold px-3 py-1 rounded-full shadow-sm">Primary Trainer</div>
@@ -354,13 +436,13 @@
                         <h3 class="text-lg font-extrabold text-navy mb-2">Cessna 172 Skyhawk</h3>
                         <p class="text-gray-500 text-sm mb-4 line-clamp-2">The most popular and reliable training aircraft.</p>
                         <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Garmin G1000 / Analog</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4 icon-bounce"></i> Garmin G1000 / Analog</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4 icon-bounce"></i> 4 Seats</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-48 overflow-hidden relative bg-gray-300">
                         <img src="images/piper.jpg" alt="Piper Cherokee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Piper_PA-28-161_Warrior_II_arp.jpg/800px-Piper_PA-28-161_Warrior_II_arp.jpg';">
                         <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-navy text-xs font-bold px-3 py-1 rounded-full shadow-sm">Stable & Versatile</div>
@@ -369,13 +451,13 @@
                         <h3 class="text-lg font-extrabold text-navy mb-2">Piper Cherokee PA-28</h3>
                         <p class="text-gray-500 text-sm mb-4 line-clamp-2">A low-wing trainer known for excellent visibility.</p>
                         <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Advanced IFR Panel</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4 icon-bounce"></i> Advanced IFR Panel</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4 icon-bounce"></i> 4 Seats</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="200">
                     <div class="h-48 overflow-hidden relative bg-gray-300">
                         <img src="images/sling2.jpg" alt="Sling 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Sling_2_at_the_factory.jpg/800px-Sling_2_at_the_factory.jpg';">
                         <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-navy text-xs font-bold px-3 py-1 rounded-full shadow-sm">Modern Tech</div>
@@ -384,13 +466,13 @@
                         <h3 class="text-lg font-extrabold text-navy mb-2">Sling LSA / Sling 2</h3>
                         <p class="text-gray-500 text-sm mb-4 line-clamp-2">A highly responsive Light Sport Aircraft perfect for maneuvers.</p>
                         <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Full Glass Cockpit</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> 2 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4 icon-bounce"></i> Full Glass Cockpit</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4 icon-bounce"></i> 2 Seats</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="bg-lightbg rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="h-48 overflow-hidden relative bg-gray-300">
                         <img src="images/diamond.jpg" alt="Diamond DA40" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Diamond_DA40_TDI_Star_OE-KRC_01.jpg/800px-Diamond_DA40_TDI_Star_OE-KRC_01.jpg';">
                         <div class="absolute top-3 right-3 bg-accent/90 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">Advanced</div>
@@ -399,8 +481,8 @@
                         <h3 class="text-lg font-extrabold text-navy mb-2">Diamond DA40 Star</h3>
                         <p class="text-gray-500 text-sm mb-4 line-clamp-2">A modern composite aircraft providing realistic airline transition.</p>
                         <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4"></i> Garmin G1000 Glass</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4"></i> 4 Seats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-desktop text-accent w-4 icon-bounce"></i> Garmin G1000 Glass</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-chair text-accent w-4 icon-bounce"></i> 4 Seats</li>
                         </ul>
                     </div>
                 </div>
@@ -409,7 +491,7 @@
     </section>
 
     <section id="radar" class="py-16 md:py-24 bg-navy relative border-y border-white/10">
-        <audio id="atcAudio" src="https://s1-fmt2.liveatc.net/klax_twr_n" preload="none"></audio>
+        <audio id="atcAudio" src="https://stream.liveatc.net/klax_twr_n" preload="none"></audio>
 
         <div class="container mx-auto px-5 max-w-6xl">
             <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
@@ -418,12 +500,12 @@
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Live CA Radar</h2>
                     <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">Track real-time flight traffic over Los Angeles. Experience the airspace our students navigate every day.</p>
                     
-                    <button id="atcPlayBtn" onclick="toggleATC()" class="atc-btn text-white font-bold py-3 px-6 rounded-xl w-full text-sm md:text-base flex items-center justify-center gap-3 transition-all mb-5 shadow-lg">
-                        <i class="fas fa-play-circle text-2xl"></i> <span id="atcText">Listen to LAX Tower</span>
+                    <button id="atcPlayBtn" onclick="toggleATC()" class="atc-btn text-white font-bold py-3 px-6 rounded-xl w-full text-sm md:text-base flex items-center justify-center gap-3 transition-all mb-5 shadow-lg group">
+                        <i class="fas fa-play-circle text-2xl group-hover:scale-110 transition-transform"></i> <span id="atcText">Listen to LAX Tower</span>
                     </button>
 
-                    <a href="#enroll" class="inline-block bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-3 px-8 rounded-xl text-sm transition-all shadow-md">
-                        Join Them in the Sky <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="#enroll" class="inline-block bg-white/10 border border-white/20 text-white hover:bg-accent font-bold py-3 px-8 rounded-xl text-sm transition-all shadow-md group">
+                        Join Them in the Sky <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
                 
@@ -474,9 +556,9 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors" data-aos="fade-up">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up">
                     <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 text-accent font-bold flex items-center justify-center text-lg">MT</div>
+                        <div class="w-12 h-12 rounded-full bg-orange-100 text-accent font-bold flex items-center justify-center text-lg icon-bounce">MT</div>
                         <div>
                             <h4 class="font-bold text-white text-base">Marcus T.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -485,9 +567,9 @@
                     <p class="text-gray-300 text-sm leading-relaxed italic">"Honestly, the best value in LA. Training was super affordable, and Capt. Mostafa made sure I nailed every maneuver. Got my PPL way faster than I expected!"</p>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-navy font-bold flex items-center justify-center text-lg">ER</div>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-navy font-bold flex items-center justify-center text-lg icon-bounce">ER</div>
                         <div>
                             <h4 class="font-bold text-white text-base">Emily R.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -496,9 +578,9 @@
                     <p class="text-gray-300 text-sm leading-relaxed italic">"Capt. Youssef breaks down complex IFR concepts like a pro. Their online ground school saved my life since I work a 9-to-5. Highly recommend them."</p>
                 </div>
                 
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center text-lg">JW</div>
+                        <div class="w-12 h-12 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center text-lg icon-bounce">JW</div>
                         <div>
                             <h4 class="font-bold text-white text-base">James W.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -507,9 +589,9 @@
                     <p class="text-gray-300 text-sm leading-relaxed italic">"Took my Discovery Flight last month and I was hooked. The planes are super clean and the vibe feels less like a strict school and more like a family."</p>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-lg">SK</div>
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-lg icon-bounce">SK</div>
                         <div>
                             <h4 class="font-bold text-white text-base">Sam K.</h4>
                             <div class="text-accent text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -715,9 +797,6 @@
                 <div class="flex flex-col items-center md:items-start">
                     <h4 class="text-white font-bold text-lg mb-5">Contact LA</h4>
                     <ul class="space-y-4 text-sm text-gray-400 text-left w-full flex flex-col items-center md:items-start">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-accent mt-1 text-base"></i><span>Los Angeles, California, USA</span>
-                        </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone-alt text-accent text-base"></i><a href="tel:+13233474099" class="hover:text-white transition-colors" dir="ltr">+1 (323) 347-4099</a>
                         </li>
@@ -758,7 +837,7 @@
     <script>
         AOS.init({ once: true, duration: 600 });
 
-        // Hobbs Meter Logic (عداد الساعات رجع)
+        // Hobbs Meter Logic
         const hobbsMeter = document.getElementById('hobbsMeter');
         let countStarted = false;
         function animateValue(obj, start, end, duration) {
@@ -818,10 +897,10 @@
             }
         }, 4000);
 
-        // E-commerce Image Zoom (Hover)
+        // E-commerce Image Zoom (المضبوط)
         function zoomMove(e) {
             const container = e.currentTarget;
-            const img = container.querySelector('.ecommerce-zoom-img');
+            const img = document.getElementById('onlineZoomImg');
             if(!img) return;
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -829,7 +908,7 @@
             const xPercent = (x / rect.width) * 100;
             const yPercent = (y / rect.height) * 100;
             img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-            img.style.transform = 'scale(1.8)';
+            img.style.transform = 'scale(2)';
         }
         function zoomLeave() {
             const img = document.getElementById('onlineZoomImg');
@@ -853,7 +932,7 @@
         }
         window.changeZoomImg = changeZoomImg;
 
-        // ATC Audio Player (بدون أي Popups أو تيت تيت)
+        // ATC Audio Player
         const atcAudio = document.getElementById('atcAudio');
         const atcPlayBtn = document.getElementById('atcPlayBtn');
         const atcText = document.getElementById('atcText');
@@ -878,7 +957,7 @@
         btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('hidden'); });
         document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => { btn.classList.remove('active'); menu.classList.add('hidden'); }));
 
-        // Full Bios & Details Restored
+        // Full Bios & Details Restored (مفيش حرف اتشال)
         const modalData = {
             pilot1: {
                 name: "Mostafa Hassan", title: "Certified Flight Instructor (CFI)", img: "images/mostafa.jpg",
@@ -934,10 +1013,9 @@
                 document.getElementById('progModalName').innerText = modalData[id].name;
                 document.getElementById('progModalDesc').innerHTML = modalData[id].desc;
                 
-                // ربط الصورة بالاسم اللي إنت رافعه بالظبط
                 const imgEl = document.getElementById('progModalImg');
                 imgEl.src = modalData[id].img;
-                imgEl.style.display = 'block'; // شلت حتة الشاشة الرصاصي عشان الصورة تفتح معاك على طول
+                imgEl.style.display = 'block'; 
                 
                 document.getElementById('modalWhatsappBtn').href = `https://wa.me/13233849083?text=Hello, I am contacting you from the Fly Smart website. I would like to inquire about the (${modalData[id].name}).`;
                 progBody.classList.remove('hidden');
