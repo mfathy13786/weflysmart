@@ -39,21 +39,18 @@
         .zulu-clock { font-family: 'Courier New', monospace; background: rgba(10, 37, 64, 0.05); border: 1px solid rgba(10, 37, 64, 0.1); color: #0A2540; font-weight: 800; padding: 4px 8px; border-radius: 6px; letter-spacing: 1px; display: flex; align-items: center; gap: 4px; }
 
         /* ================= Hero Section Fixes (Compact & Left Aligned) ================= */
-        /* قللت الارتفاع والمسافات الفاضية عشان الأختام تلزق في الزرار */
         #heroSection { position: relative; overflow: hidden; background-color: #0A2540; width: 100%; padding-top: 110px; padding-bottom: 55px; display: flex; align-items: flex-start; min-height: auto; }
         @media (min-width: 768px) { #heroSection { min-height: 85vh; padding-top: 160px; padding-bottom: 100px; align-items: center; } }
         
-        /* ضبط الصورة عشان تبان أكتر ومتكونش مزومة بزيادة */
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 20%; opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 1; }
         .hero-bg.active { opacity: 1; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.7) 50%, rgba(10, 37, 64, 0.3) 100%); z-index: 2; }
         .hero-content { position: relative; z-index: 3; width: 100%; }
         
         .dynamic-text { opacity: 0; transition: opacity 1s ease-in-out; pointer-events: none; visibility: hidden; }
-        .dynamic-text.active { opacity: 1; pointer-events: auto; visibility: visible; }
+        .dynamic-text.active { opacity: 1; pointer-events: auto; visibility: visible; z-index: 10; }
 
         .shadow-soft { box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .hobbs-box { background: #111; color: #fff; padding: 8px 15px; border-radius: 4px; border: 3px solid #333; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: 900; letter-spacing: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); display: inline-flex; align-items: center; }
 
         .icon-bounce { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .group:hover .icon-bounce, .hover-trigger:hover .icon-bounce { transform: scale(1.2) translateY(-2px); color: #F9A03F; }
@@ -74,6 +71,7 @@
         #mobileMenuBtn.active span:nth-child(2) { opacity: 0; }
         #mobileMenuBtn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
+        /* METAR Terminal WOW Factor */
         .metar-terminal { background: #000; border: 2px solid #333; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; color: #0f0; font-size: 11px; overflow: hidden; position: relative; box-shadow: inset 0 0 15px rgba(0,255,0,0.1); }
         .metar-terminal::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.05) 2px, rgba(0, 255, 0, 0.05) 4px); pointer-events: none; }
         .typing-cursor { display: inline-block; width: 8px; height: 12px; background-color: #0f0; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
@@ -99,8 +97,8 @@
         </div>
 
         <header id="mainHeader" class="h-[70px] md:h-[80px] flex items-center">
-            <div class="w-full px-3 md:px-5 flex justify-between items-center h-full max-w-7xl mx-auto">
-                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity">
+            <div class="w-full px-2 md:px-5 flex justify-between items-center h-full max-w-7xl mx-auto">
+                <a href="#" class="h-full py-1.5 flex items-center hover:opacity-90 transition-opacity pl-1">
                     <img src="images/logo.png" alt="Fly Smart Logo" class="h-full w-auto object-contain max-h-[50px] md:max-h-[65px]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <span style="display:none;" class="text-navy text-xl font-extrabold">Fly Smart</span>
                 </a>
@@ -113,7 +111,7 @@
                     <a href="#team" class="hover:text-accent transition-colors">Instructors</a>
                 </nav>
                 
-                <div class="flex items-center gap-3 md:gap-4">
+                <div class="flex items-center gap-3 md:gap-4 pr-1">
                     <div class="zulu-clock text-[10px] md:text-xs" title="Aviation ZULU Time">
                         <i class="far fa-clock text-accent"></i> <span id="zuluDisplay">00:00:00Z</span>
                     </div>
@@ -197,29 +195,22 @@
 
     <section class="bg-white py-5 border-b border-gray-100 shadow-sm relative z-10 -mt-6 md:-mt-12 mx-4 md:mx-auto md:max-w-6xl rounded-xl">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-gray-50 mb-5 border-b border-gray-50 pb-5">
-                <div class="flex flex-col items-center justify-center py-2 group">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-gray-50">
+                <div class="flex flex-col items-center justify-center py-3 group">
                     <i class="fas fa-file-signature text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">FAA Approved</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-2 group">
+                <div class="flex flex-col items-center justify-center py-3 group">
                     <i class="fas fa-plane text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">Modern Fleet</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-2 group">
+                <div class="flex flex-col items-center justify-center py-3 group">
                     <i class="fas fa-award text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">CFI Instructors</span>
                 </div>
-                <div class="flex flex-col items-center justify-center py-2 group">
+                <div class="flex flex-col items-center justify-center py-3 group">
                     <i class="fas fa-shield-alt text-2xl text-navy icon-bounce mb-2"></i>
                     <span class="font-bold text-gray-600 text-[10px] md:text-xs uppercase tracking-wide">100% Safety</span>
-                </div>
-            </div>
-            
-            <div class="flex flex-col items-center justify-center" id="hobbsContainer">
-                <p class="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-2 hover-trigger"><i class="fas fa-tachometer-alt mr-2 text-accent icon-bounce"></i> Safe Flight Hours Logged</p>
-                <div class="hobbs-box shadow-md">
-                    <span id="hobbsMeter">00000</span>
                 </div>
             </div>
         </div>
@@ -400,7 +391,7 @@
                 <div class="w-full lg:w-1/3" data-aos="fade-left">
                     <div class="bg-navy rounded-2xl p-6 h-full flex flex-col justify-center relative overflow-hidden shadow-lg border border-navy/50">
                         <div class="absolute top-0 right-0 opacity-10 text-9xl -mr-4 -mt-4"><i class="fas fa-cloud-sun"></i></div>
-                        <h3 class="text-white font-bold text-xl mb-2 relative z-10 flex items-center gap-2 group">
+                        <h3 class="text-white font-bold text-lg md:text-xl mb-2 relative z-10 flex items-center gap-2 group">
                             <i class="fas fa-map-marker-alt text-accent icon-bounce"></i> Van Nuys (KVNY)
                         </h3>
                         <p class="text-gray-400 text-[10px] md:text-xs font-semibold mb-5 relative z-10 uppercase tracking-wider">Southern California Weather</p>
@@ -540,25 +531,38 @@
                 <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Meet Our Instructors</h2>
                 <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot1')" data-aos="fade-up">
-                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto">
+                
+                <div class="flex flex-col items-center text-center gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot1')" data-aos="fade-up">
+                    <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-lg md:text-xl font-bold text-navy mb-1">Mostafa Hassan</h4>
-                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">Certified Flight Instructor (CFI)</p>
+                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">CFI</p>
                         <p class="text-gray-500 text-xs md:text-sm mb-3 line-clamp-2">Based in Los Angeles, Mostafa provides personalized, high-quality flight training tailored to each student’s goals.</p>
-                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center gap-2 justify-center sm:justify-start transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
+                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center justify-center gap-2 transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot2')" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
+                
+                <div class="flex flex-col items-center text-center gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot2')" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/youssef.jpg" alt="Youssef A. Youssef" class="w-24 h-24 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h4 class="text-lg md:text-xl font-bold text-navy mb-1">Youssef A. Youssef</h4>
-                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">Instrument Specialist (CFI-I)</p>
+                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">CFI-I</p>
                         <p class="text-gray-500 text-xs md:text-sm mb-3 line-clamp-2">Youssef excels in instrument training and data-driven navigation techniques using modern simulation.</p>
-                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center gap-2 justify-center sm:justify-start transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
+                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center justify-center gap-2 transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
                     </div>
                 </div>
+
+                <div class="flex flex-col items-center text-center gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot3')" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/amr.jpg" alt="Amr Ahmed" class="w-24 h-24 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
+                    <div class="flex-1">
+                        <h4 class="text-lg md:text-xl font-bold text-navy mb-1">Amr Ahmed</h4>
+                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">CFI, CFII</p>
+                        <p class="text-gray-500 text-xs md:text-sm mb-3 line-clamp-2">Specializing in training the next generation of pilots and flight instructors with precision and real-world insight.</p>
+                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center justify-center gap-2 transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -874,35 +878,12 @@
         }
         setInterval(updateZuluTime, 1000); updateZuluTime();
 
-        // Hobbs Meter Logic
-        const hobbsMeter = document.getElementById('hobbsMeter');
-        let countStarted = false;
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
-                if (progress < 1) { window.requestAnimationFrame(step); }
-            };
-            window.requestAnimationFrame(step);
-        }
-
         window.addEventListener('scroll', () => {
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 400) { backToTop.classList.add('show'); } 
             else { backToTop.classList.remove('show'); }
 
-            const hobbsContainer = document.getElementById('hobbsContainer');
-            if(hobbsContainer) {
-                const rect = hobbsContainer.getBoundingClientRect();
-                if(rect.top < window.innerHeight && !countStarted) {
-                    countStarted = true;
-                    animateValue(hobbsMeter, 0, 12450, 2500); 
-                }
-            }
-
-            // إظهار زرار الواتساب الطولي بعد سكرول
+            // إظهار الواتساب بعد سكرول
             const waBtn = document.getElementById('waVerticalBtn');
             const aboutSec = document.getElementById('about');
             if(waBtn && aboutSec) {
@@ -978,6 +959,10 @@
             pilot2: {
                 name: "Youssef A. Youssef", title: "Instrument Specialist (CFI-I)", img: "images/youssef.jpg",
                 desc: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><br><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`
+            },
+            pilot3: {
+                name: "Amr Ahmed", title: "Certified Flight Instructor (CFI, CFII)", img: "images/amr.jpg",
+                desc: `<p>Amr Ahmed is a dedicated Certified Flight Instructor based in Los Angeles, specializing in training the next generation of pilots and flight instructors. Holding both CFI and CFII certifications, along with experience as a Stage Check Instructor, he brings precision, structure, and real-world insight to every lesson.</p><br><p>Amr focuses on preparing future instructors, training both CFI and CFII candidates with an emphasis on instructional techniques, aeronautical knowledge, and practical teaching skills. His goal is not only to help students pass checkrides, but to develop confident, competent, and safety-driven aviation professionals.</p><br><p><strong>Specialties:</strong><br><ul class="list-disc pl-4 mt-2 space-y-1 text-gray-600 text-xs md:text-sm"><li>CFI (Certified Flight Instructor) Training</li><li>CFII (Instrument Instructor) Training</li><li>Stage Check Evaluations</li><li>Checkride Preparation</li><li>Instrument Training for Instructors</li><li>One-on-One Ground & Flight Instruction</li></ul></p><br><p>Known for his structured and results-driven approach, Amr creates a professional learning environment where students build confidence, master their skills, and progress efficiently toward their aviation goals.</p>`
             },
             prog_disc: { 
                 icon: 'fas fa-binoculars', img: 'images/discovery.jpg', name: "Discovery Flight",
