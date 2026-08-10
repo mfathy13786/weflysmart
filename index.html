@@ -558,7 +558,7 @@
                 <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-3">Meet Our Instructors</h2>
                 <div class="w-12 h-1 bg-accent mx-auto rounded-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-7xl mx-auto">
                 
                 <div class="flex flex-col items-center text-center gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot1')" data-aos="fade-up">
                     <img src="images/mostafa.jpg" alt="Mostafa Hassan" class="w-24 h-24 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
@@ -576,6 +576,16 @@
                         <h4 class="text-lg md:text-xl font-bold text-navy mb-1">Youssef A. Youssef</h4>
                         <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">CFI-I</p>
                         <p class="text-gray-500 text-xs md:text-sm mb-3 line-clamp-2">Youssef excels in instrument training and data-driven navigation techniques using modern simulation.</p>
+                        <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center justify-center gap-2 transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center text-center gap-4 bg-lightbg border border-gray-200 p-5 md:p-6 rounded-2xl shadow-soft hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('pilot3')" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/amr.jpg" alt="Amr Ahmed" class="w-24 h-24 rounded-full object-cover shadow-md border-4 border-white group-hover:border-orange-100 transition-colors" onerror="this.src='https://via.placeholder.com/150'">
+                    <div class="flex-1">
+                        <h4 class="text-lg md:text-xl font-bold text-navy mb-1">Amr Ahmed</h4>
+                        <p class="text-accent font-bold text-[10px] md:text-xs mb-2 uppercase tracking-wide">CFI, CFII</p>
+                        <p class="text-gray-500 text-xs md:text-sm mb-3 line-clamp-2">Specializing in training the next generation of pilots and flight instructors with precision and real-world insight.</p>
                         <span class="text-navy font-bold text-xs md:text-sm hover:text-accent flex items-center justify-center gap-2 transition-colors">View Full Profile <i class="fas fa-arrow-right icon-bounce"></i></span>
                     </div>
                 </div>
@@ -978,6 +988,10 @@
             pilot2: {
                 name: "Youssef A. Youssef", title: "Instrument Specialist (CFI-I)", img: "images/youssef.jpg",
                 desc: `<p>Youssef A. Youssef is a dedicated aviation professional and Certified Flight Instructor–Instrument (CFI-I) with over eight years of experience in the industry. He specializes in training pilots at various stages of their development, with a strong emphasis on instrument proficiency, procedural discipline, and real-world decision-making.</p><br><p>His instructional approach integrates both traditional flight training and modern tools, including simulation and virtual reality systems, to reinforce checklist usage and operational awareness.</p><br><p>In addition to his aviation expertise, Youssef has a background in Geographic Information Systems (GIS), bringing a data-driven perspective to navigation, planning, and aviation analysis.</p><br><p>Known for his practical teaching style and ability to simplify complex concepts, Youssef is committed to preparing students not only for checkrides but for safe and competent flying in real-world conditions.</p>`
+            },
+            pilot3: {
+                name: "Amr Ahmed", title: "Certified Flight Instructor (CFI, CFII)", img: "images/amr.jpg",
+                desc: `<p>Amr Ahmed is a dedicated Certified Flight Instructor based in Los Angeles, specializing in training the next generation of pilots and flight instructors. Holding both CFI and CFII certifications, along with experience as a Stage Check Instructor, he brings precision, structure, and real-world insight to every lesson.</p><br><p>Amr focuses on preparing future instructors, training both CFI and CFII candidates with an emphasis on instructional techniques, aeronautical knowledge, and practical teaching skills. His goal is not only to help students pass checkrides, but to develop confident, competent, and safety-driven aviation professionals.</p><br><p><strong>Specialties:</strong><br><ul class="list-disc pl-4 mt-2 space-y-1 text-gray-600 text-xs md:text-sm"><li>CFI (Certified Flight Instructor) Training</li><li>CFII (Instrument Instructor) Training</li><li>Stage Check Evaluations</li><li>Checkride Preparation</li><li>Instrument Training for Instructors</li><li>One-on-One Ground & Flight Instruction</li></ul></p><br><p>Known for his structured and results-driven approach, Amr creates a professional learning environment where students build confidence, master their skills, and progress efficiently toward their aviation goals.</p>`
             },
 
             prog_disc: { 
